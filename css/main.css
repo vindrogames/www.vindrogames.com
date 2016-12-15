@@ -1,15 +1,13 @@
-html, body, .nav {
+html, body, .nav, .footer {
     font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;    
     color: #B9B8B5;
     background-color: #181815;
-    height: 100%;
     
 }
 
-.hero, .section, .footer
+.hero, .section 
 {  
-  background: #181815 url(../img/background.png) repeat;
-  
+  background: #181815 url(../img/background.png) repeat;  
 }
 
 .nav-item img{
@@ -17,5 +15,6 @@ html, body, .nav {
 }
 
 .nav-center{
-    padding-top: 10px;
+    padding-top: 15px;
 }
+
