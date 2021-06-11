@@ -1,1 +1,1 @@
-# www.vindrogames.com
+# betas.vindrogames.com
