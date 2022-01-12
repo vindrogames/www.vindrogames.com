@@ -26,4 +26,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SYNC_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SYNC_SECRET_ACCESS_KEY }}
         AWS_EC2_METADATA_DISABLED: true
-      run: aws s3 sync html/ s3://zeneke-aws5-public-vindrogames
+      run: aws s3 sync html/ s3://zeneke-aws5-private-vindrogames
