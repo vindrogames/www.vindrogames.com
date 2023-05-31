@@ -149,11 +149,52 @@ img {
 }
 
 .games {
-  
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.games img {
+    /*border:#f5f5f5 solid 2px;*/
+    width: 80%;
 }
 
 .games img:hover {
-    opacity: 0.7;
+}
+
+.games .hoverText {
+    height: 70%;
+    width: 70%;
+    position: absolute;
+    background: #0b0c1000;
+    color:rgba(255, 255, 255, 0);
+}
+
+.games .hoverText:hover {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    background: #0b0c1083;
+    color: #fff;
+    height: 90%;
+    width: 90%;
+}
+
+.games a {
+    color:rgba(255, 255, 255, 0);
+}
+
+.games a:hover {
+    color: #fff;
+}
+
+.games .hoverText:hover p {
+    opacity: 1;
 }
 
 .team {
@@ -385,16 +426,7 @@ img {
 
 /* Mobile */
 @media(max-width: 900px) {
-    .navbar {
-        flex-direction: column;
-        height: 200px;
-        padding: 20px;
-    }
 
-    .navbar a {
-        padding: 10px 10px;
-        margin: 0 3px;
-    }
 
     .flex-items {
         flex-direction: column;
@@ -434,6 +466,11 @@ img {
     border-width: 8px 16px 8px 0;
     border-color: transparent #C5C6C7 transparent transparent;
   }
+
+  .content h1 {
+    font-size: 2.7rem !important;
+    margin-top: 50px;
+    }
 }
 
 @media(max-width: 480px) {
@@ -467,6 +504,7 @@ img {
       font-size: 1.4rem;
       text-align: center;
     }
+    
     .navbar {
       flex-direction: column;
       text-align: center;
@@ -479,6 +517,11 @@ img {
     .navbar a {
       padding: 10px 10px;
       margin: 0 3px;
+    }
+
+    .content h1 {
+        font-size: 1.3rem !important;
+        margin-top: 50px;
     }
   
     .flex-items {
