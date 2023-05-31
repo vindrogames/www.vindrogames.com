@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Welcome To Vindrogames</title>
+  </head>
+  <body id="home">
+    <header class="hero-sub">
+      <div id="navbar" class="navbar top nav-content">
+          <div class="vindro logo">
+                <a href="index.html" style="border: none;"><img src="/img/vindro_logo_1.png" alt=""></img></a>
+                <h4><span style="color: #66FCF1; font-weight: lighter;">vindro</span><br>games</h4>
+          </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="contact.html">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="content">
+        <h1>About<span class="text-highlight">Us</span></h1>
+      </div>
+    </header>
+
+    <section id="timeline">
+      <ul>
+        <li>
+          <div>
+            <h3><i class="fas fa-chevron-right"></i> 2016: First Game Jam</h3>
+            <p>We had been playing around with lot's of different ideas, but nothing ever came of them. Zeneke found out about a Game Jam and we went for it! And thus was born "A Greek Tale". Not much, but a mile-stone for us! We actually created our first game, from scrath.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>
+              <i class="fas fa-chevron-right"></i> 2018: RPG Maker
+            </h3>
+            <p>
+            Mikelele knows some fellow teachers around Spain that use this software to create RPG Zelda type games for computers. We had to try it out and created our game about the human brain. Still don't have a name for it! There will be more RPG games to come...
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3><i class="fas fa-chevron-right"></i> 2019: GoDot</h3>
+            <p>
+            Zeneke started playing around with GoDot and we used the boardgame "SET" to use it for some good. We tried this game with other languages but finally got the job done with GoDot. This is probably our most complete accomplishment so far!
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3><i class="fas fa-chevron-right"></i> 2020: Google Apps Script</h3>
+            <p>
+              Mikelele wanted to take his use of Google Workspace tools to the next level and so started playing around with Spredsheets and then Google Apps Script. More than just automating certain processes, we can actually make games, or game-like activities, to do with students!.
+            </p>
+          </div>
+        </li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="social">
+        <a href="https://twitter.com/TeacherMaik" class="fab fa-twitter fa-2x"></a>
+        <a href="https://www.instagram.com/teachermaik/?hl=es" class="fab fa-instagram fa-2x"></a>
+        <a href="https://www.linkedin.com/in/michael-thomas-bennett-6631822a/" class="fab fa-linkedin fa-2x"></a>
+        <a href="https://www.youtube.com/channel/UCLTvAgvSy7ViRi7yAe0ogDA" class="fab fa-youtube fa-2x"></a>
+        <p>&copy;<span style="color: #66FCF1; font-weight: bold;">VindroGames</span> <span class="pipe">|</span> <span>All Rights Reserved</span></p>
+        <p>Zeneke & Mikelele</p>
+        <p>In collaboration with <span style="color: #66FCF1; font-weight: bold;">Ludoteca en la Nube</span></p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    let scrolled = false;
+
+    window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+            navbar.classList.remove('top');
+            if (!scrolled) {
+                navbar.style.transform = 'translateY(-70px)';
+            }
+            setTimeout(function () {
+                navbar.style.transform = 'translateY(0)';
+                scrolled = true;
+            }, 200);
+        } else {
+            navbar.classList.add('top');
+            scrolled = false;
+        }
+    };
+
+    // Smooth Scrolling
+    $('#hero a, .btn').on('click', function (e) {
+        if (this.hash !== '') {
+            e.preventDefault();
+
+            const hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 70,
+            },800);
+        }
+    });
+  </script>
+
+  <script>
+    const items = document.querySelectorAll('#timeline li');
+
+    const isInViewport = el => {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    };
+
+    const run = () =>
+      items.forEach(item => {
+        if (isInViewport(item)) {
+          item.classList.add('show');
+        }
+      });
+
+    // Events
+    window.addEventListener('load', run);
+    window.addEventListener('resize', run);
+    window.addEventListener('scroll', run);
+  </script>
+</body>
+</html>
