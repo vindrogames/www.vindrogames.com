@@ -163,8 +163,6 @@ img {
     width: 80%;
 }
 
-.games img:hover {
-}
 
 .games .hoverText {
     height: 70%;
@@ -381,9 +379,6 @@ img {
     text-align: center;
 }
 
-.contactRight p {
-
-}
 
 .contactLeft {
     display: flex;
