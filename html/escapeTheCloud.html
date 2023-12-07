@@ -3,8 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A collection og games developed in different lanugages by vindrogames">
-        <meta name="keywords" content="education games, games for learning, vindrogames productions, programming languages">
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <link
         rel="stylesheet"
@@ -14,7 +12,7 @@
         />
         <link rel="stylesheet" href="css/utilities.css" />
         <link rel="stylesheet" href="css/style.css" />
-        <title>Vindrogames | Games for your brain</title>
+        <title>Vindrogames | Escape the Cloud</title>
     </head>
     <body id="home">
         <header class="hero-sub">
@@ -28,47 +26,33 @@
                         <li><a href="index.html">home</a></li>
                         <li><a href="story.html">story</a></li>
                         <li><a href="blog.html">blog</a></li>
-                        <li><a class="current" href="#games">games</a></li>
+                        <li><a href="games.html">games</a></li>
                         <li><a href="contact.html">contact</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="content">
-                <h1>games<span class="text-highlight">Programming</span>Learning</h1>
+                <h1>escape <span class="text-highlight">The</span> Cloud</h1>
+                <h2>A learning experience inspired by Escape Rooms</h2>
             </div>
         </header>
 
         <main>
-            <!-- Play Around-->
-            <section id="games" class="section-padding bg-grey">
-                <header class="section-header">
-                    <h2>Play around with a few of our <span style="font-weight: bold; color: #45A29E;">Projects</span></h2>
-                    <p>With each of these projects we have set out to create games that revolve around certain topics and or themes in education.</p>
-                </header>
-
-            <!-- Games Flex Grid-->
-            <section id="games" class="section-padding bg-grey">
-                <div class="flex-items">
-                    <div class="games">
-                          <img src="img/greekTale.png" alt="" />
-                          <a class="games description" href="games/troyan-horse/play/" target="_blank">Game Jam<br><br>A short game inspired by Troy with a digital spin. Will you send you Trojan Horses through all the firewalls?<br><br>click to play</a>
+            <section id="escape">
+                <div class="flex-items escape" style="padding: 0;">
+                    <div class="escapeLeft">
+                        <video style="width: 90%;" controls>
+                            <source src="video/Escape the Cloud Trailor - Made with Clipchamp.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="games">
-                        <img src="img/escapeTheCloud.png" alt="" />
-                        <a class="games description" href="escapeTheCloud.html" target="_blank">Digital BreakOut<br><br>Inspired by Escape Rooms, this game is designed to teach users tricks and functionalities of Google tools.<br><br>click to play</a>
-                    </div>
-                    <div class="games">
-                        <img src="img/brainGame.png" alt="" />
-                        <a class="games description" href="games/cerebro/play/" target="_blank">This is our Brain Game <br><br>A role playing type game designed to teach people about the human brain and how we process visual information.<br><br>click to play</a>
-                    </div>
-                    <div class="games">
-                        <img src="img/setGame.png" alt="" />
-                        <a class="games description" href="https://www.vindrogames.com/games/set/play/" target="_blank">SET<br><br>A great boardgame we have recreated to play on screen. Simple but mentally exhausting, how many sets can you find?<br><br>click to play</a>
+                    <div class="escapeRight">
+                        <p style="text-align: justify;">Test your knowledge of Google Workspace tools with the different puzzles found in our game. <span style="font-weight: bold; color: #0B0C10;">To play you should be logged into your google account</span>. The game should take more or less 30 minutes to complete and covers from basic to advanced functionalities and properties of Google Workspace apps.</p>
+                        <p><a href="https://forms.gle/uArqLSXf96Wb9pDRA" target="_blank;">play in English</a></p>
+                        <p><a href="https://forms.gle/bRWvWRa8KSuZCnfs8" target="_blank;">jugar en Español</a></p>
                     </div>
                 </div>
             </section>
-        </main>
 
         <footer class="footer">
             <div class="social">
@@ -85,7 +69,6 @@
         <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
         <script>
-            //Navbar animation
             const navbar = document.getElementById('navbar');
             let scrolled = false;
 
