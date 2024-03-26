@@ -1,0 +1,39 @@
+// Inline span classes
+.inline-teal {
+  color: $vindro-teal;
+}
+
+.inline-green {
+  color: $vindro-green;
+}
+
+.inline-bold {
+  font-weight: 700;
+}
+
+.inline-light {
+  font-weight: 200;
+}
+
+// Buttons
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+.btn-tan, .bg-tan {
+  background-color: $vindro-tan;
+  color: $vindro-gray;
+}
+
+.btn-gray, .bg-gray {
+  background-color: $vindro-gray;
+  color: white;
+}
+
+.btn-black {
+  background-color: $vindro-black;
+  color: $vindro-teal;
+}

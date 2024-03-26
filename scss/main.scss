@@ -1,0 +1,376 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $vindro-openSans;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  background-color: $vindro-gray;
+  font-family: $vindro-openSans;
+  color: white;
+  overflow-x: hidden;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2 {
+  font-family: $vindro-Montserrat;
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0B0C10;
+  color: #fff;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  opacity: 0.9;
+  top: 0px;
+  padding: 0 30px;
+  transition: 0.5s;
+  z-index: 3;
+
+  &.top {
+    background-color: $vindro-gray;
+  }
+
+  .vindro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    font-weight: 400;
+
+    img {
+      width: 60px;
+      padding: 0;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        font-family: $vindro-Montserrat;
+        font-size: 2.1rem;
+      }
+    }
+  }
+
+  a {
+    color: white;
+    padding: 21px;
+    margin: 0 3px;
+  }
+
+  ul {
+    display: flex;
+    font-size: 1.6rem;
+
+    a:hover, a.current {
+      border-bottom: 3px solid $vindro-teal;
+    }
+  }
+}
+
+.hero {
+  background: #0B0C10;
+  height: 100vh;
+  position: relative;
+  color: #fff;
+
+  &-home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 6.3rem;
+      margin-bottom: 21px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 42px;
+    }
+
+    a {
+      font-size: 1.8rem;
+
+      &:hover {
+        background-color: $vindro-green;
+        color: white;
+      }
+    }
+  }
+}
+
+.hero-half {
+  height: 50vh;
+  background: #0B0C10;
+  position: relative;
+  color: #fff;
+
+  .hero-games-content, .hero-contact-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-size: 4.2rem;
+    }
+  }
+}
+
+main#home-page-content {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  #what-we-do {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      font-family: $vindro-Montserrat;
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 6.3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    a {
+      font-size: 1.8rem;
+
+      &:hover {
+        background-color: $vindro-tan;
+        color: $vindro-gray;
+      }
+    }
+  }
+
+  section#home-about {
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .team-container {
+      display: flex;
+      justify-content: center;
+      padding-top: 84px;
+      gap: 42px;
+
+      .team-member {
+        width: 42%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 21px;
+  
+        img {
+          width: 42%;
+          border-radius: 50%;
+          border: 3px solid $vindro-gray;
+          background-color: $vindro-teal;
+          margin-bottom: 2rem;
+        }
+  
+        > div h3 {
+          font-size: 3rem;
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+  
+        > div p {
+          font-size: 2.1rem;
+
+        }
+      }
+    }
+  }
+}
+
+main#games-page-content {
+  position: relative;
+  padding: 7rem 2rem;
+
+  section#games-page-intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-family: $vindro-Montserrat;
+      font-size: 3rem;
+    }
+
+    p {
+      width: 63%;
+      font-size: 1.8rem;
+    }
+  }
+
+  section#games-page-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .game {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+
+      img {
+        width: 84%;
+      }
+
+      a {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: transparent;
+        padding: 2rem 5rem;
+        border-radius: 14px;
+        color: transparent;
+        font-size: 1.8rem;
+        
+
+        &:hover {
+          background-color: $vindro-black-overlay;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+main#contact-page-content {
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  #contact-left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-tan;
+    color: $vindro-black;
+    font-size: 1.4rem;
+  }
+
+  #contact-right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-gray;
+  }
+}
+
+footer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: center;
+  background-color: $vindro-black;
+
+  .contact-info {
+    font-size: 1.4rem;
+
+    a {
+      color: $vindro-teal;
+      font-weight: 600;
+
+      &:hover {
+        color: $vindro-green;
+      }
+    }
+  }
+
+  .social {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 42px;
+    
+    a {
+      padding: 7px;
+      color: white;
+      border-radius: 7px;
+
+      &:hover {
+        background-color: $vindro-green;
+        color: $vindro-gray;
+      }
+    }
+  }
+}
