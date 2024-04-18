@@ -138,7 +138,7 @@ img {
   position: relative;
   color: #fff;
 
-  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog {
+  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content {
     position: relative;
     height: 100%;
     display: flex;
@@ -241,6 +241,120 @@ main#home-page-content {
   }
 }
 
+main#stories-page-content {
+  overflow: hidden;
+
+  #timeline h3 {
+    color: $vindro-green;
+    font-weight: bold;
+    font-size: 2.1rem;
+    margin-bottom: 7px;
+  }
+
+  #timeline p {
+    color: $vindro-black;
+    font-size: 1.6rem;
+  }
+  
+  #timeline ul {
+    background: $vindro-gray;
+    padding: 50px 0;
+
+    li {
+      list-style: none;
+      position: relative;
+      width: 6px;
+      margin: 0 auto;
+      padding-top: 50px;
+      background: #66FCF1;
+
+      div {
+        position: relative;
+        bottom: 0;
+        width: 400px;
+        padding: 1rem;
+        background: #FFFFFF;
+        transition: all 0.5s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+        a {
+          color: $vindro-green;
+          font-weight: 500;
+
+          &:hover {
+            color: $vindro-teal;
+          }
+        }
+      }
+
+      /* Timeline Right Side */
+      &:nth-child(odd) div {
+        left: 40px;
+      /* transform: translate(200px, 0); */
+      }
+
+      /* Timeline Left Side */
+      &:nth-child(even) div {
+        left: -434px;
+        /* transform: translate(-200px, 0); */
+      }
+
+      /* Timeline Dots */
+      &:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 25px;
+        height: 25px;
+        background: inherit;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        transition: background 0.5s ease-in-out;
+      }
+
+      /* Timeline Arrows Base */
+      div:before {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      /* Timeline Right Side Arrows */
+      &:nth-child(odd) div:before {
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent #FFFFFF transparent transparent;
+      }
+
+      /* Timeline Left Side Arrows */
+      &:nth-child(even) div:before {
+        right: -15px;
+        border-width: 8px 0 8px 16px;
+        border-color: transparent transparent transparent #FFFFFF;
+      }
+
+      /* Timeline Show Boxes */
+      &.show div {
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &.show:after {
+        background: $vindro-teal;
+      }
+    }
+  }
+}
+
+main#blog-page-content {
+  //Under Construction with Backend
+}
+
 main#games-page-content {
   position: relative;
   padding: 7rem 2rem;
@@ -273,6 +387,7 @@ main#games-page-content {
     .game {
       position: relative;
       width: 100%;
+      aspect-ratio: 1/1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -284,22 +399,31 @@ main#games-page-content {
 
       a {
         position: absolute;
-        width: 90%;
-        height: 90%;
+        width: 70%;
+        height: 70%;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 21px;
         text-align: center;
-        background-color: transparent;
-        padding: 2rem 5rem;
+        padding: 42px 24px 24px 24px;
         border-radius: 14px;
-        color: transparent;
-        font-size: 1.8rem;
-        
+        color: white;
+        background-color: $vindro-black-overlay;
+        font-size: 1.6rem;
+        opacity: 0;
 
+        h3 {
+          color: $tm-yellow-solid;
+          font-weight: 700;
+        }
+
+        p {
+          text-align: justify;
+        }
         &:hover {
-          background-color: $vindro-black-overlay;
-          color: white;
+          opacity: 1;
         }
       }
     }
@@ -307,7 +431,7 @@ main#games-page-content {
 }
 
 main#contact-page-content {
-  height: 50vh;
+  min-height: 50vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -328,12 +452,77 @@ main#contact-page-content {
   #contact-right {
     width: 100%;
     height: 100%;
+    padding: 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 42px;
     background-color: $vindro-gray;
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: $vindro-black;
+      border-radius: 7px;
+      padding: 14px 21px;
+
+      label, input, .privacy-accept {
+        margin-bottom: 7px;
+      }
+
+      > label {
+        font-size: 1.6rem;
+        margin-bottom: 21px;
+      }
+
+      input.email-input {
+        background-color: $vindro-tan;
+        border: none;
+        border-radius: 3px;
+        padding: 7px;
+
+        &:focus {
+          outline: $vindro-green;
+        }
+      }
+
+      ::placeholder {
+        color: $vindro-green;
+        font-weight: 500;
+      }
+
+      .form-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .privacy-accept {
+          display: flex;
+          gap: 7px;
+          align-items: center;
+  
+          input {
+            accent-color: $vindro-teal;
+          }
+        }
+  
+        input.form-submit-btn {
+          width: 42%;
+          background-color: $vindro-tan;
+          padding: 7px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: $vindro-green;
+            color: white;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -438,3 +627,5 @@ footer {
     }
   }
 }
+
+@import 'mobile';

@@ -1,19 +1,19 @@
 // Navbar animation on scroll
-const navbar = document.getElementById('navbar');
+const navbar = $('#navbar');
 let scrolled = false;
 
 window.onscroll = function () {
   if (window.pageYOffset > 100) {
-    navbar.classList.remove('top');
+    navbar.removeClass('top');
     if (!scrolled) {
-      navbar.style.transform = 'translateY(-70px)';
+      navbar.css({'transform' : 'translateY(-70px)'});
     }
     setTimeout(function () {
-      navbar.style.transform = 'translateY(0)';
+      navbar.css({'transform' : 'translateY(0)'});
       scrolled = true;
     }, 200);
     } else {
-      navbar.classList.add('top');
+      navbar.addClass('top');
       scrolled = false;
     }
 };
@@ -29,4 +29,43 @@ $('#hero a, .btn').on('click', function (e) {
       },800);
   }
 });
+
+// Footer social resize
+
+
+if (window.innerWidth < 453){
+
+  console.log("small window");
+  $('.fab').removeClass('fa-4x').addClass('fa-2x');
+} else if (window.innerWidth > 452 && $('.fa-2x')){
+  
+  $('.fab').removeClass('.fa-2x').addClass('fa-4x');
+}
+
+// Timeline Script
+const items = document.querySelectorAll('#timeline li');
+const isInViewport = el => {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+    (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+};
+
+const run = () =>
+  items.forEach(item => {
+    if (isInViewport(item)) {
+      item.classList.add('show');
+    }
+});
+
+// Events Timeline Script
+window.addEventListener('load', run);
+window.addEventListener('resize', run);
+window.addEventListener('scroll', run);
+
+
 

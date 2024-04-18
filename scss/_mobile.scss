@@ -1,0 +1,422 @@
+@media(max-width: 960px) {
+  #navbar {
+    padding: 0;
+  }
+
+  .hero-half {
+
+    .hero-games-content {
+
+      h1 {
+        font-size: 3.6rem;
+        margin-top: 42px;
+      }
+    }
+
+    .hero-stories-content, .hero-blog, .hero-contact-content, .hero-escape-the-cloud {
+
+      h1 {
+        margin-top: 42px;
+      }
+    }
+  }
+
+  main#home-page-content {
+
+    section#what-we-do {
+
+      p {
+        width: 80%;
+      }
+    }
+
+    section#home-about {
+
+      .team-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 21px;
+
+        .team-member {
+          width: 63%;
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  main#stories-page-content {
+    #timeline h3 {
+      //font-size: 1.8rem;
+    }
+
+    #timeline p {
+      //font-size: 1.4rem;
+    }
+
+    #timeline ul {
+      padding: 21px 0;
+
+      li {
+
+        div {
+          width: 280px;
+        }
+
+        &:nth-child(even) div {
+          left: -314px;
+        }
+      }
+    }
+  }
+
+  main#games-page-content {
+
+    section#games-page-intro {
+      
+      h2 {
+        width: 90%;
+        font-size: 2.8rem;
+        text-align: center;
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+    section#games-page-container {
+      grid-template-columns: repeat(2, 1fr);
+
+      .game {
+        flex-direction: column;
+        aspect-ratio: auto;
+        a {
+          position: relative;
+          width: 100%;
+          flex-grow: 1;
+          opacity: 1;
+          padding: 14px;
+
+        }
+      }
+    }
+  }
+
+  main#escape-the-cloud-content {
+    grid-template-columns: 3fr 2fr;
+
+    #escape-the-cloud-trailer {
+      padding: 1rem;
+    }
+
+    #escape-the-cloud-info {
+
+      .buttons {
+
+        a {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  main#contact-page-content {
+
+    #contact-right {
+      text-align: justify;
+    }
+  }
+}
+
+@media(max-width: 678px) {
+  #navbar {
+    height: 180px;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .vindro-logo {
+      margin: 10px;
+    }
+
+    a {
+      padding: 14px;
+    }
+  }
+
+  .hero {
+
+    &-home-content {
+
+      h1 {
+        font-size: 5.4rem;
+      }
+    }
+  }
+
+  .hero-half {
+
+    .hero-games-content {
+
+      h1 {
+        font-size: 2.4rem;
+        margin-top: 90px;
+      }
+    }
+
+    .hero-blog, .hero-contact-content, .hero-stories-content {
+
+      h1 {
+        margin-top: 90px;
+      }
+    }
+
+    .hero-escape-the-cloud {
+      
+      h1 {
+        margin-top: 90px;
+      }
+
+      h2 {
+        width: 90%;
+        text-align: center;
+        margin-top: 1.7rem;
+      }
+    }
+  }
+
+  main#home-page-content {
+
+    section#home-about {
+
+      .team-container {
+        
+        .team-member {
+
+          img {
+            width: 63%;
+          }
+        }
+      }
+    }
+  }
+
+  main#stories-page-content {
+
+    #timeline ul {
+      width: 100%;
+
+      li {
+        margin-left: 42px;
+
+        div {
+          width: calc(100vw - 120px);
+        }
+
+        &:nth-child(even) div {
+          left: 40px;
+        }
+
+        &:nth-child(even) div:before {
+          left: -15px;
+          border-width: 8px 16px 8px 0;
+          border-color: transparent #FFFFFF transparent transparent;
+        }
+      }
+    }
+  }
+
+  main#games-page-content {
+
+    section#games-page-intro {
+      
+      h2 {
+        width: 90%;
+        font-size: 2.4rem;
+        text-align: center;
+      }
+
+      p {
+        width: 84%;
+        text-align: justify;
+      }
+    }
+    section#games-page-container {
+      grid-template-columns: repeat(1, 1fr);
+
+      .game {
+        flex-direction: column;
+        aspect-ratio: auto;
+        a {
+          position: relative;
+          width: 100%;
+          flex-grow: 1;
+          opacity: 1;
+          padding: 14px;
+
+        }
+      }
+    }
+  }
+
+  main#escape-the-cloud-content {
+    grid-template-columns: 1fr;
+
+    #escape-the-cloud-trailer {
+      padding: 3rem 1rem;
+    }
+
+    #escape-the-cloud-info {
+      text-align: justify;
+
+      .buttons {
+        align-items: center;
+
+        a {
+          width: 70%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  main#contact-page-content {
+    grid-template-columns: 1fr;
+
+    #contact-right {
+      text-align: justify;
+    }
+  }
+}
+
+@media(max-width: 450px) {
+  #navbar {
+    height: 160px;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .vindro-logo {
+      margin: 10px;
+    }
+
+    a {
+      font-size: 14px;
+      padding: 7px;
+    }
+  }
+
+  .hero {
+
+    &-home-content {
+
+      h1 {
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 2.1rem;
+      }
+    }
+  }
+
+  .hero-half {
+
+    .hero-games-content {
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .hero-escape-the-cloud {
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  main#home-page-content {
+
+    section#what-we-do {
+      text-align: center;
+    }
+    
+    section#home-about {
+
+      .team-container {
+        
+        .team-member {
+          width: 90%;
+          p {
+            text-align: center;
+          }
+          img {
+            width: 63%;
+          }
+        }
+      }
+    }
+  }
+
+  main#escape-the-cloud-content {
+    grid-template-columns: 1fr;
+
+    #escape-the-cloud-trailer {
+      padding: 3rem 1rem;
+    }
+
+    #escape-the-cloud-info {
+      padding: 1.7rem;
+
+      .buttons {
+        align-items: center;
+
+        a {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  main#contact-page-content {
+
+    #contact-left {
+      height: 200px;
+      gap: 7px;
+    }
+  }
+
+
+  main#under-construction {
+
+    h1 {
+      text-align: center;
+      padding: 0px 14px;
+    }
+  }
+
+  footer {
+
+    .social {
+      gap: 21px;
+
+      a {
+        padding: 3px;
+      }
+    }
+  }
+}
+
+@media(max-width: 376px) {
+  .hero-half {
+    height: 63vh;
+  }
+}
