@@ -45,9 +45,12 @@
     <section id="contact-right">
       <h2>We love <span style="color: #45A29E; font-weight: bold;">talking</span> with people about <span style="color: #45A29E; font-weight: bold;">programming</span>, <span style="color: #45A29E; font-weight: bold;">games</span> and <span style="color: #45A29E; font-weight: bold;">learning</span>.</h2>
       <h2>We work with people and institutions offering web design, DevOps and security services.</h2>
-      <form action="thanks.html" name="contact" >
+      <form action="thanks.html" name="contact" method="POST" data-netlify="true" netlify-honeypot="city">
         <label for="contact-email">Send us your email and we will get in touch.</label>
         <input id="contact-email" type="email" name="email" placeholder="Email..." class="email-input" required>
+        <p style="display: none">
+          <input name="city" type="text">
+        </p>
         <div class="form-bottom">
           <div class="privacy-accept">
             <input id="form-privacy" type="checkbox" name="privacy" required oninvalid="this.setCustomValidity('Accept Privacy Statement')"
