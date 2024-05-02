@@ -138,16 +138,18 @@ img {
   position: relative;
   color: #fff;
 
-  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content {
+  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content, .hero-privacy-content {
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 63px;
 
     h1 {
       font-size: 4.2rem;
+      margin-bottom: 14px;
     }
 
     h2 {
@@ -506,6 +508,14 @@ main#contact-page-content {
           input {
             accent-color: $vindro-teal;
           }
+
+          a {
+            color: $vindro-teal;
+
+            &:hover {
+              color: $vindro-green;
+            }
+          }
         }
   
         input.form-submit-btn {
@@ -521,6 +531,57 @@ main#contact-page-content {
             color: white;
           }
         }
+      }
+    }
+  }
+}
+
+main#privacy-page-content {
+  width: 100%;
+  background-color: $vindro-tan;
+  color: $vindro-black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: justify;
+
+  section#privacy, section#cookies {
+    width: 63%;
+    padding: 1rem;
+
+    h2, h3, h4, h5, p {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: $vindro-green;
+      font-weight: 700;
+      font-size: 4.2rem;
+    }
+
+    h3 {
+      font-size: 2.1rem;;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+    }
+
+    h5 {
+      font-weight: 600;
+    }
+
+    h5, p {
+      font-size: 1.8rem;
+    }
+
+    a {
+      color: $vindro-green;
+      font-weight: 600;
+
+      &:hover {
+        color: $vindro-teal;
       }
     }
   }
@@ -598,6 +659,14 @@ footer {
   text-align: center;
   background-color: $vindro-black;
 
+  a {
+    font-size: 1.2rem;
+    color: $vindro-green;
+
+    &:hover {
+      color: $vindro-teal;
+    }
+  }
   .contact-info {
     font-size: 1.4rem;
 

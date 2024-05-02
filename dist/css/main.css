@@ -95,6 +95,61 @@ main#under-construction .loader-element:nth-child(3) {
   }
 }
 
+#cookie-consent {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  min-height: 90px;
+  background-color: rgb(102, 252, 241);
+  color: rgb(11, 12, 16);
+  z-index: 3;
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+#cookie-consent .cookie-info {
+  width: 42%;
+  text-align: left;
+}
+#cookie-consent .cookie-info p {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+#cookie-consent .cookie-info > :nth-child(1), #cookie-consent .cookie-info :nth-child(4) {
+  font-weight: 700;
+}
+#cookie-consent .cookie-buttons {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+}
+#cookie-consent .cookie-buttons label {
+  font-weight: 600;
+}
+#cookie-consent .cookie-buttons label .cookie-checkbox {
+  vertical-align: middle;
+  margin-right: 14px;
+  width: 14px;
+  height: 14px;
+  accent-color: rgb(11, 12, 16);
+}
+#cookie-consent .cookie-buttons #submit-cookies {
+  align-self: flex-end;
+  color: white;
+  border: 2px solid transparent;
+}
+#cookie-consent .cookie-buttons #submit-cookies:hover {
+  background-color: white;
+  border: 2px solid rgb(11, 12, 16);
+  color: rgb(31, 40, 51);
+  font-weight: 700;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -219,18 +274,20 @@ img {
   position: relative;
   color: #fff;
 }
-.hero-half .hero-games-content, .hero-half .hero-contact-content, .hero-half .hero-escape-the-cloud, .hero-half .hero-blog, .hero-half .hero-stories-content {
+.hero-half .hero-games-content, .hero-half .hero-contact-content, .hero-half .hero-escape-the-cloud, .hero-half .hero-blog, .hero-half .hero-stories-content, .hero-half .hero-privacy-content {
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 63px;
 }
-.hero-half .hero-games-content h1, .hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1 {
+.hero-half .hero-games-content h1, .hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1, .hero-half .hero-privacy-content h1 {
   font-size: 4.2rem;
+  margin-bottom: 14px;
 }
-.hero-half .hero-games-content h2, .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2 {
+.hero-half .hero-games-content h2, .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
   font-size: 2.1rem;
 }
 
@@ -538,6 +595,12 @@ main#contact-page-content #contact-right form .form-bottom .privacy-accept {
 main#contact-page-content #contact-right form .form-bottom .privacy-accept input {
   accent-color: rgb(102, 252, 241);
 }
+main#contact-page-content #contact-right form .form-bottom .privacy-accept a {
+  color: rgb(102, 252, 241);
+}
+main#contact-page-content #contact-right form .form-bottom .privacy-accept a:hover {
+  color: rgb(69, 162, 158);
+}
 main#contact-page-content #contact-right form .form-bottom input.form-submit-btn {
   width: 42%;
   background-color: rgb(197, 198, 199);
@@ -549,6 +612,48 @@ main#contact-page-content #contact-right form .form-bottom input.form-submit-btn
 main#contact-page-content #contact-right form .form-bottom input.form-submit-btn:hover {
   background-color: rgb(69, 162, 158);
   color: white;
+}
+
+main#privacy-page-content {
+  width: 100%;
+  background-color: rgb(197, 198, 199);
+  color: rgb(11, 12, 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: justify;
+}
+main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+  width: 63%;
+  padding: 1rem;
+}
+main#privacy-page-content section#privacy h2, main#privacy-page-content section#privacy h3, main#privacy-page-content section#privacy h4, main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h2, main#privacy-page-content section#cookies h3, main#privacy-page-content section#cookies h4, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
+  margin-bottom: 1rem;
+}
+main#privacy-page-content section#privacy h2, main#privacy-page-content section#cookies h2 {
+  color: rgb(69, 162, 158);
+  font-weight: 700;
+  font-size: 4.2rem;
+}
+main#privacy-page-content section#privacy h3, main#privacy-page-content section#cookies h3 {
+  font-size: 2.1rem;
+}
+main#privacy-page-content section#privacy h4, main#privacy-page-content section#cookies h4 {
+  font-size: 1.6rem;
+}
+main#privacy-page-content section#privacy h5, main#privacy-page-content section#cookies h5 {
+  font-weight: 600;
+}
+main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
+  font-size: 1.8rem;
+}
+main#privacy-page-content section#privacy a, main#privacy-page-content section#cookies a {
+  color: rgb(69, 162, 158);
+  font-weight: 600;
+}
+main#privacy-page-content section#privacy a:hover, main#privacy-page-content section#cookies a:hover {
+  color: rgb(102, 252, 241);
 }
 
 main#escape-the-cloud-content {
@@ -613,6 +718,13 @@ footer {
   gap: 14px;
   text-align: center;
   background-color: rgb(11, 12, 16);
+}
+footer a {
+  font-size: 1.2rem;
+  color: rgb(69, 162, 158);
+}
+footer a:hover {
+  color: rgb(102, 252, 241);
 }
 footer .contact-info {
   font-size: 1.4rem;
