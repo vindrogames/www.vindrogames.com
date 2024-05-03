@@ -95,14 +95,22 @@ main#under-construction .loader-element:nth-child(3) {
   }
 }
 
-#cookie-consent {
+.cookie-consent-background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  z-index: 4;
+}
+
+#cookie-consent-banner {
   position: fixed;
   top: 90px;
   width: 100%;
   min-height: 90px;
   background-color: rgb(102, 252, 241);
   color: rgb(11, 12, 16);
-  z-index: 3;
+  z-index: 5;
   padding: 14px;
   text-align: center;
   display: flex;
@@ -110,40 +118,40 @@ main#under-construction .loader-element:nth-child(3) {
   justify-content: center;
   gap: 42px;
 }
-#cookie-consent .cookie-info {
+#cookie-consent-banner .cookie-info {
   width: 42%;
   text-align: left;
 }
-#cookie-consent .cookie-info p {
+#cookie-consent-banner .cookie-info p {
   margin-bottom: 1rem;
   font-size: 1.4rem;
 }
-#cookie-consent .cookie-info > :nth-child(1), #cookie-consent .cookie-info :nth-child(4) {
+#cookie-consent-banner .cookie-info > :nth-child(1), #cookie-consent-banner .cookie-info :nth-child(4) {
   font-weight: 700;
 }
-#cookie-consent .cookie-buttons {
+#cookie-consent-banner .cookie-buttons {
   font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 21px;
 }
-#cookie-consent .cookie-buttons label {
+#cookie-consent-banner .cookie-buttons label {
   font-weight: 600;
 }
-#cookie-consent .cookie-buttons label .cookie-checkbox {
+#cookie-consent-banner .cookie-buttons label .cookie-checkbox {
   vertical-align: middle;
   margin-right: 14px;
   width: 14px;
   height: 14px;
   accent-color: rgb(11, 12, 16);
 }
-#cookie-consent .cookie-buttons #submit-cookies {
+#cookie-consent-banner .cookie-buttons #submit-cookies {
   align-self: flex-end;
   color: white;
   border: 2px solid transparent;
 }
-#cookie-consent .cookie-buttons #submit-cookies:hover {
+#cookie-consent-banner .cookie-buttons #submit-cookies:hover {
   background-color: white;
   border: 2px solid rgb(11, 12, 16);
   color: rgb(31, 40, 51);
@@ -651,6 +659,7 @@ main#privacy-page-content section#privacy h5, main#privacy-page-content section#
 main#privacy-page-content section#privacy a, main#privacy-page-content section#cookies a {
   color: rgb(69, 162, 158);
   font-weight: 600;
+  cursor: pointer;
 }
 main#privacy-page-content section#privacy a:hover, main#privacy-page-content section#cookies a:hover {
   color: rgb(102, 252, 241);

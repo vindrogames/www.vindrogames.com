@@ -4,11 +4,28 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ01TSWRZL"></script>
   <script>
+    // Define dataLayer and the gtag function.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // Set default consent to 'denied' as a placeholder if first time visitor
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+      });
+    } else {
+
+      // Set consent to previous config from user's local storage
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-LJ01TSWRZL');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vindrogames Blog where you can read more in depth about our projects, learnings and experiences as programmers">
@@ -20,6 +37,24 @@
 </head>
 <body>
   <header class="hero-half escape-the-cloud">
+    <!--Background 100vw, 100vh fixed with transparent background so no interaction until cookies have been established-->
+    <div class="cookie-consent-background"></div>
+    <!--Cookie Banner which only shows for new users or expired GA cookies-->
+    <div id="cookie-consent-banner">
+      <div class="cookie-info">
+        <p>We use Cookies for two reasons only:</p>
+        <p>1. Anonymous stastics through Google Analytics such as geographic location, device type, pages visited and interactions to play with data analyisis.</p>
+        <p>2. Any game scores so you can see your previous statistics.</p>
+        <p>We don't do ads</p>
+      </div>
+      <div class="cookie-buttons">
+        <label><input id="google-analytics-check" class="cookie-checkbox" type="checkbox" checked>Allow Google Analytics</label>
+        <label><input id="game-scores-check" class="cookie-checkbox" type="checkbox" checked>Allow Game Score Cookies</label>
+        <div id="submit-cookies" class="btn btn-black">done</div>
+      </div>
+    </div>
+
+    <!--Navbar 90px height and 100% width fixed-->
     <div id="navbar" class="top nav-content">
       <div class="vindro-logo">
         <a href="index.html" style="border: none;"><img src="img/vindro_logo_1.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
@@ -73,6 +108,7 @@
 
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script src="js/index.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="js/cookie-consent.js" type="text/javascript" charset="UTF-8"></script>
 
 </body>
 </html>
