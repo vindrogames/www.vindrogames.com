@@ -99,14 +99,22 @@ main#under-construction {
   }
 }
 
-#cookie-consent {
+.cookie-consent-background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  z-index: 4;
+}
+
+#cookie-consent-banner {
   position: fixed;
   top: 90px;
   width: 100%;
   min-height: 90px;
   background-color: $vindro-teal;
   color: $vindro-black;
-  z-index: 3;
+  z-index: 5;
   padding: 14px;
   text-align: center;
   display: flex;

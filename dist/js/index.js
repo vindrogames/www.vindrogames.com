@@ -18,7 +18,9 @@ window.onscroll = function () {
     }
 };
 
-$('#hero a, .btn').on('click', function (e) {
+
+// Smooth Scroll
+$('#home-smooth-scroll').on('click', function (e) {
   if (this.hash !== '') {
       e.preventDefault();
 
@@ -31,8 +33,6 @@ $('#hero a, .btn').on('click', function (e) {
 });
 
 // Footer social resize
-
-
 if (window.innerWidth < 453){
 
   console.log("small window");
