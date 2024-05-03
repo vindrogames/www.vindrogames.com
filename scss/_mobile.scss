@@ -130,6 +130,13 @@
   }
 }
 
+main#privacy-page-content {
+
+  section#privacy, section#cookies {
+    width: 84%;
+  }
+}
+
 @media(max-width: 678px) {
   #navbar {
     height: 180px;
@@ -165,14 +172,7 @@
       }
     }
 
-    .hero-blog, .hero-contact-content, .hero-stories-content {
-
-      h1 {
-        margin-top: 90px;
-      }
-    }
-
-    .hero-escape-the-cloud {
+    .hero-escape-the-cloud, .hero-stories-content, .hero-blog, .hero-contact-content, .hero-privacy-content {
       
       h1 {
         margin-top: 90px;
@@ -183,6 +183,20 @@
         text-align: center;
         margin-top: 1.7rem;
       }
+    }
+  }
+
+  #cookie-consent-banner {
+    flex-direction: column;
+    gap: 21px;
+
+    .cookie-info {
+      width: 92%;
+      text-align: justify;
+    }
+
+    .cookie-buttons {
+      width: 92%;
     }
   }
 
@@ -287,6 +301,13 @@
     #contact-right {
       text-align: justify;
     }
+  }
+}
+
+main#privacy-page-content {
+
+  section#privacy, section#cookies {
+    width: 92%;
   }
 }
 
