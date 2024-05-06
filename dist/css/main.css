@@ -830,6 +830,10 @@ footer .social a:hover {
     text-align: justify;
   }
 }
+main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+  width: 84%;
+}
+
 @media (max-width: 678px) {
   #navbar {
     height: 180px;
@@ -849,16 +853,24 @@ footer .social a:hover {
     font-size: 2.4rem;
     margin-top: 90px;
   }
-  .hero-half .hero-blog h1, .hero-half .hero-contact-content h1, .hero-half .hero-stories-content h1 {
+  .hero-half .hero-escape-the-cloud h1, .hero-half .hero-stories-content h1, .hero-half .hero-blog h1, .hero-half .hero-contact-content h1, .hero-half .hero-privacy-content h1 {
     margin-top: 90px;
   }
-  .hero-half .hero-escape-the-cloud h1 {
-    margin-top: 90px;
-  }
-  .hero-half .hero-escape-the-cloud h2 {
+  .hero-half .hero-escape-the-cloud h2, .hero-half .hero-stories-content h2, .hero-half .hero-blog h2, .hero-half .hero-contact-content h2, .hero-half .hero-privacy-content h2 {
     width: 90%;
     text-align: center;
     margin-top: 1.7rem;
+  }
+  #cookie-consent-banner {
+    flex-direction: column;
+    gap: 21px;
+  }
+  #cookie-consent-banner .cookie-info {
+    width: 92%;
+    text-align: justify;
+  }
+  #cookie-consent-banner .cookie-buttons {
+    width: 92%;
   }
   main#home-page-content section#home-about .team-container .team-member img {
     width: 63%;
@@ -926,6 +938,10 @@ footer .social a:hover {
     text-align: justify;
   }
 }
+main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+  width: 92%;
+}
+
 @media (max-width: 450px) {
   #navbar {
     height: 160px;
