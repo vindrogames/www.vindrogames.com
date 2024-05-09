@@ -1,0 +1,162 @@
+#navbar.navbar-calculator{
+
+  ul {
+
+    a:hover {
+      border-bottom: 3px solid $real-yellow;
+    }
+  }
+}
+
+main#madrid-calculator {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #madrid-left, #madrid-right {
+    width: 42%;
+    height: 63%;
+    padding: 1rem;
+  }
+
+  #madrid-left {
+
+    .calculator-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-items: center;
+      gap: 7px;
+
+      #result {
+        width: 84%;
+        height: 21%;
+        border: 3px solid $vindro-black;
+        border-radius: 7px;
+      }
+
+      .buttons {
+        width: 84%;
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+
+        .btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          border-radius: 3px;
+          background-color: lightgray;
+          font-size: 2rem;
+
+          &-no-num {
+            background-color: $vindro-black;
+            color: white;
+
+            &:hover {
+              background-color: $vindro-black-transparent;
+            }
+          }
+
+          &-num {
+            background-color: lightgray;
+            color: $vindro-black;
+
+            &:hover {
+              background-color: #e7e7e7;
+            }
+          }
+
+          &-operator {
+            background-color: $real-blue;
+
+            &:hover {
+              background-color: $real-blue-transparent;
+            }
+          }
+
+          &-champions {
+            background-color: $real-yellow;
+
+            &:hover {
+              background-color: $real-yellow-transparent;
+            }
+          }
+
+          &-audio {
+            grid-column: 4;
+            background-color: white;
+            color: $vindro-black;
+
+            &:hover {
+              background-color: $vindro-black;
+              color: white;
+            }
+          }
+        }
+
+        .off {
+          background-color: $vindro-black;
+          color: white;
+        }
+      }
+    }
+  }
+
+  #madrid-right {
+    color: $vindro-black;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 4.2rem;
+    }
+
+    h2 {
+      font-size: 2.1rem
+    }
+
+    .champions-icon {
+      flex-grow: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      color: $real-yellow;
+
+      i {
+        margin: 7px;
+      }
+    }
+  }
+}
+
+footer.footer-calculator {
+
+  a {
+    color: $real-yellow;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .contact-info {
+
+    a {
+      color: $real-yellow;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

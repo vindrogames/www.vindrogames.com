@@ -19,6 +19,10 @@
   font-weight: 300;
 }
 
+.inline-real-yellow {
+  color: rgb(252, 191, 0);
+}
+
 .btn {
   cursor: pointer;
   display: inline-block;
@@ -297,6 +301,10 @@ img {
 }
 .hero-half .hero-games-content h2, .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
   font-size: 2.1rem;
+}
+
+.hero-none {
+  height: 90px;
 }
 
 main#home-page-content {
@@ -759,6 +767,130 @@ footer .social a {
 footer .social a:hover {
   background-color: rgb(69, 162, 158);
   color: rgb(31, 40, 51);
+}
+
+#navbar.navbar-calculator ul a:hover {
+  border-bottom: 3px solid rgb(252, 191, 0);
+}
+
+main#madrid-calculator {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main#madrid-calculator #madrid-left, main#madrid-calculator #madrid-right {
+  width: 42%;
+  height: 63%;
+  padding: 1rem;
+}
+main#madrid-calculator #madrid-left .calculator-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  gap: 7px;
+}
+main#madrid-calculator #madrid-left .calculator-container #result {
+  width: 84%;
+  height: 21%;
+  border: 3px solid rgb(11, 12, 16);
+  border-radius: 7px;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons {
+  width: 84%;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 3px;
+  background-color: lightgray;
+  font-size: 2rem;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-no-num {
+  background-color: rgb(11, 12, 16);
+  color: white;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-no-num:hover {
+  background-color: rgba(11, 12, 16, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num {
+  background-color: lightgray;
+  color: rgb(11, 12, 16);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num:hover {
+  background-color: #e7e7e7;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-operator {
+  background-color: rgb(0, 73, 150);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-operator:hover {
+  background-color: rgba(0, 73, 150, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions {
+  background-color: rgb(252, 191, 0);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions:hover {
+  background-color: rgba(252, 191, 0, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio {
+  grid-column: 4;
+  background-color: white;
+  color: rgb(11, 12, 16);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio:hover {
+  background-color: rgb(11, 12, 16);
+  color: white;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .off {
+  background-color: rgb(11, 12, 16);
+  color: white;
+}
+main#madrid-calculator #madrid-right {
+  color: rgb(11, 12, 16);
+  display: flex;
+  flex-direction: column;
+}
+main#madrid-calculator #madrid-right h1 {
+  font-size: 4.2rem;
+}
+main#madrid-calculator #madrid-right h2 {
+  font-size: 2.1rem;
+}
+main#madrid-calculator #madrid-right .champions-icon {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: rgb(252, 191, 0);
+}
+main#madrid-calculator #madrid-right .champions-icon i {
+  margin: 7px;
+}
+
+footer.footer-calculator a {
+  color: rgb(252, 191, 0);
+}
+footer.footer-calculator a:hover {
+  color: white;
+}
+footer.footer-calculator .contact-info a {
+  color: rgb(252, 191, 0);
+}
+footer.footer-calculator .contact-info a:hover {
+  color: white;
 }
 
 @media (max-width: 960px) {

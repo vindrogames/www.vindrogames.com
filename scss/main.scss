@@ -158,6 +158,10 @@ img {
   }
 }
 
+.hero-none {
+  height: 90px;
+}
+
 main#home-page-content {
   position: relative;
   min-height: 100vh;
@@ -700,4 +704,5 @@ footer {
   }
 }
 
+@import 'calculadora';
 @import 'mobile';
