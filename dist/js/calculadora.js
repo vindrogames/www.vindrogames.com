@@ -8,7 +8,7 @@ const audioBtn = $('.btn-audio');
 let promptNumber = 0;
 let firstOperand = 0;
 let secondOperand = 0;
-let operation = 'add'
+let operation = 'sub'
 
 championsBtn.on('click', (e) => {
 
@@ -47,12 +47,13 @@ function pushNumber(number)
   }
 }
 
-function addClicked()
+function twoValueOperationClicked(opp)
 {
   firstOperand = $('#result').html();
   $('#result').html('0');
   promptNumber = 0;  
-  operation = 'add'
+  console.log(opp)
+  operation = opp
 }
 
 function equalClicked()
@@ -64,10 +65,40 @@ function equalClicked()
     let b = parseInt(secondOperand)
     console.log(parseInt(firstOperand));
     console.log(parseInt(secondOperand));
-    let res = a + b
+    let res = a + b;
     console.log(res);
     $('#result').html(res);
   }
+  else if (operation == 'sub')
+  {
+    let a = parseInt(firstOperand)
+    let b = parseInt(secondOperand)
+    console.log(parseInt(firstOperand));
+    console.log(parseInt(secondOperand));
+    let res = a - b;
+    console.log(res);
+    $('#result').html(res);
+  }
+  else if (operation == 'mult')
+    {
+      let a = parseInt(firstOperand)
+      let b = parseInt(secondOperand)
+      console.log(parseInt(firstOperand));
+      console.log(parseInt(secondOperand));
+      let res = a * b;
+      console.log(res);
+      $('#result').html(res);
+    }
+    else if (operation == 'div')
+      {
+        let a = parseInt(firstOperand)
+        let b = parseInt(secondOperand)
+        console.log(parseInt(firstOperand));
+        console.log(parseInt(secondOperand));
+        let res = a / b;
+        console.log(res);
+        $('#result').html(res);
+      }
   firstOperand = 0;
   secondOperand = 0;
   promptNumber = 0;
