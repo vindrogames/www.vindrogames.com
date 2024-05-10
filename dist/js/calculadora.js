@@ -1,14 +1,17 @@
+const DEBUG = true;
+
 const championsAudio = new Audio("/madrid-calculator/intro-uefa-champions-league.mp3");
-const siuAudio = new Audio("/madrid-calculator/siuuu.mp3")
+const siuAudio = new Audio("/madrid-calculator/siuuu.mp3");
 
 const championsBtn = $('#champions');
 const equalsBtn = $('#equals');
 const audioBtn = $('.btn-audio');
+const audioBtnClick = $('#audio-button');
 
 let promptNumber = 0;
 let firstOperand = 0;
 let secondOperand = 0;
-let operation = 'sub'
+let operation = 'sub';
 
 championsBtn.on('click', (e) => {
 
@@ -19,7 +22,7 @@ championsBtn.on('click', (e) => {
 
 equalsBtn.on('click', (e) => {
 
-  if (e.target.classList.contains('play')) {
+  if (e.target.classList.contains('play')) {    
     siuAudio.play();
   }
 });
@@ -29,6 +32,14 @@ audioBtn.on('click', () => {
   championsBtn.toggleClass('play');
   equalsBtn.toggleClass('play');
   audioBtn.toggleClass('off');
+  if (audioBtn.hasClass('off'))
+  {
+    audioBtn.html('&#128263');
+  }
+  else
+  {
+    audioBtn.html('&#128362');
+  }
 });
 
 function pushNumber(number)
@@ -37,13 +48,13 @@ function pushNumber(number)
   if (promptNumber == 0)
   {
     promptNumber = number;
-    $('#result').html(promptNumber)
+    $('#result').html(promptNumber);
   }
   else
   {
-    length = result.length
-    result = result + number
-    $('#result').html(result)
+    length = result.length;
+    result = result + number;
+    $('#result').html(result);
   }
 }
 
@@ -52,8 +63,8 @@ function twoValueOperationClicked(opp)
   firstOperand = $('#result').html();
   $('#result').html('0');
   promptNumber = 0;  
-  console.log(opp)
-  operation = opp
+  console.log(opp);
+  operation = opp;
 }
 
 function equalClicked()
