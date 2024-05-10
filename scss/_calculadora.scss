@@ -102,17 +102,9 @@ main#madrid-calculator {
             grid-column: 4;
             background-color: white;
             color: $vindro-black;
-
-            &:hover {
-              background-color: $vindro-black;
-              color: white;
-            }
+            border: 3px solid $vindro-black;
+            border-radius: 7px;
           }
-        }
-
-        .off {
-          background-color: $vindro-black;
-          color: white;
         }
       }
     }

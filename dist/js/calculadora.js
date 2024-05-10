@@ -16,14 +16,30 @@ let operation = 'sub';
 championsBtn.on('click', (e) => {
 
   if (e.target.classList.contains('play')) {
-    championsAudio.play();
+    if (DEBUG)
+    {
+      //do nothing
+    }
+    else
+    {
+      championsAudio.play();
+    }
+    
   }
 });
 
 equalsBtn.on('click', (e) => {
 
   if (e.target.classList.contains('play')) {    
-    siuAudio.play();
+    if (DEBUG)
+      {
+        //do nothing
+      }
+      else
+      {
+        siuAudio.play();
+      }
+    
   }
 });
 
@@ -54,6 +70,7 @@ function pushNumber(number)
   {
     length = result.length;
     result = result + number;
+    promptNumber = parseInt(result);
     $('#result').html(result);
   }
 }
@@ -114,6 +131,20 @@ function equalClicked()
   secondOperand = 0;
   promptNumber = 0;
 
+}
+
+function changeSign()
+{
+  
+  promptNumber = promptNumber * -1;
+  console.log(promptNumber);
+  $('#result').html(promptNumber);    
+}
+
+function championClicked()
+{
+  promptNumber = 15;
+  $('#result').html(promptNumber);
 }
 
 

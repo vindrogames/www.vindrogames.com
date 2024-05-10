@@ -83,7 +83,7 @@
         </div>
         <div class="buttons">
           <div role="button" id="clear" class="btn btn-no-num">AC</div>
-          <div role="button" id="pos-neg" class="btn btn-no-num">&PlusMinus;</div>
+          <div role="button" id="pos-neg" onclick=changeSign() class="btn btn-no-num">&PlusMinus;</div>
           <div role="button" id="percent" class="btn btn-no-num">&percnt;</div>
           <div role="button" id="divide" onclick="twoValueOperationClicked('div')" class="btn btn-operator">&divide;</div>
           <div role="button" id="seven" onclick=pushNumber(7) class="btn btn-num" value="7">7</div>
@@ -100,7 +100,7 @@
           <div role="button" id="add" onclick="twoValueOperationClicked('add')" class="btn btn-operator">&plus;</div>
           <div role="button" id="zero" onclick=pushNumber(0) class="btn btn-num" value="0">0</div>
           <div role="button" id="comma" class="btn btn-num">&comma;</div>
-          <div role="button" id="champions" class="btn btn-champions play" value="15"><i class="fa-solid fa-trophy"></i></div>
+          <div role="button" id="champions" onclick=championClicked() class="btn btn-champions play" value="15"><i class="fa-solid fa-trophy"></i></div>
           <div role="button" id="equals" onclick=equalClicked() class="btn btn-operator play">&equals;</div>
           <div role="button" id="audio-button" class="btn btn-audio">&#128362;</div>
         </div>
