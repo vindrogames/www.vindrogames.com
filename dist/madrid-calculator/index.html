@@ -82,9 +82,9 @@
           0
         </div>
         <div class="buttons">
-          <div role="button" id="clear" class="btn btn-no-num">AC</div>
+          <div role="button" id="clear" onclick=clearAC() class="btn btn-no-num">AC</div>
           <div role="button" id="pos-neg" onclick=changeSign() class="btn btn-no-num">&PlusMinus;</div>
-          <div role="button" id="percent" class="btn btn-no-num">&percnt;</div>
+          <div role="button" id="percent" onclick=percent() class="btn btn-no-num">&percnt;</div>
           <div role="button" id="divide" onclick="twoValueOperationClicked('div')" class="btn btn-operator">&divide;</div>
           <div role="button" id="seven" onclick=pushNumber(7) class="btn btn-num" value="7">7</div>
           <div role="button" id="eight" onclick=pushNumber(8) class="btn btn-num" value="8">8</div>

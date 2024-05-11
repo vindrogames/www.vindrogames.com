@@ -147,5 +147,23 @@ function championClicked()
   $('#result').html(promptNumber);
 }
 
+function clearAC()
+{
+  firstOperand = 0;
+  secondOperand = 0;
+  promptNumber = 0;
+  operation = '';
+  $('#result').html(promptNumber);
+}
+
+function percent()
+{
+  data = promptNumber
+  promptNumber = data / 100
+  $('#result').html(promptNumber);
+}
+
+
+
 
 
