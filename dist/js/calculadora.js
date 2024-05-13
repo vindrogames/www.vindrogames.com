@@ -1,7 +1,7 @@
-const DEBUG = true;
+const DEBUG = false;
 
-const championsAudio = new Audio("/madrid-calculator/intro-uefa-champions-league.mp3");
-const siuAudio = new Audio("/madrid-calculator/siuuu.mp3");
+//const championsAudio = new Audio("/madrid-calculator/intro-uefa-champions-league.mp3");
+//const siuAudio = new Audio("/madrid-calculator/siuuu.mp3");
 
 const championsBtn = $('#champions');
 const equalsBtn = $('#equals');
@@ -13,6 +13,7 @@ let firstOperand = 0;
 let secondOperand = 0;
 let operation = 'sub';
 
+/*
 championsBtn.on('click', (e) => {
 
   if (e.target.classList.contains('play')) {
@@ -57,6 +58,7 @@ audioBtn.on('click', () => {
     audioBtn.html('&#128362');
   }
 });
+*/
 
 function pushNumber(number)
 {
