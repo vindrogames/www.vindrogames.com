@@ -62,6 +62,10 @@ img {
     margin: 20px;
     font-weight: 400;
 
+    a {
+      padding: 3px;
+      margin: 0 3px;
+    }
     img {
       width: 60px;
       padding: 0;
@@ -80,15 +84,15 @@ img {
     }
   }
 
-  a {
-    color: white;
-    padding: 21px;
-    margin: 0 3px;
-  }
-
   ul {
     display: flex;
     font-size: 1.6rem;
+
+    a {
+      color: white;
+      padding: 21px;
+      margin: 0 3px;
+    }
 
     a:hover, a.current {
       border-bottom: 3px solid $vindro-teal;
@@ -651,8 +655,6 @@ main#escape-the-cloud-content {
     }
   }
 }
-
-
 
 footer {
   padding: 2rem;

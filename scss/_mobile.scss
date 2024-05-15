@@ -128,12 +128,35 @@
       text-align: justify;
     }
   }
-}
 
-main#privacy-page-content {
+  #navbar-hamburger {
+    display: none;
+  }
 
-  section#privacy, section#cookies {
-    width: 84%;
+  main#madrid-calculator {
+
+    #madrid-left {
+      width: 60%;
+    }
+
+    #madrid-right {
+      width: 35%;
+
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  main#privacy-page-content {
+
+    section#privacy, section#cookies {
+      width: 84%;
+    }
   }
 }
 
@@ -302,12 +325,28 @@ main#privacy-page-content {
       text-align: justify;
     }
   }
-}
 
-main#privacy-page-content {
+  #navbar.navbar-calculator {
+    display: none;
+  }
 
-  section#privacy, section#cookies {
-    width: 92%;
+  #navbar-hamburger {
+    display: flex;
+  }
+
+  main#madrid-calculator {
+    flex-direction: column;
+
+    #madrid-right, #madrid-left {
+      width: 96%;
+    }
+  }
+
+  main#privacy-page-content {
+
+    section#privacy, section#cookies {
+      width: 92%;
+    }
   }
 }
 
@@ -439,5 +478,81 @@ main#privacy-page-content {
 @media(max-width: 376px) {
   .hero-half {
     height: 63vh;
+  }
+
+  #navbar.navbar-calculator {
+    display: none;
+  }
+
+  #navbar-hamburger {
+    display: flex;
+
+    #hamburger-container {
+      width: 32px;
+      height: 32px;
+
+      #hamburger-lines {
+
+        & > div {
+          height: 2px;
+        }
+
+        &-top {
+          top: 6.5px;
+        }
+  
+        &-mid {
+          top: 15px;
+        }
+  
+        &-bottom {
+          bottom: 6.5px;
+        }
+      }
+    }
+
+    nav#hamburger-menu {
+
+      ul {
+
+        a {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  main#madrid-calculator {
+    flex-direction: column;
+
+    #madrid-right, #madrid-left {
+      width: 96%;
+    }
+
+    #madrid-left {
+
+      .calculator-container {
+
+        #result {
+          width: 100%;
+        }
+
+        .buttons {
+          width: 100%;
+        }
+      }
+    }
+
+    #madrid-right {
+      
+      h1 {
+        margin-bottom: 3px;
+      }
+
+      h2 {
+        width: 84%;
+        margin-bottom: 3px;
+      }
+    }
   }
 }

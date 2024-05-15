@@ -1,9 +1,122 @@
-#navbar.navbar-calculator{
+body {
+  overflow: none;
+}
 
+#navbar.navbar-calculator{
+  opacity: 1;
   ul {
 
     a:hover {
       border-bottom: 3px solid $real-yellow;
+    }
+  }
+}
+
+#navbar-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0B0C10;
+  color: #fff;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0px;
+  padding: 0 14px;
+  z-index: 3;
+
+  .vindro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    font-weight: 400;
+
+    img {
+      width: 60px;
+      padding: 0;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        font-family: $vindro-Montserrat;
+        font-size: 2.1rem;
+      }
+    }
+  }
+
+  #hamburger-container {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    
+
+    #hamburger-toggler {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+    }
+
+    #hamburger-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      z-index: 5  ;
+
+      & > div {
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background-color: white;
+      }
+
+      &-top {
+        top: 7.5px;
+      }
+
+      &-mid {
+        top: 19px;
+      }
+
+      &-bottom {
+        bottom: 7.5px;
+      }
+    }
+  }
+
+  nav#hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $real-blue;
+    width: 0;
+    display: none;
+    height: 90px;
+    z-index: 4;
+
+    ul {
+      width: 84%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px;
+
+      a {
+        font-size: 1.6rem;
+        color: white;
+
+        &:hover, &:current {
+          color: $real-yellow;
+        }
+      }
     }
   }
 }
@@ -137,10 +250,11 @@ main#madrid-calculator {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       color: $real-yellow;
 
       i {
+        font-size: 4.2rem;
         margin: 7px;
       }
     }
