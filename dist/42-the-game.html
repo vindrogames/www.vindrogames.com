@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ01TSWRZL"></script>
+  <script>
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Set default consent to 'denied' as a placeholder if first time visitor
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+      });
+    } else {
+
+      // Set consent to previous config from user's local storage
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-LJ01TSWRZL');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Single player version of the Mind boradgame with 42 possible numbers and 14 positions. Great game by Vindrogames to learn probablility through play">
+  <meta name="keywords" content="Vindrogames, Learn About Probability, 42 Game, Play and Learn, Playful Math">
+  <meta prefix="og: http://ogp.me/ns#" property="og:image" content="../img/42game-gallery.png"/>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
+  <link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico">
+  <title>42 the Game, reach the meaning of life, the universe and everything | Vindrogames</title>
+</head>
+<body>
+  <nav id="tm-navbar" class="top">
+    <div class="tm-brand">
+      <a href="../"><img src="../img/Teacher-Maik-Logo.png" alt="Michael Thomas Bennett, aka Teacher Maik, Web Development Portfolio"></a>
+    </div>
+    <ul class="tm-main-menu">
+      <li><a href="../css-portfolio/index.html">cssArt</a></li>
+      <li><a href="../javascript-portfolio/">javascript</a></li>
+      <li><a class="current" href="/index.html">games</a></li>
+      <li><a href="../my-webs.html">webs</a></li>
+    </ul>
+  </nav>
+  
+  <section id="tm-hero" class="game-42">
+    <div class="hero-content forty-two">
+      <div type="button" class="nums-42">
+        <button id="1" class="pos-42 open">1.</button>
+        <button id="2" class="pos-42 open">2.</button>
+        <button id="3" class="pos-42 open">3.</button>
+        <button id="4" class="pos-42 open">4.</button>
+        <button id="5" class="pos-42 open">5.</button>
+        <button id="6" class="pos-42 open">6.</button>
+        <button id="7" class="pos-42 open">7.</button>
+        <button id="8" class="pos-42 open">8.</button>
+        <button id="9" class="pos-42 open">9.</button>
+        <button id="10" class="pos-42 open">10.</button>
+        <button id="11" class="pos-42 open">11.</button>
+        <button id="12" class="pos-42 open">12.</button>
+        <button id="13" class="pos-42 open">13.</button>
+        <button id="14" class="pos-42 open">14.</button>
+      </div>
+      <div class="display-42">
+        <div class="instructions-42">
+          <h1 class="title-42"><span class="inline-teal inline-bold">42</span> the game</h1>
+          <h2 class="sub-title-42">Reach the meaning of life, the universe and of everything</h2>
+          <p>Inspired by the boardgame <a class="inline-yellow" href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">The Mind</a> you will have to place 14 random numbers from 0-42 in ascending order in the list on the left. Position 1 is the lowest and position 14 is the highest. Each number will appear one after another and you decide at which position to place it. You lose if you cannot place a number in ascending order.</p>
+        </div>
+        <div class="game-42-btn-container">
+          <button id="showcase-42" class="tm-btn-yellow">Start</button>
+        </div>
+        <div class="game-42-results">
+          <div class="game-42-results-container">
+            <h3 class="current-game-42-header">Points</h3>
+            <h3 class="current-game-42-points"></h3>
+          </div>
+          <div class="game-42-results-container">
+            <h3 class="prev-game-42-header">Previous</h3>
+            <h3 class="prev-game-42-points"></h3>
+          </div>
+          <div class="game-42-results-container">
+            <h3 class="best-game-42-header">Best</h3>
+            <h3 class="best-game-42-points"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="info">
+      <div class="social">
+        <a href="https://github.com/teacherMaik" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/teachermaik/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com/TeacherMaik" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCLTvAgvSy7ViRi7yAe0ogDA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.pinterest.es/TeacherMaik/"><i class="fa-brands fa-pinterest" target="_blank"></i></a>
+      </div>
+      <h3>d.michaelthomasbennett@gmail.com</h3>
+      <h3>Madrid, Spain</h3>
+    </div>
+    <div class="web-links">
+      <a href="https://www.vindrogames.com/" target="_blank">Vindrogames</a>
+      <a href="https://terraturca.es/" target="_blank">Terra Turca Imports</a>
+      <a href="https://ludotecaenlanube.com/" target="_blank">Ludoteca en la Nube</a>
+    </div>
+  </footer>
+
+  <script src="../js/games.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>
