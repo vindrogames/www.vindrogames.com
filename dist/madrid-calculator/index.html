@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ01TSWRZL"></script>
+  <script>
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Set default consent to 'denied' as a placeholder if first time visitor
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+      });
+    } else {
+
+      // Set consent to previous config from user's local storage
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-LJ01TSWRZL');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Calculadora del Madrid con las Champions que ha ganado el Real Madrid">
+  <meta name="keywords" content="Calculadora Real Madrid, Madrid Calculadora, Liga Champions Calculadora, Liga Champions Madrid, Real Madrid, Real Madrid Calculadora, Champions Real Madrid">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="https://kit.fontawesome.com/43e3be112e.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="/img/favicon_io/favicon.ico">
+  <title>Madrid Calculadora | Vindrogames</title>
+</head>
+<body>
+  <header class="hero-none">
+    <!--Background 100vw, 100vh fixed with transparent background so no interaction until cookies have been established-->
+    <div class="cookie-consent-background"></div>
+    <!--Cookie Banner which only shows for new users or expired GA cookies-->
+    <div id="cookie-consent-banner">
+      <div class="cookie-info">
+        <p>We use Cookies for two reasons only:</p>
+        <p>1. Anonymous stastics through Google Analytics such as geographic location, device type, pages visited and interactions to play with data analyisis.</p>
+        <p>2. Any game scores so you can see your previous statistics.</p>
+        <p>We don't do ads</p>
+      </div>
+      <div class="cookie-buttons">
+        <label><input id="google-analytics-check" class="cookie-checkbox" type="checkbox" checked>Allow Google Analytics</label>
+        <label><input id="game-scores-check" class="cookie-checkbox" type="checkbox" checked>Allow Game Score Cookies</label>
+        <div id="submit-cookies" class="btn btn-black">done</div>
+      </div>
+    </div>
+
+    <!--Navbar 90px height and 100% width fixed-->
+    <div id="navbar" class="nav-content navbar-calculator">
+      <div class="vindro-logo">
+        <a href="/index.html" style="border: none;"><img src="/img/vindro-logo-real-yellow.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
+        <div class="vindro-logo-text" translate="no">
+          <h4>vindro</h4>
+          <h4 class="inline-light inline-real-yellow">games</h4>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/index.html">home</a></li>
+          <li><a href="/story.html">story</a></li>
+          <li><a href="/blog.html">blog</a></li>
+          <li><a href="/games.html">games</a></li>
+          <li><a href="/contact.html">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="navbar-hamburger">
+      <div class="vindro-logo">
+        <a href="/index.html" style="border: none;"><img src="/img/vindro-logo-real-yellow.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
+        <div class="vindro-logo-text" translate="no">
+          <h4>vindro</h4>
+          <h4 class="inline-light inline-real-yellow">games</h4>
+        </div>
+      </div>
+      <div id="hamburger-container">
+        <div id="hamburger-toggler"></div>
+        <div id="hamburger-lines">
+          <div id="hamburger-lines-top"></div>
+          <div id="hamburger-lines-mid"></div>
+          <div id="hamburger-lines-bottom"></div>
+        </div>
+      </div>
+      <nav id="hamburger-menu">
+        <ul>
+          <li><a href="/index.html">home</a></li>
+          <li><a href="/story.html">story</a></li>
+          <li><a href="/blog.html">blog</a></li>
+          <li><a href="/games.html">games</a></li>
+          <li><a href="/contact.html">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="madrid-calculator">
+    <section id="madrid-left">
+      <div class="calculator-container">
+        <div id="result">
+          <div id="prev-opp"></div>
+          <div id="result-prompt">0</div>
+        </div>
+        <!-- Inline functions
+        <div class="buttons">
+          <div role="button" id="clear" onclick=clearAC() class="btn btn-no-num">AC</div>
+          <div role="button" id="pos-neg" onclick=changeSign() class="btn btn-no-num">&PlusMinus;</div>
+          <div role="button" id="percent" onclick=percent() class="btn btn-no-num">&percnt;</div>
+          <div role="button" id="divide" onclick="twoValueOperationClicked('div')" class="btn btn-operator">&divide;</div>
+          <div role="button" id="seven" onclick=pushNumber(7) class="btn btn-num" value="7">7</div>
+          <div role="button" id="eight" onclick=pushNumber(8) class="btn btn-num" value="8">8</div>
+          <div role="button" id="nine" onclick=pushNumber(9) class="btn btn-num" value="9">9</div>
+          <div role="button" id="multiply" onclick="twoValueOperationClicked('mult')" class="btn btn-operator">&times;</div>
+          <div role="button" id="four" onclick=pushNumber(4) class="btn btn-num" value="4">4</div>
+          <div role="button" id="five" onclick=pushNumber(5) class="btn btn-num" value="5">5</div>
+          <div role="button" id="six" onclick=pushNumber(6) class="btn btn-num" value="6">6</div>
+          <div role="button" id="subtract" onclick="twoValueOperationClicked('sub')" class="btn btn-operator">&minus;</div>
+          <div role="button" id="one" onclick=pushNumber(1) class="btn btn-num" value="1" >1</div>
+          <div role="button" id="two" onclick=pushNumber(2) class="btn btn-num" value="2">2</div>
+          <div role="button" id="three" onclick=pushNumber(3) class="btn btn-num" value="3">3</div>
+          <div role="button" id="add" onclick="twoValueOperationClicked('add')" class="btn btn-operator">&plus;</div>
+          <div role="button" id="zero" onclick=pushNumber(0) class="btn btn-num" value="0">0</div>
+          <div role="button" id="comma" class="btn btn-num">&comma;</div>
+          <div role="button" id="champions" onclick=championClicked() class="btn btn-champions play" value="15"><i class="fa-solid fa-trophy"></i></div>
+          <div role="button" id="equals" onclick=equalClicked() class="btn btn-operator play">&equals;</div>
+          <div role="button" id="audio-button" class="btn btn-audio">&#128362;</div>
+        </div>
+        -->
+
+        <!--Functions from .js-->
+        <div class="buttons">
+          <div role="button" id="clear" class="btn btn-no-num">AC</div>
+          <div role="button" id="pos-neg" class="btn btn-no-num">&PlusMinus;</div>
+          <div role="button" id="percent" class="btn btn-no-num">&percnt;</div>
+          <div role="button" id="divide" class="btn btn-operator">&divide;</div>
+          <div role="button" id="seven" class="btn btn-num" value="7">7</div>
+          <div role="button" id="eight" class="btn btn-num" value="8">8</div>
+          <div role="button" id="nine" class="btn btn-num" value="9">9</div>
+          <div role="button" id="multiply" class="btn btn-operator">&times;</div>
+          <div role="button" id="four" class="btn btn-num" value="4">4</div>
+          <div role="button" id="five" class="btn btn-num" value="5">5</div>
+          <div role="button" id="six" class="btn btn-num" value="6">6</div>
+          <div role="button" id="subtract" class="btn btn-operator">&minus;</div>
+          <div role="button" id="one" class="btn btn-num" value="1" >1</div>
+          <div role="button" id="two" class="btn btn-num" value="2">2</div>
+          <div role="button" id="three" class="btn btn-num" value="3">3</div>
+          <div role="button" id="add" class="btn btn-operator">&plus;</div>
+          <div role="button" id="zero" class="btn btn-num" value="0">0</div>
+          <div role="button" id="comma" class="btn btn-num">&comma;</div>
+          <div role="button" id="champions" class="btn btn-champions play" value="15"><i id="champions" class="fa-solid fa-trophy" value="15"></i></div>
+          <div role="button" id="equals" class="btn btn-no-num btn-equals play">&equals;</div>
+          <div role="button" id="audio-button" class="btn btn-audio">&#128362;</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="madrid-right">
+      <div class="calculator-text">
+        <h1>Calcula a lo Madridista</h1>
+        <h2>Calcula como siempre...</h2>
+        <h2>o por el número de Champions del Madrid</h2>
+      </div>
+      <div class="champions-icon">
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-calculator">
+    <div class="social">
+      <a href="https://github.com/vindrogames" class="fab fa-github fa-4x" target="_blank"></a>
+      <a href="https://twitter.com/TeacherMaik" class="fab fa-twitter fa-4x" target="_blank"></a>
+      <a href="https://www.instagram.com/teachermaik/?hl=es" class="fab fa-instagram fa-4x" target="_blank"></a>
+      <a href="https://www.linkedin.com/in/michael-thomas-bennett-6631822a/" class="fab fa-linkedin fa-4x" target="_blank"></a>
+      <a href="https://www.youtube.com/channel/UCLTvAgvSy7ViRi7yAe0ogDA" class="fab fa-youtube fa-4x" target="_blank"></a>
+    </div>
+    <div class="contact-info">
+      <p>&copy;<span class="inline-bold inline-real-yellow" translate="no">VindroGames</span> <span class="inline-bold inline-real-yellow">|</span> <span>All Rights Reserved</span></p>
+      <p><span class="inline-bold inline-real-yellow">&</span> in collaboration with <a href="https://ludotecaenlanube.com/" translate="no" target="_blank">Ludoteca en la Nube</a></p>
+    </div>
+    <a href="privacy-cookies.html">Cookies & Privacy Policy</a>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="/js/cookie-consent.js" type="text/javascript" charset="UTF-8"></script>
+  <!--<script src="/js/calculadora.js" type="text/javascript" charset="UTF-8"></script>-->
+  <script src="/js/calculator.js" type="text/javascript" charset="UTF-8"></script>
+
+</body>
+</html>
