@@ -19,10 +19,14 @@ const audioBtn = $('.btn-audio');
 let promptText = '';
 let firstOperand = 0;
 let secondOperand = 0;
+// this array will have the firstOperand, operation and secondOperand
 let operationData = [];
 let result = 0;
 let numOperations = 0;
 let prevClick = '';
+
+//
+const DECIMAL_NUMBERS = 3;
 
 btns.on('click', (e) => {
 
@@ -82,7 +86,7 @@ btns.on('click', (e) => {
     if (operationData.length === 0)
     {
       // pushes whatever was in firstOperand to data Array, then pushes the calculation (as text)
-      operationData.push(parseInt(firstOperand));
+      operationData.push(parseFloat(firstOperand).toFixed(DECIMAL_NUMBERS));
       operationData.push(e.target.id);
 
       // Concatenates the symbol for operation clicked to promptText for display
@@ -105,7 +109,7 @@ btns.on('click', (e) => {
     {
       
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseInt(secondOperand));
+      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with new calc symbol concatenated as promptText
@@ -148,7 +152,7 @@ btns.on('click', (e) => {
       }
 
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseInt(secondOperand));
+      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with NO operationn symbol concatenated
@@ -165,7 +169,7 @@ btns.on('click', (e) => {
     // Plus minus
     else if (e.target.id === 'pos-neg')
     {
-      console.log("plus minus button clicked")
+      console.log("plus minus button clicked");
       if (operationData.length === 0 && firstOperand != 0)
       {
         firstOperand *= -1;
@@ -174,7 +178,8 @@ btns.on('click', (e) => {
       }
       else if (operationData.length === 2 && secondOperand != 0)
       {
-        secondOperand *= -1
+        secondOperand *= -1;
+        // if the second operand is a negative number, then we need to display the operation with parenthesis
         if (secondOperand < 0)
         {
           promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
@@ -186,6 +191,32 @@ btns.on('click', (e) => {
         resultPrompt.html(promptText);
       }
     }
+
+    // Percentage
+    else if (e.target.id === 'percent')
+      {
+        console.log("percent button clicked");
+        if (operationData.length === 0 && firstOperand != 0)
+        {
+          firstOperand *= 0.01;
+          promptText = firstOperand;
+          resultPrompt.html(promptText);
+        }
+        else if (operationData.length === 2 && secondOperand != 0)
+        {
+          secondOperand *= 0.01;
+          // if the second operand is a negative number, then we need to display the operation with parenthesis
+          if (secondOperand < 0)
+          {
+            promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
+          }
+          else 
+          {
+            promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
+          }
+          resultPrompt.html(promptText);
+        }
+      }
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
@@ -210,7 +241,7 @@ btns.on('click', (e) => {
     else
     {
       secondOperand = 15;
-      operationData.push(parseInt(secondOperand));
+      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
       firstOperand = result;
       promptText = result;
