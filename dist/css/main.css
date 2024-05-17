@@ -773,6 +773,120 @@ footer .social a:hover {
   color: rgb(31, 40, 51);
 }
 
+main.game-42 {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgb(11, 12, 16);
+}
+main.game-42 #game-42-buttons {
+  width: 42%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main.game-42 #game-42-buttons button.pos-42 {
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  border-radius: 42px;
+  font-size: 2.1rem;
+  padding: 3px 21px;
+}
+main.game-42 #game-42-buttons button.pos-42.open {
+  background-color: transparent;
+  color: white;
+}
+main.game-42 #game-42-buttons button.pos-42.filled, main.game-42 #game-42-buttons button.pos-42:hover {
+  width: 84%;
+  background-color: rgb(252, 191, 0);
+  color: rgb(11, 12, 16);
+  font-weight: 600;
+}
+main.game-42 #game-42-buttons button.pos-42.filled {
+  text-align: center;
+  cursor: default;
+}
+main.game-42 #game-42-buttons button.pos-42.game-over {
+  background-color: rgb(230, 38, 68);
+  color: white;
+}
+main.game-42 #display-42 {
+  width: 58%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main.game-42 #display-42 .instructions-42 h1, main.game-42 #display-42 .instructions-42 h2, main.game-42 #display-42 .instructions-42 p {
+  margin-bottom: 1rem;
+}
+main.game-42 #display-42 .instructions-42 h1 {
+  font-size: 6.3rem;
+}
+main.game-42 #display-42 .instructions-42 h2 {
+  font-size: 2.8rem;
+}
+main.game-42 #display-42 .instructions-42 p {
+  font-size: 1.8rem;
+  text-align: justify;
+}
+main.game-42 #display-42 .instructions-42 p a {
+  color: rgb(102, 252, 241);
+}
+main.game-42 #display-42 .instructions-42 p a:hover {
+  color: rgb(252, 191, 0);
+}
+main.game-42 #display-42 .showcase-42 {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container {
+  padding-top: 42px;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
+  width: 84%;
+  padding: 14px;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: rgb(11, 12, 16);
+  background-color: rgb(252, 191, 0);
+  border: none;
+  border-radius: 42px;
+  cursor: pointer;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button:hover {
+  background-color: rgb(102, 252, 241);
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button.game-over {
+  background-color: rgb(230, 38, 68);
+  color: white;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container h3 {
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container :nth-child(2) {
+  margin-left: 1rem;
+}
+
 body {
   overflow: none;
 }
