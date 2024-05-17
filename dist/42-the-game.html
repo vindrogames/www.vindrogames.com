@@ -28,15 +28,16 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A collection of projects centered around games programmed in different lanugages at vindrogames in Madrid">
-  <meta name="keywords" content="education games, games for learning, vindrogames productions, programming languages">
+  <meta name="description" content="Single player version of the Mind boradgame with 42 possible numbers and 14 positions. Great game by Vindrogames to learn probablility through play">
+  <meta name="keywords" content="Vindrogames, Learn About Probability, 42 Game, Play and Learn, Playful Math">
+  <meta prefix="og: http://ogp.me/ns#" property="og:image" content="../img/42game-gallery.png"/>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
   <link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico">
-  <title>Games for learning | Vindrogames</title>
+  <title>42 the Game, reach the meaning of life, the universe and everything | Vindrogames</title>
 </head>
 <body>
-  <header class="hero-half hero-games">
+  <header class="hero-none">
     <!--Background 100vw, 100vh fixed with transparent background so no interaction until cookies have been established-->
     <div class="cookie-consent-background"></div>
     <!--Cookie Banner which only shows for new users or expired GA cookies-->
@@ -73,57 +74,53 @@
         </ul>
       </nav>
     </div>
-
-    <div class="hero-games-content">
-      <h1>games<span class="inline-bold inline-teal">Learning</span>Programming</h1>
-      <h2>play, learn, <span translate="no">vindrogames</span></h2>
-    </div>
   </header>
 
-  <main id="games-page-content">
-    <section id="games-page-intro">
-      <h2>Play around with a few of our <span class="inline-bold inline-green">projects</span></h2>
-      <p>Each of these projects are centered on creating games which provide a context for developing language, critical thinking, attention and can be tied to curricular standards.</p>
+  <main class="game-42">
+    <section id="game-42-buttons" class="">
+      <button id="1" class="pos-42 open">1.</button>
+      <button id="2" class="pos-42 open">2.</button>
+      <button id="3" class="pos-42 open">3.</button>
+      <button id="4" class="pos-42 open">4.</button>
+      <button id="5" class="pos-42 open">5.</button>
+      <button id="6" class="pos-42 open">6.</button>
+      <button id="7" class="pos-42 open">7.</button>
+      <button id="8" class="pos-42 open">8.</button>
+      <button id="9" class="pos-42 open">9.</button>
+      <button id="10" class="pos-42 open">10.</button>
+      <button id="11" class="pos-42 open">11.</button>
+      <button id="12" class="pos-42 open">12.</button>
+      <button id="13" class="pos-42 open">13.</button>
+      <button id="14" class="pos-42 open">14.</button>
     </section>
 
-    <section id="games-page-container">
-      <div class="game game-1">
-        <img src="img/greekTale.png" alt="A Greek Tale is a game with a metaphor of hacking computers with trojan horses by avoiding firewalls">
-          <a href="games/troyan-horse/play/" target="_blank">
-            <h3>Trojan Horse</h3>
-            <p>A short game inspired by Troy with a digital spin. Can you send your Trojan Horses through all the firewalls?</p>
-          </a>
+    <section id="display-42">
+      <div class="instructions-42">
+        <h1 class="title-42"><span class="inline-teal inline-bold">42</span> the game</h1>
+        <h2 class="sub-title-42">Reach the meaning of life, the universe and of everything</h2>
+        <p>Inspired by the boardgame <a href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">The Mind</a> you will have to place 14 random numbers from 1-42 in ascending order in the list on the left. Position 1 is for the lowest and number and position 14 is the highest. Each number will appear one after another and you decide at which position to place it. You lose if you cannot place a number in ascending order. <a class="inline-yellow" href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">Watch how to play</a></p>
       </div>
-      <div class="game game-2">
-        <img src="img/escapeTheCloud.png" alt="Digital Escaperoom to learn about Google Workspace tools">
-        <a class="games description" href="escape-the-cloud.html">
-          <h3>Digital BreakOut</h3>
-          <p>Inspired by Escape Rooms, this game is designed to teach users tricks and functionalities of Google tools.</p>
-        </a>
-      </div>
-      <div class="game game-3">
-        <img src="img/brainGame.png" alt="A zelda style role playing game to learn how the brain processes information">
-        <a class="games description" href="games/cerebro/play/" target="_blank">
-          <h3>Brain Game</h3>
-          <p>A role playing type game designed to teach people about the human brain and how we process visual information.</p>
-        </a>
-      </div>
-      <div class="game game-4">
-        <img src="img/setGame.png" alt="Set is a classic boardgame putting to the test your concentration and speed. This is vindrogame's solitaire version">
-        <a class="games description" href="https://set.vindrogames.com" target="_blank">
-          <h3 translate="no">SET</h3>
-          <p>A great boardgame we have recreated to play on screen. Simple but mentally exhausting, how many sets can you find?</p>
-        </a>
-      </div>
-      <div class="game game-5">
-        <img src="img/42game.png" alt="Inspired by the boardgame The Mind our 42 game puts your reasoning and luck to the test">
-        <a class="games description" href="42-the-game.html" target="_blank">
-          <h3>42 the game</h3>
-          <p>Inspired by the boardgame The Mind, our 42 game will test your reasoning, intuition and luck!</p>
-        </a>
+      <div class="showcase-42">
+        <div class="game-42-play-container">
+          <button id="game-42-play-button">Start</button>
+        </div>
+        <div class="game-42-results">
+          <div class="game-42-results-container">
+            <h3 class="current-game-42-header">Points:</h3>
+            <h3 class="current-game-42-points"></h3>
+          </div>
+          <div class="game-42-results-container">
+            <h3 class="prev-game-42-header">Previous:</h3>
+            <h3 class="prev-game-42-points"></h3>
+          </div>
+          <div class="game-42-results-container">
+            <h3 class="best-game-42-header">Best:</h3>
+            <h3 class="best-game-42-points"></h3>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
+  </main>  
 
   <footer>
     <div class="social">
@@ -135,14 +132,13 @@
     </div>
     <div class="contact-info">
       <p>&copy;<span class="inline-bold inline-teal" translate="no">VindroGames</span> <span class="inline-bold inline-teal">|</span> <span>All Rights Reserved</span></p>
-      <p><span class="inline-bold inline-teal">&</span> in collaboration with <a href="https://ludotecaenlanube.com/" translate="no" target="_blank">Ludoteca en la Nube</a></p>
+      <p><span class="inline-bold inline-teal">&</span> in collaboration with <a href="https://ludotecaenlanube.com/" target="_blank" translate="no">Ludoteca en la Nube</a></p>
     </div>
     <a href="privacy-cookies.html">Cookies & Privacy Policy</a>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-  <script src="js/index.js" type="text/javascript" charset="UTF-8"></script>
   <script src="js/cookie-consent.js" type="text/javascript" charset="UTF-8"></script>
-
+  <script src="js/42-game.js" type="text/javascript" charset="UTF-8"></script>
 </body>
 </html>

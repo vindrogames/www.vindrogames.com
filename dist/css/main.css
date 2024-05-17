@@ -19,6 +19,10 @@
   font-weight: 300;
 }
 
+.inline-real-yellow {
+  color: rgb(252, 191, 0);
+}
+
 .btn {
   cursor: pointer;
   display: inline-block;
@@ -218,6 +222,10 @@ img {
   margin: 20px;
   font-weight: 400;
 }
+#navbar .vindro-logo a {
+  padding: 3px;
+  margin: 0 3px;
+}
 #navbar .vindro-logo img {
   width: 60px;
   padding: 0;
@@ -232,14 +240,14 @@ img {
   font-family: "Montserrat", sans-serif;
   font-size: 2.1rem;
 }
-#navbar a {
-  color: white;
-  padding: 21px;
-  margin: 0 3px;
-}
 #navbar ul {
   display: flex;
   font-size: 1.6rem;
+}
+#navbar ul a {
+  color: white;
+  padding: 21px;
+  margin: 0 3px;
 }
 #navbar ul a:hover, #navbar ul a.current {
   border-bottom: 3px solid rgb(102, 252, 241);
@@ -297,6 +305,10 @@ img {
 }
 .hero-half .hero-games-content h2, .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
   font-size: 2.1rem;
+}
+
+.hero-none {
+  height: 90px;
 }
 
 main#home-page-content {
@@ -761,6 +773,356 @@ footer .social a:hover {
   color: rgb(31, 40, 51);
 }
 
+main.game-42 {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgb(11, 12, 16);
+}
+main.game-42 #game-42-buttons {
+  width: 42%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main.game-42 #game-42-buttons button.pos-42 {
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  border-radius: 42px;
+  font-size: 2.1rem;
+  padding: 3px 21px;
+}
+main.game-42 #game-42-buttons button.pos-42.open {
+  background-color: transparent;
+  color: white;
+}
+main.game-42 #game-42-buttons button.pos-42.filled, main.game-42 #game-42-buttons button.pos-42:hover {
+  width: 84%;
+  background-color: rgb(252, 191, 0);
+  color: rgb(11, 12, 16);
+  font-weight: 600;
+}
+main.game-42 #game-42-buttons button.pos-42.filled {
+  text-align: center;
+  cursor: default;
+}
+main.game-42 #game-42-buttons button.pos-42.game-over {
+  background-color: rgb(230, 38, 68);
+  color: white;
+}
+main.game-42 #display-42 {
+  width: 58%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main.game-42 #display-42 .instructions-42 h1, main.game-42 #display-42 .instructions-42 h2, main.game-42 #display-42 .instructions-42 p {
+  margin-bottom: 1rem;
+}
+main.game-42 #display-42 .instructions-42 h1 {
+  font-size: 6.3rem;
+}
+main.game-42 #display-42 .instructions-42 h2 {
+  font-size: 2.8rem;
+}
+main.game-42 #display-42 .instructions-42 p {
+  font-size: 1.8rem;
+  text-align: justify;
+}
+main.game-42 #display-42 .instructions-42 p a {
+  color: rgb(102, 252, 241);
+}
+main.game-42 #display-42 .instructions-42 p a:hover {
+  color: rgb(252, 191, 0);
+}
+main.game-42 #display-42 .showcase-42 {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container {
+  padding-top: 42px;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
+  width: 84%;
+  padding: 14px;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: rgb(11, 12, 16);
+  background-color: rgb(252, 191, 0);
+  border: none;
+  border-radius: 42px;
+  cursor: pointer;
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button:hover {
+  background-color: rgb(102, 252, 241);
+}
+main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button.game-over {
+  background-color: rgb(230, 38, 68);
+  color: white;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container h3 {
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+main.game-42 #display-42 .showcase-42 .game-42-results-container :nth-child(2) {
+  margin-left: 1rem;
+}
+
+body {
+  overflow: none;
+}
+
+#navbar.navbar-calculator {
+  opacity: 1;
+}
+#navbar.navbar-calculator ul a:hover {
+  border-bottom: 3px solid rgb(252, 191, 0);
+}
+
+#navbar-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0B0C10;
+  color: #fff;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0px;
+  padding: 0 14px;
+  z-index: 3;
+}
+#navbar-hamburger .vindro-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  font-weight: 400;
+}
+#navbar-hamburger .vindro-logo img {
+  width: 60px;
+  padding: 0;
+}
+#navbar-hamburger .vindro-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#navbar-hamburger .vindro-logo-text h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.1rem;
+}
+#navbar-hamburger #hamburger-container {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+#navbar-hamburger #hamburger-container #hamburger-toggler {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 5;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines > div {
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background-color: white;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-top {
+  top: 7.5px;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-mid {
+  top: 19px;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-bottom {
+  bottom: 7.5px;
+}
+#navbar-hamburger nav#hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 73, 150);
+  width: 0;
+  display: none;
+  height: 90px;
+  z-index: 4;
+}
+#navbar-hamburger nav#hamburger-menu ul {
+  width: 84%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+}
+#navbar-hamburger nav#hamburger-menu ul a {
+  font-size: 1.6rem;
+  color: white;
+}
+#navbar-hamburger nav#hamburger-menu ul a:hover, #navbar-hamburger nav#hamburger-menu ul a:current {
+  color: rgb(252, 191, 0);
+}
+
+main#madrid-calculator {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main#madrid-calculator #madrid-left, main#madrid-calculator #madrid-right {
+  width: 42%;
+  height: 63%;
+  padding: 1rem;
+}
+main#madrid-calculator #madrid-left .calculator-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  gap: 7px;
+}
+main#madrid-calculator #madrid-left .calculator-container #result {
+  width: 84%;
+  height: 21%;
+  border: 3px solid rgb(11, 12, 16);
+  border-radius: 7px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+main#madrid-calculator #madrid-left .calculator-container #result-prompt {
+  line-height: 3rem;
+  font-size: 3.6rem;
+  color: rgb(0, 73, 150);
+}
+main#madrid-calculator #madrid-left .calculator-container #result #prev-opp {
+  font-size: 1rem;
+  color: gray;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons {
+  width: 84%;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 3px;
+  background-color: lightgray;
+  font-size: 2rem;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-no-num {
+  background-color: rgb(11, 12, 16);
+  color: white;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-no-num:hover {
+  background-color: rgba(11, 12, 16, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num {
+  background-color: lightgray;
+  color: rgb(11, 12, 16);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num:hover {
+  background-color: #e7e7e7;
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-operator {
+  background-color: rgb(0, 73, 150);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-operator:hover {
+  background-color: rgba(0, 73, 150, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions {
+  background-color: rgb(252, 191, 0);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions:hover {
+  background-color: rgba(252, 191, 0, 0.7);
+}
+main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio {
+  grid-column: 4;
+  background-color: white;
+  color: rgb(11, 12, 16);
+  border: 3px solid rgb(11, 12, 16);
+  border-radius: 7px;
+}
+main#madrid-calculator #madrid-right {
+  color: rgb(11, 12, 16);
+  display: flex;
+  flex-direction: column;
+}
+main#madrid-calculator #madrid-right h1 {
+  font-size: 4.2rem;
+}
+main#madrid-calculator #madrid-right h2 {
+  font-size: 2.1rem;
+}
+main#madrid-calculator #madrid-right .champions-icon {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  color: rgb(252, 191, 0);
+}
+main#madrid-calculator #madrid-right .champions-icon i {
+  font-size: 4.2rem;
+  margin: 7px;
+}
+
+footer.footer-calculator a {
+  color: rgb(252, 191, 0);
+}
+footer.footer-calculator a:hover {
+  color: white;
+}
+footer.footer-calculator .contact-info a {
+  color: rgb(252, 191, 0);
+}
+footer.footer-calculator .contact-info a:hover {
+  color: white;
+}
+footer.footer-calculator .social a:hover {
+  background-color: rgb(0, 73, 150);
+}
+
 @media (max-width: 960px) {
   #navbar {
     padding: 0;
@@ -829,11 +1191,25 @@ footer .social a:hover {
   main#contact-page-content #contact-right {
     text-align: justify;
   }
+  #navbar-hamburger {
+    display: none;
+  }
+  main#madrid-calculator #madrid-left {
+    width: 60%;
+  }
+  main#madrid-calculator #madrid-right {
+    width: 35%;
+  }
+  main#madrid-calculator #madrid-right h1 {
+    font-size: 3.2rem;
+  }
+  main#madrid-calculator #madrid-right h2 {
+    font-size: 1.8rem;
+  }
+  main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+    width: 84%;
+  }
 }
-main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
-  width: 84%;
-}
-
 @media (max-width: 678px) {
   #navbar {
     height: 180px;
@@ -937,11 +1313,22 @@ main#privacy-page-content section#privacy, main#privacy-page-content section#coo
   main#contact-page-content #contact-right {
     text-align: justify;
   }
+  #navbar.navbar-calculator {
+    display: none;
+  }
+  #navbar-hamburger {
+    display: flex;
+  }
+  main#madrid-calculator {
+    flex-direction: column;
+  }
+  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
+    width: 96%;
+  }
+  main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+    width: 92%;
+  }
 }
-main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
-  width: 92%;
-}
-
 @media (max-width: 450px) {
   #navbar {
     height: 160px;
@@ -1017,6 +1404,50 @@ main#privacy-page-content section#privacy, main#privacy-page-content section#coo
 @media (max-width: 376px) {
   .hero-half {
     height: 63vh;
+  }
+  #navbar.navbar-calculator {
+    display: none;
+  }
+  #navbar-hamburger {
+    display: flex;
+  }
+  #navbar-hamburger #hamburger-container {
+    width: 32px;
+    height: 32px;
+  }
+  #navbar-hamburger #hamburger-container #hamburger-lines > div {
+    height: 2px;
+  }
+  #navbar-hamburger #hamburger-container #hamburger-lines-top {
+    top: 6.5px;
+  }
+  #navbar-hamburger #hamburger-container #hamburger-lines-mid {
+    top: 15px;
+  }
+  #navbar-hamburger #hamburger-container #hamburger-lines-bottom {
+    bottom: 6.5px;
+  }
+  #navbar-hamburger nav#hamburger-menu ul a {
+    font-size: 1.4rem;
+  }
+  main#madrid-calculator {
+    flex-direction: column;
+  }
+  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
+    width: 96%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container #result {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-right h1 {
+    margin-bottom: 3px;
+  }
+  main#madrid-calculator #madrid-right h2 {
+    width: 84%;
+    margin-bottom: 3px;
   }
 }
 
