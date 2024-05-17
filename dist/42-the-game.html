@@ -37,82 +37,108 @@
   <title>42 the Game, reach the meaning of life, the universe and everything | Vindrogames</title>
 </head>
 <body>
-  <nav id="tm-navbar" class="top">
-    <div class="tm-brand">
-      <a href="../"><img src="../img/Teacher-Maik-Logo.png" alt="Michael Thomas Bennett, aka Teacher Maik, Web Development Portfolio"></a>
-    </div>
-    <ul class="tm-main-menu">
-      <li><a href="../css-portfolio/index.html">cssArt</a></li>
-      <li><a href="../javascript-portfolio/">javascript</a></li>
-      <li><a class="current" href="/index.html">games</a></li>
-      <li><a href="../my-webs.html">webs</a></li>
-    </ul>
-  </nav>
-  
-  <section id="tm-hero" class="game-42">
-    <div class="hero-content forty-two">
-      <div type="button" class="nums-42">
-        <button id="1" class="pos-42 open">1.</button>
-        <button id="2" class="pos-42 open">2.</button>
-        <button id="3" class="pos-42 open">3.</button>
-        <button id="4" class="pos-42 open">4.</button>
-        <button id="5" class="pos-42 open">5.</button>
-        <button id="6" class="pos-42 open">6.</button>
-        <button id="7" class="pos-42 open">7.</button>
-        <button id="8" class="pos-42 open">8.</button>
-        <button id="9" class="pos-42 open">9.</button>
-        <button id="10" class="pos-42 open">10.</button>
-        <button id="11" class="pos-42 open">11.</button>
-        <button id="12" class="pos-42 open">12.</button>
-        <button id="13" class="pos-42 open">13.</button>
-        <button id="14" class="pos-42 open">14.</button>
+  <header class="hero-none">
+    <!--Background 100vw, 100vh fixed with transparent background so no interaction until cookies have been established-->
+    <div class="cookie-consent-background"></div>
+    <!--Cookie Banner which only shows for new users or expired GA cookies-->
+    <div id="cookie-consent-banner">
+      <div class="cookie-info">
+        <p>We use Cookies for two reasons only:</p>
+        <p>1. Anonymous stastics through Google Analytics such as geographic location, device type, pages visited and interactions to play with data analyisis.</p>
+        <p>2. Any game scores so you can see your previous statistics.</p>
+        <p>We don't do ads</p>
       </div>
-      <div class="display-42">
-        <div class="instructions-42">
-          <h1 class="title-42"><span class="inline-teal inline-bold">42</span> the game</h1>
-          <h2 class="sub-title-42">Reach the meaning of life, the universe and of everything</h2>
-          <p>Inspired by the boardgame <a class="inline-yellow" href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">The Mind</a> you will have to place 14 random numbers from 0-42 in ascending order in the list on the left. Position 1 is the lowest and position 14 is the highest. Each number will appear one after another and you decide at which position to place it. You lose if you cannot place a number in ascending order.</p>
+      <div class="cookie-buttons">
+        <label><input id="google-analytics-check" class="cookie-checkbox" type="checkbox" checked>Allow Google Analytics</label>
+        <label><input id="game-scores-check" class="cookie-checkbox" type="checkbox" checked>Allow Game Score Cookies</label>
+        <div id="submit-cookies" class="btn btn-black">done</div>
+      </div>
+    </div>
+
+    <!--Navbar 90px height and 100% width fixed-->
+    <div id="navbar" class="top nav-content">
+      <div class="vindro-logo">
+        <a href="index.html" style="border: none;"><img src="img/vindro_logo_1.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
+        <div class="vindro-logo-text" translate="no">
+          <h4>vindro</h4>
+          <h4 class="inline-light inline-teal">games</h4>
         </div>
-        <div class="game-42-btn-container">
-          <button id="showcase-42" class="tm-btn-yellow">Start</button>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">home</a></li>
+          <li><a href="story.html">story</a></li>
+          <li><a href="blog.html">blog</a></li>
+          <li><a class="current" href="games.html">games</a></li>
+          <li><a href="contact.html">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="game-42">
+    <section id="game-42-buttons" class="">
+      <button id="1" class="pos-42 open">1.</button>
+      <button id="2" class="pos-42 open">2.</button>
+      <button id="3" class="pos-42 open">3.</button>
+      <button id="4" class="pos-42 open">4.</button>
+      <button id="5" class="pos-42 open">5.</button>
+      <button id="6" class="pos-42 open">6.</button>
+      <button id="7" class="pos-42 open">7.</button>
+      <button id="8" class="pos-42 open">8.</button>
+      <button id="9" class="pos-42 open">9.</button>
+      <button id="10" class="pos-42 open">10.</button>
+      <button id="11" class="pos-42 open">11.</button>
+      <button id="12" class="pos-42 open">12.</button>
+      <button id="13" class="pos-42 open">13.</button>
+      <button id="14" class="pos-42 open">14.</button>
+    </section>
+
+    <section id="display-42">
+      <div class="instructions-42">
+        <h1 class="title-42"><span class="inline-teal inline-bold">42</span> the game</h1>
+        <h2 class="sub-title-42">Reach the meaning of life, the universe and of everything</h2>
+        <p>Inspired by the boardgame <a href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">The Mind</a> you will have to place 14 random numbers from 1-42 in ascending order in the list on the left. Position 1 is for the lowest and number and position 14 is the highest. Each number will appear one after another and you decide at which position to place it. You lose if you cannot place a number in ascending order. <a class="inline-yellow" href="https://boardgamegeek.com/boardgame/244992/mind" target="_blank">Watch how to play</a></p>
+      </div>
+      <div class="showcase-42">
+        <div class="game-42-play-container">
+          <button id="game-42-play-button">Start</button>
         </div>
         <div class="game-42-results">
           <div class="game-42-results-container">
-            <h3 class="current-game-42-header">Points</h3>
+            <h3 class="current-game-42-header">Points:</h3>
             <h3 class="current-game-42-points"></h3>
           </div>
           <div class="game-42-results-container">
-            <h3 class="prev-game-42-header">Previous</h3>
+            <h3 class="prev-game-42-header">Previous:</h3>
             <h3 class="prev-game-42-points"></h3>
           </div>
           <div class="game-42-results-container">
-            <h3 class="best-game-42-header">Best</h3>
+            <h3 class="best-game-42-header">Best:</h3>
             <h3 class="best-game-42-points"></h3>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>  
 
   <footer>
-    <div class="info">
-      <div class="social">
-        <a href="https://github.com/teacherMaik" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/teachermaik/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://twitter.com/TeacherMaik" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.youtube.com/channel/UCLTvAgvSy7ViRi7yAe0ogDA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://www.pinterest.es/TeacherMaik/"><i class="fa-brands fa-pinterest" target="_blank"></i></a>
-      </div>
-      <h3>d.michaelthomasbennett@gmail.com</h3>
-      <h3>Madrid, Spain</h3>
+    <div class="social">
+      <a href="https://github.com/vindrogames" class="fab fa-github fa-4x" target="_blank"></a>
+      <a href="https://twitter.com/TeacherMaik" class="fab fa-twitter fa-4x" target="_blank"></a>
+      <a href="https://www.instagram.com/teachermaik/?hl=es" class="fab fa-instagram fa-4x" target="_blank"></a>
+      <a href="https://www.linkedin.com/in/michael-thomas-bennett-6631822a/" class="fab fa-linkedin fa-4x" target="_blank"></a>
+      <a href="https://www.youtube.com/channel/UCLTvAgvSy7ViRi7yAe0ogDA" class="fab fa-youtube fa-4x" target="_blank"></a>
     </div>
-    <div class="web-links">
-      <a href="https://www.vindrogames.com/" target="_blank">Vindrogames</a>
-      <a href="https://terraturca.es/" target="_blank">Terra Turca Imports</a>
-      <a href="https://ludotecaenlanube.com/" target="_blank">Ludoteca en la Nube</a>
+    <div class="contact-info">
+      <p>&copy;<span class="inline-bold inline-teal" translate="no">VindroGames</span> <span class="inline-bold inline-teal">|</span> <span>All Rights Reserved</span></p>
+      <p><span class="inline-bold inline-teal">&</span> in collaboration with <a href="https://ludotecaenlanube.com/" target="_blank" translate="no">Ludoteca en la Nube</a></p>
     </div>
+    <a href="privacy-cookies.html">Cookies & Privacy Policy</a>
   </footer>
 
-  <script src="../js/games.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="js/cookie-consent.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="js/42-game.js" type="text/javascript" charset="UTF-8"></script>
 </body>
 </html>
