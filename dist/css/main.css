@@ -201,8 +201,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0B0C10;
-  color: #fff;
+  background-color: rgb(11, 12, 16);
+  color: white;
   width: 100%;
   height: 90px;
   position: fixed;
@@ -254,10 +254,10 @@ img {
 }
 
 .hero {
-  background: #0B0C10;
+  background: rgb(11, 12, 16);
   height: 100vh;
   position: relative;
-  color: #fff;
+  color: white;
 }
 .hero-home-content {
   display: flex;
@@ -286,9 +286,9 @@ img {
 
 .hero-half {
   height: 50vh;
-  background: #0B0C10;
+  background: rgb(11, 12, 16);
   position: relative;
-  color: #fff;
+  color: white;
 }
 .hero-half .hero-games-content, .hero-half .hero-contact-content, .hero-half .hero-escape-the-cloud, .hero-half .hero-blog, .hero-half .hero-stories-content, .hero-half .hero-privacy-content {
   position: relative;
@@ -309,6 +309,7 @@ img {
 
 .hero-none {
   height: 90px;
+  background: rgb(11, 12, 16);
 }
 
 main#home-page-content {
@@ -406,7 +407,7 @@ main#stories-page-content #timeline ul li {
   width: 6px;
   margin: 0 auto;
   padding-top: 50px;
-  background: #66FCF1;
+  background: rgb(102, 252, 241);
   /* Timeline Right Side */
   /* Timeline Left Side */
   /* Timeline Dots */
@@ -420,7 +421,7 @@ main#stories-page-content #timeline ul li div {
   bottom: 0;
   width: 400px;
   padding: 1rem;
-  background: #FFFFFF;
+  background: white;
   transition: all 0.5s ease-in-out;
   visibility: hidden;
   opacity: 0;
@@ -463,12 +464,12 @@ main#stories-page-content #timeline ul li div:before {
 main#stories-page-content #timeline ul li:nth-child(odd) div:before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #FFFFFF transparent transparent;
+  border-color: transparent white transparent transparent;
 }
 main#stories-page-content #timeline ul li:nth-child(even) div:before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #FFFFFF;
+  border-color: transparent transparent transparent white;
 }
 main#stories-page-content #timeline ul li.show div {
   transform: none;
@@ -508,41 +509,39 @@ main#games-page-content section#games-page-container {
 main#games-page-content section#games-page-container .game {
   position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 }
-main#games-page-content section#games-page-container .game img {
-  width: 84%;
-}
 main#games-page-content section#games-page-container .game a {
-  position: absolute;
-  width: 70%;
-  height: 70%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  gap: 21px;
-  text-align: center;
-  padding: 42px 24px 24px 24px;
-  border-radius: 14px;
-  color: white;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+main#games-page-content section#games-page-container .game a img {
+  width: 100%;
+  height: auto;
+}
+main#games-page-content section#games-page-container .game a img:hover {
+  opacity: 0.84;
+}
+main#games-page-content section#games-page-container .game-text {
   background-color: rgba(11, 12, 16, 0.9);
-  font-size: 1.6rem;
-  opacity: 0;
+  border-radius: 14px;
+  padding: 21px;
+  flex-grow: 1;
 }
-main#games-page-content section#games-page-container .game a h3 {
+main#games-page-content section#games-page-container .game-text h3 {
   color: rgb(250, 197, 80);
-  font-weight: 700;
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
 }
-main#games-page-content section#games-page-container .game a p {
-  text-align: justify;
-}
-main#games-page-content section#games-page-container .game a:hover {
-  opacity: 1;
+main#games-page-content section#games-page-container .game-text p {
+  font-size: 1.6rem;
 }
 
 main#contact-page-content {
@@ -776,7 +775,7 @@ footer .social a:hover {
 main.game-42 {
   position: relative;
   width: 100%;
-  height: calc(100vh - 90px);
+  min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1167,17 +1166,6 @@ footer.footer-calculator .social a:hover {
   main#games-page-content section#games-page-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  main#games-page-content section#games-page-container .game {
-    flex-direction: column;
-    aspect-ratio: auto;
-  }
-  main#games-page-content section#games-page-container .game a {
-    position: relative;
-    width: 100%;
-    flex-grow: 1;
-    opacity: 1;
-    padding: 14px;
-  }
   main#escape-the-cloud-content {
     grid-template-columns: 3fr 2fr;
   }
@@ -1212,7 +1200,7 @@ footer.footer-calculator .social a:hover {
 }
 @media (max-width: 678px) {
   #navbar {
-    height: 180px;
+    height: 142px;
     flex-direction: column;
     justify-content: flex-start;
   }
@@ -1221,6 +1209,9 @@ footer.footer-calculator .social a:hover {
   }
   #navbar a {
     padding: 14px;
+  }
+  #navbar ul a {
+    padding: 14px 21px;
   }
   .hero-home-content h1 {
     font-size: 5.4rem;
@@ -1280,17 +1271,6 @@ footer.footer-calculator .social a:hover {
   main#games-page-content section#games-page-container {
     grid-template-columns: repeat(1, 1fr);
   }
-  main#games-page-content section#games-page-container .game {
-    flex-direction: column;
-    aspect-ratio: auto;
-  }
-  main#games-page-content section#games-page-container .game a {
-    position: relative;
-    width: 100%;
-    flex-grow: 1;
-    opacity: 1;
-    padding: 14px;
-  }
   main#escape-the-cloud-content {
     grid-template-columns: 1fr;
   }
@@ -1307,8 +1287,27 @@ footer.footer-calculator .social a:hover {
     width: 70%;
     text-align: center;
   }
+  main.game-42 {
+    min-height: calc(100vh - 142px);
+  }
+  main.game-42 #display-42 .instructions-42 h1 {
+    font-size: 3rem;
+  }
+  main.game-42 #display-42 .instructions-42 h2 {
+    font-size: 1.8rem;
+  }
+  main.game-42 #display-42 .instructions-42 p {
+    font-size: 1.6rem;
+  }
+  main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
+    padding: 7px;
+    font-size: 2.1rem;
+  }
   main#contact-page-content {
     grid-template-columns: 1fr;
+  }
+  main#contact-page-content #contact-left {
+    padding: 3rem;
   }
   main#contact-page-content #contact-right {
     text-align: justify;
@@ -1330,17 +1329,15 @@ footer.footer-calculator .social a:hover {
   }
 }
 @media (max-width: 450px) {
-  #navbar {
-    height: 160px;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
   #navbar .vindro-logo {
     margin: 10px;
   }
   #navbar a {
     font-size: 14px;
     padding: 7px;
+  }
+  #navbar ul a {
+    padding: 14px;
   }
   .hero-home-content h1 {
     font-size: 3.4rem;
@@ -1399,6 +1396,9 @@ footer.footer-calculator .social a:hover {
   }
   footer .social a {
     padding: 3px;
+  }
+  footer .social a.fa-4x {
+    font-size: 3rem;
   }
 }
 @media (max-width: 376px) {
