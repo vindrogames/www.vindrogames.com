@@ -40,20 +40,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0B0C10;
-  color: #fff;
+  background-color: $vindro-black-overlay;
+  color: white;
   width: 100%;
   height: 90px;
   position: fixed;
-  opacity: 0.9;
   top: 0px;
   padding: 0 30px;
   transition: 0.5s;
   z-index: 3;
-
-  &.top {
-    background-color: $vindro-gray;
-  }
 
   .vindro-logo {
     display: flex;
@@ -100,11 +95,189 @@ img {
   }
 }
 
+#navbar-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $vindro-black-overlay;
+  color: #fff;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  padding: 0;
+  transition: 0.5s;
+  z-index: 3;
+
+  .vindro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    font-weight: 400;
+
+    img {
+      width: 42px;
+      padding: 0;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        font-family: $vindro-Montserrat;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  #hamburger-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    #hamburger-toggler {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+    }
+
+    #hamburger-lines {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 28px;
+      height: 28px;
+      background-color: transparent;
+      z-index: 5;
+
+      & > div {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: white;
+      }
+
+      &-top {
+        top: 3px;
+        transition: 0.42s ease;
+      }
+
+      &-mid {
+        top: 13px;
+        opacity: 1;
+        transition: 0.84s ease;
+      }
+
+      &-bottom {
+        bottom: 3px;
+        transition: 0.42s ease;
+      }
+    }
+
+    &.open {
+      background-color: $vindro-teal;
+
+      #hamburger-lines {
+      
+        & > div {
+        background-color: $vindro-black;
+        }
+
+        &-top {
+          transform: rotate(405deg);
+          top: 13px;
+          transition: 0.42s ease;
+        }
+
+        &-mid {
+          opacity: 0;
+          transition: 0.1s ease;
+        }
+
+        &-bottom {
+          transform: rotate(-405deg);
+          bottom: 13px;
+          transition: 0.42s ease;
+        }
+      }
+    }
+
+    &.navbar-calculator {
+      
+      &.open {
+        background-color: lightgray;
+      }
+    }
+  }
+
+  nav#hamburger-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: $vindro-teal;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+    display: none;
+    z-index: 4;
+
+    ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 42px 60px 0 0;
+
+      li {
+        width: calc(100vw - 80px);
+        margin: 0 0 20px 20px;
+
+        a {
+          display: block;
+          padding: 7px 0 7px 42px;
+          width: 100%;
+          font-size: 2.1rem;
+          color: $vindro-black;
+          border-bottom: 3px solid transparent;
+          
+          &.current {
+            border-bottom: 3px solid $vindro-gray;
+          }
+        }
+      }
+    }
+
+    &.open {
+      height: calc(100vh - 60px);
+      transition: 0.5s ease
+    }
+
+    &.navbar-calculator {
+      background-color: $real-yellow;
+
+      ul li a {
+        color: $vindro-black;
+        border-bottom: 3px solid white;
+      }
+    }
+  }
+}
+
+#navbar.top, 
+#navbar-hamburger.top {
+  background-color: $vindro-gray;
+}
+
 .hero {
-  background: #0B0C10;
+  background: $vindro-black;
   height: 100vh;
   position: relative;
-  color: #fff;
+  color: white;
 
   &-home-content {
     display: flex;
@@ -138,11 +311,11 @@ img {
 
 .hero-half {
   height: 50vh;
-  background: #0B0C10;
+  background: $vindro-black;
   position: relative;
-  color: #fff;
+  color: white;
 
-  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content, .hero-privacy-content {
+  .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content, .hero-privacy-content {
     position: relative;
     height: 100%;
     display: flex;
@@ -160,10 +333,34 @@ img {
       font-size: 2.1rem;
     }
   }
+
+  .hero-games-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 63px;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+
+      h2 {
+        font-size: 4.2rem;
+        margin-bottom: 14px;
+      }
+    }
+    h1 {
+      font-size: 2.1rem;
+    }
+  }
 }
 
 .hero-none {
   height: 90px;
+  background: $vindro-black;
 }
 
 main#home-page-content {
@@ -276,14 +473,14 @@ main#stories-page-content {
       width: 6px;
       margin: 0 auto;
       padding-top: 50px;
-      background: #66FCF1;
+      background: $vindro-teal;
 
       div {
         position: relative;
         bottom: 0;
         width: 400px;
         padding: 1rem;
-        background: #FFFFFF;
+        background: white;
         transition: all 0.5s ease-in-out;
         visibility: hidden;
         opacity: 0;
@@ -337,14 +534,14 @@ main#stories-page-content {
       &:nth-child(odd) div:before {
         left: -15px;
         border-width: 8px 16px 8px 0;
-        border-color: transparent #FFFFFF transparent transparent;
+        border-color: transparent white transparent transparent;
       }
 
       /* Timeline Left Side Arrows */
       &:nth-child(even) div:before {
         right: -15px;
         border-width: 8px 0 8px 16px;
-        border-color: transparent transparent transparent #FFFFFF;
+        border-color: transparent transparent transparent white;
       }
 
       /* Timeline Show Boxes */
@@ -397,48 +594,111 @@ main#games-page-content {
     .game {
       position: relative;
       width: 100%;
-      aspect-ratio: 1/1;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 1rem;
 
-      img {
-        width: 84%;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        aspect-ratio: 1/1;
+
+        img {
+          width: 100%;
+          height: auto;
+  
+          &:hover {
+            opacity: 0.84;
+          }
+        }
       }
 
-      a {
-        position: absolute;
-        width: 70%;
-        height: 70%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 21px;
-        text-align: center;
-        padding: 42px 24px 24px 24px;
-        border-radius: 14px;
-        color: white;
+      &-text {
         background-color: $vindro-black-overlay;
-        font-size: 1.6rem;
-        opacity: 0;
+        border-radius: 14px;
+        padding: 21px;
+        flex-grow: 1;
 
         h3 {
           color: $tm-yellow-solid;
-          font-weight: 700;
+          font-size: 2.1rem;
+          margin-bottom: 1rem;
         }
 
         p {
-          text-align: justify;
-        }
-        &:hover {
-          opacity: 1;
+          font-size: 1.6rem;
         }
       }
     }
   }
 }
+
+main#escape-the-cloud-content {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  #escape-the-cloud-trailer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-tan;
+    color: $vindro-black;
+    font-size: 1.4rem;
+    padding: 3rem;
+
+    video {
+      width: 90%;
+    }
+  }
+
+  #escape-the-cloud-info {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-gray;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
+
+      a {
+        width: 42%;
+        font-size: 1.8rem;
+        font-weight: 700;
+
+        &:hover {
+          background-color: $vindro-black;
+          color: $vindro-teal;
+        }
+      }
+    }
+  }
+}
+
+@import 'game-42';
+@import 'calculadora';
 
 main#contact-page-content {
   min-height: 50vh;
@@ -455,8 +715,11 @@ main#contact-page-content {
     justify-content: center;
     gap: 42px;
     background-color: $vindro-tan;
-    color: $vindro-black;
-    font-size: 1.4rem;
+
+    h3 {
+      color: $vindro-black;
+      font-size: 1.4rem;
+    }
   }
 
   #contact-right {
@@ -596,61 +859,72 @@ main#privacy-page-content {
   }
 }
 
-main#escape-the-cloud-content {
-  min-height: 50vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.cookie-consent-background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  z-index: 4;
+}
+
+#cookie-consent-banner {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  min-height: 90px;
+  background-color: $vindro-teal;
+  color: $vindro-black;
+  z-index: 5;
+  padding: 14px;
+  text-align: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 42px;
 
-  #escape-the-cloud-trailer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 42px;
-    background-color: $vindro-tan;
-    color: $vindro-black;
-    font-size: 1.4rem;
-    padding: 3rem;
+  .cookie-info {
+    width: 42%;
+    text-align: left;
 
-    video {
-      width: 90%;
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    > :nth-child(1), :nth-child(4) {
+      font-weight: 700;;
     }
   }
 
-  #escape-the-cloud-info {
-    width: 100%;
-    height: 100%;
-    padding: 3rem;
+  .cookie-buttons {
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 42px;
-    background-color: $vindro-gray;
+    align-items: flex-start;
+    gap: 21px;
 
-    p {
-      font-size: 1.6rem;
+    label {
+      font-weight: 600;
+
+      .cookie-checkbox {
+        vertical-align: middle;
+        margin-right: 14px;
+        width: 14px; 
+        height: 14px;
+        accent-color: $vindro-black;
+      }
     }
 
-    .buttons {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 14px;
+    #submit-cookies {
+      align-self: flex-end;
+      color: white;
+      border: 2px solid transparent;
 
-      a {
-        width: 42%;
-        font-size: 1.8rem;
+      &:hover {
+        background-color: white;
+        border: 2px solid $vindro-black;
+        color: $vindro-gray;
         font-weight: 700;
-
-        &:hover {
-          background-color: $vindro-black;
-          color: $vindro-teal;
-        }
       }
     }
   }
@@ -706,6 +980,4 @@ footer {
   }
 }
 
-@import 'game-42';
-@import 'calculadora';
 @import 'mobile';

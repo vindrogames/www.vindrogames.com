@@ -74,9 +74,40 @@
       </nav>
     </div>
 
+    <div id="navbar-hamburger" class="top">
+      <div class="vindro-logo">
+        <a href="/" style="border: none;"><img src="img/vindro_logo_1.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
+        <div class="vindro-logo-text" translate="no">
+          <h4>vindro</h4>
+          <h4 class="inline-light inline-teal">games</h4>
+        </div>
+      </div>
+      <div id="hamburger-container">
+        <div id="hamburger-toggler"></div>
+        <div id="hamburger-lines">
+          <div id="hamburger-lines-top"></div>
+          <div id="hamburger-lines-mid"></div>
+          <div id="hamburger-lines-bottom"></div>
+        </div>
+      </div>
+      <nav id="hamburger-menu">
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="story.html">story</a></li>
+          <li><a href="blog.html">blog</a></li>
+          <li><a class="current" href="games.html">games</a></li>
+          <li><a href="contact.html">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
     <div class="hero-games-content">
-      <h1>games<span class="inline-bold inline-teal">Learning</span>Programming</h1>
-      <h2>play, learn, <span translate="no">vindrogames</span></h2>
+      <div class="hero-games-content-title">
+        <h2>games</h2>
+        <h2 class="inline-bold inline-teal">Learning</h2>
+        <h2>Programming</h2>
+      </div>
+      <h1>play, learn, <span translate="no">vindrogames</span></h1>
     </div>
   </header>
 
@@ -88,39 +119,39 @@
 
     <section id="games-page-container">
       <div class="game game-1">
-        <img src="img/greekTale.png" alt="A Greek Tale is a game with a metaphor of hacking computers with trojan horses by avoiding firewalls">
-          <a href="games/troyan-horse/play/" target="_blank">
+        <a href="games/troyan-horse/play/" target="blank"><img src="img/greekTale.png" alt="A Greek Tale is a game with a metaphor of hacking computers with trojan horses by avoiding firewalls"></a>
+          <div class="game-text">
             <h3>Trojan Horse</h3>
             <p>A short game inspired by Troy with a digital spin. Can you send your Trojan Horses through all the firewalls?</p>
-          </a>
+          </div>
       </div>
       <div class="game game-2">
-        <img src="img/escapeTheCloud.png" alt="Digital Escaperoom to learn about Google Workspace tools">
-        <a class="games description" href="escape-the-cloud.html">
+        <a href="escape-the-cloud.html"><img src="img/escapeTheCloud.png" alt="Digital Escaperoom to learn about Google Workspace tools"></a>
+        <div class="game-text">
           <h3>Digital BreakOut</h3>
-          <p>Inspired by Escape Rooms, this game is designed to teach users tricks and functionalities of Google tools.</p>
-        </a>
+          <p>Inspired by Escape Rooms, this game teacher players tricks and functionalities of Google tools.</p>
+        </div>
       </div>
       <div class="game game-3">
-        <img src="img/brainGame.png" alt="A zelda style role playing game to learn how the brain processes information">
-        <a class="games description" href="games/cerebro/play/" target="_blank">
+        <a href="games/cerebro/play/" target="_blank"><img src="img/brainGame.png" alt="A zelda style role playing game to learn how the brain processes information"></a>
+        <div class="game-text">
           <h3>Brain Game</h3>
           <p>A role playing type game designed to teach people about the human brain and how we process visual information.</p>
-        </a>
+        </div>
       </div>
       <div class="game game-4">
-        <img src="img/setGame.png" alt="Set is a classic boardgame putting to the test your concentration and speed. This is vindrogame's solitaire version">
-        <a class="games description" href="https://set.vindrogames.com" target="_blank">
+        <a href="https://set.vindrogames.com" target="_blank"><img src="img/setGame.png" alt="Set is a classic boardgame putting to the test your concentration and speed. This is vindrogame's solitaire version"></a>
+        <div class="game-text">
           <h3 translate="no">SET</h3>
           <p>A great boardgame we have recreated to play on screen. Simple but mentally exhausting, how many sets can you find?</p>
-        </a>
+        </div>
       </div>
       <div class="game game-5">
-        <img src="img/42game.png" alt="Inspired by the boardgame The Mind our 42 game puts your reasoning and luck to the test">
-        <a class="games description" href="42-the-game.html">
+        <a href="/42-the-game/"><img src="img/42game.png" alt="Inspired by the boardgame The Mind our 42 game puts your reasoning and luck to the test"></a>
+        <div class="game-text">
           <h3>42 the game</h3>
           <p>Inspired by the boardgame The Mind, our 42 game will test your reasoning, intuition and luck!</p>
-        </a>
+        </div>
       </div>
     </section>
   </main>
@@ -142,7 +173,6 @@
 
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script src="js/index.js" type="text/javascript" charset="UTF-8"></script>
-  <script src="js/cookie-consent.js" type="text/javascript" charset="UTF-8"></script>
 
 </body>
 </html>
