@@ -165,7 +165,6 @@ img {
 .hero-none {
   height: 90px;
   background: $vindro-black;
-
 }
 
 main#home-page-content {
@@ -442,6 +441,69 @@ main#games-page-content {
   }
 }
 
+main#escape-the-cloud-content {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  #escape-the-cloud-trailer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-tan;
+    color: $vindro-black;
+    font-size: 1.4rem;
+    padding: 3rem;
+
+    video {
+      width: 90%;
+    }
+  }
+
+  #escape-the-cloud-info {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 42px;
+    background-color: $vindro-gray;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
+
+      a {
+        width: 42%;
+        font-size: 1.8rem;
+        font-weight: 700;
+
+        &:hover {
+          background-color: $vindro-black;
+          color: $vindro-teal;
+        }
+      }
+    }
+  }
+}
+
+@import 'game-42';
+@import 'calculadora';
+
 main#contact-page-content {
   min-height: 50vh;
   display: grid;
@@ -598,61 +660,72 @@ main#privacy-page-content {
   }
 }
 
-main#escape-the-cloud-content {
-  min-height: 50vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.cookie-consent-background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  z-index: 4;
+}
+
+#cookie-consent-banner {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  min-height: 90px;
+  background-color: $vindro-teal;
+  color: $vindro-black;
+  z-index: 5;
+  padding: 14px;
+  text-align: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 42px;
 
-  #escape-the-cloud-trailer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 42px;
-    background-color: $vindro-tan;
-    color: $vindro-black;
-    font-size: 1.4rem;
-    padding: 3rem;
+  .cookie-info {
+    width: 42%;
+    text-align: left;
 
-    video {
-      width: 90%;
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    > :nth-child(1), :nth-child(4) {
+      font-weight: 700;;
     }
   }
 
-  #escape-the-cloud-info {
-    width: 100%;
-    height: 100%;
-    padding: 3rem;
+  .cookie-buttons {
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 42px;
-    background-color: $vindro-gray;
+    align-items: flex-start;
+    gap: 21px;
 
-    p {
-      font-size: 1.6rem;
+    label {
+      font-weight: 600;
+
+      .cookie-checkbox {
+        vertical-align: middle;
+        margin-right: 14px;
+        width: 14px; 
+        height: 14px;
+        accent-color: $vindro-black;
+      }
     }
 
-    .buttons {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 14px;
+    #submit-cookies {
+      align-self: flex-end;
+      color: white;
+      border: 2px solid transparent;
 
-      a {
-        width: 42%;
-        font-size: 1.8rem;
+      &:hover {
+        background-color: white;
+        border: 2px solid $vindro-black;
+        color: $vindro-gray;
         font-weight: 700;
-
-        &:hover {
-          background-color: $vindro-black;
-          color: $vindro-teal;
-        }
       }
     }
   }
@@ -708,6 +781,4 @@ footer {
   }
 }
 
-@import 'game-42';
-@import 'calculadora';
 @import 'mobile';

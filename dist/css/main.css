@@ -99,69 +99,6 @@ main#under-construction .loader-element:nth-child(3) {
   }
 }
 
-.cookie-consent-background {
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  opacity: 0;
-  z-index: 4;
-}
-
-#cookie-consent-banner {
-  position: fixed;
-  top: 90px;
-  width: 100%;
-  min-height: 90px;
-  background-color: rgb(102, 252, 241);
-  color: rgb(11, 12, 16);
-  z-index: 5;
-  padding: 14px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 42px;
-}
-#cookie-consent-banner .cookie-info {
-  width: 42%;
-  text-align: left;
-}
-#cookie-consent-banner .cookie-info p {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-#cookie-consent-banner .cookie-info > :nth-child(1), #cookie-consent-banner .cookie-info :nth-child(4) {
-  font-weight: 700;
-}
-#cookie-consent-banner .cookie-buttons {
-  font-size: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 21px;
-}
-#cookie-consent-banner .cookie-buttons label {
-  font-weight: 600;
-}
-#cookie-consent-banner .cookie-buttons label .cookie-checkbox {
-  vertical-align: middle;
-  margin-right: 14px;
-  width: 14px;
-  height: 14px;
-  accent-color: rgb(11, 12, 16);
-}
-#cookie-consent-banner .cookie-buttons #submit-cookies {
-  align-self: flex-end;
-  color: white;
-  border: 2px solid transparent;
-}
-#cookie-consent-banner .cookie-buttons #submit-cookies:hover {
-  background-color: white;
-  border: 2px solid rgb(11, 12, 16);
-  color: rgb(31, 40, 51);
-  font-weight: 700;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -544,138 +481,6 @@ main#games-page-content section#games-page-container .game-text p {
   font-size: 1.6rem;
 }
 
-main#contact-page-content {
-  min-height: 50vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-}
-main#contact-page-content #contact-left {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 42px;
-  background-color: rgb(197, 198, 199);
-  color: rgb(11, 12, 16);
-  font-size: 1.4rem;
-}
-main#contact-page-content #contact-right {
-  width: 100%;
-  height: 100%;
-  padding: 42px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 42px;
-  background-color: rgb(31, 40, 51);
-}
-main#contact-page-content #contact-right form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(11, 12, 16);
-  border-radius: 7px;
-  padding: 14px 21px;
-}
-main#contact-page-content #contact-right form label, main#contact-page-content #contact-right form input, main#contact-page-content #contact-right form .privacy-accept {
-  margin-bottom: 7px;
-}
-main#contact-page-content #contact-right form > label {
-  font-size: 1.6rem;
-  margin-bottom: 21px;
-}
-main#contact-page-content #contact-right form input.email-input {
-  background-color: rgb(197, 198, 199);
-  border: none;
-  border-radius: 3px;
-  padding: 7px;
-}
-main#contact-page-content #contact-right form input.email-input:focus {
-  outline: rgb(69, 162, 158);
-}
-main#contact-page-content #contact-right form ::placeholder {
-  color: rgb(69, 162, 158);
-  font-weight: 500;
-}
-main#contact-page-content #contact-right form .form-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-main#contact-page-content #contact-right form .form-bottom .privacy-accept {
-  display: flex;
-  gap: 7px;
-  align-items: center;
-}
-main#contact-page-content #contact-right form .form-bottom .privacy-accept input {
-  accent-color: rgb(102, 252, 241);
-}
-main#contact-page-content #contact-right form .form-bottom .privacy-accept a {
-  color: rgb(102, 252, 241);
-}
-main#contact-page-content #contact-right form .form-bottom .privacy-accept a:hover {
-  color: rgb(69, 162, 158);
-}
-main#contact-page-content #contact-right form .form-bottom input.form-submit-btn {
-  width: 42%;
-  background-color: rgb(197, 198, 199);
-  padding: 7px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-main#contact-page-content #contact-right form .form-bottom input.form-submit-btn:hover {
-  background-color: rgb(69, 162, 158);
-  color: white;
-}
-
-main#privacy-page-content {
-  width: 100%;
-  background-color: rgb(197, 198, 199);
-  color: rgb(11, 12, 16);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  text-align: justify;
-}
-main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
-  width: 63%;
-  padding: 1rem;
-}
-main#privacy-page-content section#privacy h2, main#privacy-page-content section#privacy h3, main#privacy-page-content section#privacy h4, main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h2, main#privacy-page-content section#cookies h3, main#privacy-page-content section#cookies h4, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
-  margin-bottom: 1rem;
-}
-main#privacy-page-content section#privacy h2, main#privacy-page-content section#cookies h2 {
-  color: rgb(69, 162, 158);
-  font-weight: 700;
-  font-size: 4.2rem;
-}
-main#privacy-page-content section#privacy h3, main#privacy-page-content section#cookies h3 {
-  font-size: 2.1rem;
-}
-main#privacy-page-content section#privacy h4, main#privacy-page-content section#cookies h4 {
-  font-size: 1.6rem;
-}
-main#privacy-page-content section#privacy h5, main#privacy-page-content section#cookies h5 {
-  font-weight: 600;
-}
-main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
-  font-size: 1.8rem;
-}
-main#privacy-page-content section#privacy a, main#privacy-page-content section#cookies a {
-  color: rgb(69, 162, 158);
-  font-weight: 600;
-  cursor: pointer;
-}
-main#privacy-page-content section#privacy a:hover, main#privacy-page-content section#cookies a:hover {
-  color: rgb(102, 252, 241);
-}
-
 main#escape-the-cloud-content {
   min-height: 50vh;
   display: grid;
@@ -729,49 +534,6 @@ main#escape-the-cloud-content #escape-the-cloud-info .buttons a:hover {
   color: rgb(102, 252, 241);
 }
 
-footer {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  text-align: center;
-  background-color: rgb(11, 12, 16);
-}
-footer a {
-  font-size: 1.2rem;
-  color: rgb(69, 162, 158);
-}
-footer a:hover {
-  color: rgb(102, 252, 241);
-}
-footer .contact-info {
-  font-size: 1.4rem;
-}
-footer .contact-info a {
-  color: rgb(102, 252, 241);
-  font-weight: 600;
-}
-footer .contact-info a:hover {
-  color: rgb(69, 162, 158);
-}
-footer .social {
-  height: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 42px;
-}
-footer .social a {
-  padding: 7px;
-  color: white;
-  border-radius: 7px;
-}
-footer .social a:hover {
-  background-color: rgb(69, 162, 158);
-  color: rgb(31, 40, 51);
-}
-
 main.game-42 {
   position: relative;
   width: 100%;
@@ -781,6 +543,43 @@ main.game-42 {
   justify-content: center;
   padding: 2rem;
   background-color: rgb(11, 12, 16);
+}
+main.game-42 #end-game-42 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  z-index: 10;
+}
+main.game-42 #end-game-42 h4 {
+  color: rgb(11, 12, 16);
+  margin-bottom: 1rem;
+}
+main.game-42 #end-game-42 h4:nth-child(1) {
+  font-size: 6rem;
+}
+main.game-42 #end-game-42 h4:nth-child(2) {
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+}
+main.game-42 #end-game-42-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+main.game-42 #end-game-42-buttons a {
+  font-size: 1.8rem;
+}
+main.game-42 #end-game-42-buttons a:hover {
+  background-color: rgb(102, 252, 241);
+  color: rgb(11, 12, 16);
 }
 main.game-42 #game-42-buttons {
   width: 42%;
@@ -796,6 +595,7 @@ main.game-42 #game-42-buttons button.pos-42 {
   border-radius: 42px;
   font-size: 2.1rem;
   padding: 3px 21px;
+  margin: 0.42rem 0.84rem;
 }
 main.game-42 #game-42-buttons button.pos-42.open {
   background-color: transparent;
@@ -813,6 +613,14 @@ main.game-42 #game-42-buttons button.pos-42.filled {
 }
 main.game-42 #game-42-buttons button.pos-42.game-over {
   background-color: rgb(230, 38, 68);
+  color: white;
+}
+main.game-42 #game-42-buttons button.pos-42.end-game-1 {
+  background-color: rgb(102, 252, 241);
+  color: rgb(11, 12, 16);
+}
+main.game-42 #game-42-buttons button.pos-42.end-game-2 {
+  background-color: rgb(11, 12, 16);
   color: white;
 }
 main.game-42 #display-42 {
@@ -847,7 +655,7 @@ main.game-42 #display-42 .showcase-42 {
   grid-template-columns: 2fr 1fr;
 }
 main.game-42 #display-42 .showcase-42 .game-42-play-container {
-  padding-top: 42px;
+  align-self: center;
 }
 main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
   width: 84%;
@@ -884,6 +692,17 @@ main.game-42 #display-42 .showcase-42 .game-42-results-container h3 {
 }
 main.game-42 #display-42 .showcase-42 .game-42-results-container :nth-child(2) {
   margin-left: 1rem;
+}
+main.game-42.end-game-1 {
+  background-color: white;
+  color: rgb(250, 197, 80);
+}
+main.game-42.end-game-2 {
+  background-color: rgb(102, 252, 241);
+  color: rgb(11, 12, 16);
+}
+main.game-42.end-game-2 #display-42 .instructions-42 p a {
+  color: white;
 }
 
 body {
@@ -1122,6 +941,244 @@ footer.footer-calculator .social a:hover {
   background-color: rgb(0, 73, 150);
 }
 
+main#contact-page-content {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+main#contact-page-content #contact-left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  background-color: rgb(197, 198, 199);
+  color: rgb(11, 12, 16);
+  font-size: 1.4rem;
+}
+main#contact-page-content #contact-right {
+  width: 100%;
+  height: 100%;
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  background-color: rgb(31, 40, 51);
+}
+main#contact-page-content #contact-right form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(11, 12, 16);
+  border-radius: 7px;
+  padding: 14px 21px;
+}
+main#contact-page-content #contact-right form label, main#contact-page-content #contact-right form input, main#contact-page-content #contact-right form .privacy-accept {
+  margin-bottom: 7px;
+}
+main#contact-page-content #contact-right form > label {
+  font-size: 1.6rem;
+  margin-bottom: 21px;
+}
+main#contact-page-content #contact-right form input.email-input {
+  background-color: rgb(197, 198, 199);
+  border: none;
+  border-radius: 3px;
+  padding: 7px;
+}
+main#contact-page-content #contact-right form input.email-input:focus {
+  outline: rgb(69, 162, 158);
+}
+main#contact-page-content #contact-right form ::placeholder {
+  color: rgb(69, 162, 158);
+  font-weight: 500;
+}
+main#contact-page-content #contact-right form .form-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+main#contact-page-content #contact-right form .form-bottom .privacy-accept {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+main#contact-page-content #contact-right form .form-bottom .privacy-accept input {
+  accent-color: rgb(102, 252, 241);
+}
+main#contact-page-content #contact-right form .form-bottom .privacy-accept a {
+  color: rgb(102, 252, 241);
+}
+main#contact-page-content #contact-right form .form-bottom .privacy-accept a:hover {
+  color: rgb(69, 162, 158);
+}
+main#contact-page-content #contact-right form .form-bottom input.form-submit-btn {
+  width: 42%;
+  background-color: rgb(197, 198, 199);
+  padding: 7px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+main#contact-page-content #contact-right form .form-bottom input.form-submit-btn:hover {
+  background-color: rgb(69, 162, 158);
+  color: white;
+}
+
+main#privacy-page-content {
+  width: 100%;
+  background-color: rgb(197, 198, 199);
+  color: rgb(11, 12, 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: justify;
+}
+main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+  width: 63%;
+  padding: 1rem;
+}
+main#privacy-page-content section#privacy h2, main#privacy-page-content section#privacy h3, main#privacy-page-content section#privacy h4, main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h2, main#privacy-page-content section#cookies h3, main#privacy-page-content section#cookies h4, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
+  margin-bottom: 1rem;
+}
+main#privacy-page-content section#privacy h2, main#privacy-page-content section#cookies h2 {
+  color: rgb(69, 162, 158);
+  font-weight: 700;
+  font-size: 4.2rem;
+}
+main#privacy-page-content section#privacy h3, main#privacy-page-content section#cookies h3 {
+  font-size: 2.1rem;
+}
+main#privacy-page-content section#privacy h4, main#privacy-page-content section#cookies h4 {
+  font-size: 1.6rem;
+}
+main#privacy-page-content section#privacy h5, main#privacy-page-content section#cookies h5 {
+  font-weight: 600;
+}
+main#privacy-page-content section#privacy h5, main#privacy-page-content section#privacy p, main#privacy-page-content section#cookies h5, main#privacy-page-content section#cookies p {
+  font-size: 1.8rem;
+}
+main#privacy-page-content section#privacy a, main#privacy-page-content section#cookies a {
+  color: rgb(69, 162, 158);
+  font-weight: 600;
+  cursor: pointer;
+}
+main#privacy-page-content section#privacy a:hover, main#privacy-page-content section#cookies a:hover {
+  color: rgb(102, 252, 241);
+}
+
+.cookie-consent-background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  z-index: 4;
+}
+
+#cookie-consent-banner {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  min-height: 90px;
+  background-color: rgb(102, 252, 241);
+  color: rgb(11, 12, 16);
+  z-index: 5;
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+#cookie-consent-banner .cookie-info {
+  width: 42%;
+  text-align: left;
+}
+#cookie-consent-banner .cookie-info p {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+#cookie-consent-banner .cookie-info > :nth-child(1), #cookie-consent-banner .cookie-info :nth-child(4) {
+  font-weight: 700;
+}
+#cookie-consent-banner .cookie-buttons {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+}
+#cookie-consent-banner .cookie-buttons label {
+  font-weight: 600;
+}
+#cookie-consent-banner .cookie-buttons label .cookie-checkbox {
+  vertical-align: middle;
+  margin-right: 14px;
+  width: 14px;
+  height: 14px;
+  accent-color: rgb(11, 12, 16);
+}
+#cookie-consent-banner .cookie-buttons #submit-cookies {
+  align-self: flex-end;
+  color: white;
+  border: 2px solid transparent;
+}
+#cookie-consent-banner .cookie-buttons #submit-cookies:hover {
+  background-color: white;
+  border: 2px solid rgb(11, 12, 16);
+  color: rgb(31, 40, 51);
+  font-weight: 700;
+}
+
+footer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: center;
+  background-color: rgb(11, 12, 16);
+}
+footer a {
+  font-size: 1.2rem;
+  color: rgb(69, 162, 158);
+}
+footer a:hover {
+  color: rgb(102, 252, 241);
+}
+footer .contact-info {
+  font-size: 1.4rem;
+}
+footer .contact-info a {
+  color: rgb(102, 252, 241);
+  font-weight: 600;
+}
+footer .contact-info a:hover {
+  color: rgb(69, 162, 158);
+}
+footer .social {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 42px;
+}
+footer .social a {
+  padding: 7px;
+  color: white;
+  border-radius: 7px;
+}
+footer .social a:hover {
+  background-color: rgb(69, 162, 158);
+  color: rgb(31, 40, 51);
+}
+
 @media (max-width: 960px) {
   #navbar {
     padding: 0;
@@ -1287,22 +1344,6 @@ footer.footer-calculator .social a:hover {
     width: 70%;
     text-align: center;
   }
-  main.game-42 {
-    min-height: calc(100vh - 142px);
-  }
-  main.game-42 #display-42 .instructions-42 h1 {
-    font-size: 3rem;
-  }
-  main.game-42 #display-42 .instructions-42 h2 {
-    font-size: 1.8rem;
-  }
-  main.game-42 #display-42 .instructions-42 p {
-    font-size: 1.6rem;
-  }
-  main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
-    padding: 7px;
-    font-size: 2.1rem;
-  }
   main#contact-page-content {
     grid-template-columns: 1fr;
   }
@@ -1382,6 +1423,25 @@ footer.footer-calculator .social a:hover {
   main#escape-the-cloud-content #escape-the-cloud-info .buttons a {
     width: 100%;
     text-align: center;
+  }
+  main.game-42 {
+    min-height: calc(100vh - 142px);
+  }
+  main.game-42 #display-42 .instructions-42 h1 {
+    font-size: 3rem;
+  }
+  main.game-42 #display-42 .instructions-42 h2 {
+    font-size: 1.8rem;
+  }
+  main.game-42 #display-42 .instructions-42 p {
+    font-size: 1.6rem;
+  }
+  main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
+    padding: 7px;
+    font-size: 1.8rem;
+  }
+  main.game-42 #display-42 .showcase-42 .game-42-results h3 {
+    font-size: 1.8rem;
   }
   main#contact-page-content #contact-left {
     height: 200px;
