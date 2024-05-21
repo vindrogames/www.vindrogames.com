@@ -298,38 +298,6 @@
     }
   }
 
-  main.game-42 {
-    min-height: calc(100vh - 142px);
-    #display-42 {
-
-      .instructions-42 {
-
-        h1 {
-          font-size: 3rem;
-        }
-
-        h2 {
-          font-size: 1.8rem;
-        }
-
-        p {
-          font-size: 1.6rem;
-        }
-      }
-
-      .showcase-42 {
-
-        .game-42-play-container {
-  
-          button#game-42-play-button {
-            padding: 7px;
-            font-size: 2.1rem;
-          }
-        }
-      }
-    }
-  }
-
   main#contact-page-content {
     grid-template-columns: 1fr;
 
@@ -457,6 +425,45 @@
         a {
           width: 100%;
           text-align: center;
+        }
+      }
+    }
+  }
+
+  main.game-42 {
+    min-height: calc(100vh - 142px);
+    #display-42 {
+
+      .instructions-42 {
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        p {
+          font-size: 1.6rem;
+        }
+      }
+
+      .showcase-42 {
+
+        .game-42-play-container {
+  
+          button#game-42-play-button {
+            padding: 7px;
+            font-size: 1.8rem;
+          }
+        }
+
+        .game-42-results {
+          
+          h3 {
+            font-size: 1.8rem;
+          }
         }
       }
     }

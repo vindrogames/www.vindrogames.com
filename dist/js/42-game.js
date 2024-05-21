@@ -25,6 +25,10 @@ const currentPointsHeader = $('.current-game-42-header');
 const currentPoints = $('.current-game-42-points');
 const prevPoints = $('.prev-game-42-points');
 const bestPoints = $('.best-game-42-points');
+const main42 = $('main.game-42');
+const endGameScreen = $('#end-game-42');
+const endGamePlayAgain = $('#end-game-42-play-again');
+const endGameAudio = new Audio("/42-the-game/42-end-game-sound.mp3");
 
 let numsRound = [];
 let numsToCheck = [];
@@ -39,7 +43,7 @@ let gameRoundScores = [];
 
 function generateGameNum(numsRound) {
 
-  let numGenerated = Math.floor((Math.random() * 42) + 1);
+  let numGenerated = Math.floor((Math.random() * 14) + 1);
 
   if (numsRound.includes(numGenerated)) {
 
@@ -114,16 +118,60 @@ function game42Over(gameRoundScores, gameRoundPoints) {
   return gameOver = true;
 }
 
-function end42Game() {
-  if (gameRoundPoints === 42) {
+endGamePlayAgain.on('click', (e) => {
 
-    playBtn.htmml('42: You Win');
+  main42.removeClass('end-game-2');
+  gamePositions.each((i, pos) => {
+    $(pos).removeClass('end-game-2');
+    $(pos).addClass('open');
+  });
+  endGameScreen.css({'display': 'none'});
+  playBtn.html('Start New Game');
+  currentPoints.html('0');
+
+});
+
+function sleep(ms) {
+  return new Promise ((resolve) => setTimeout(resolve, ms));
+};
+
+async function animateGamePosition() {
+
+  endGameAudio.play();
+  main42.addClass('end-game-1');
+
+  console.log("animation called");
+  // First positions animation with background + text + button change
+  for (const pos of gamePositions) {
+    $(pos).removeClass('filled');
+    $(pos).addClass('end-game-1');
+    await sleep(21);
   }
+  // Second positions animation with background + text + button change
+  await sleep(1800);
+  main42.removeClass('end-game-1');
+  main42.addClass('end-game-2');
+
+  for (const pos of gamePositions) {
+    $(pos).removeClass('end-game-1');
+    $(pos).addClass('end-game-2');
+    await sleep(21);
+  }
+
+  // Show end game div
+  await sleep(750);
+  endGameScreen.css({'display': 'flex'});
 }
 
-function animateGamePosition(pos) {
+function checkEndGame() {
+  if (gameRoundPoints === 42) {
 
-  
+    console.log("entering end game if");
+    playBtn.html('42: You Win');
+    animateGamePosition();
+    prevPoints.html(gameRoundPoints);
+    bestPoints.html(gameRoundPoints);
+  }
 }
 
 playBtn.on('click', () => {
@@ -216,6 +264,7 @@ gamePositions.on('click', (e) => {
       {
         gameRoundPoints += 3;
         currentPoints.html(gameRoundPoints);
+        checkEndGame();
       }
     }
     else
@@ -223,5 +272,7 @@ gamePositions.on('click', (e) => {
       gameRoundPoints += 3;
       currentPoints.html(gameRoundPoints);
     }
+
+
   }
 });
