@@ -40,20 +40,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $vindro-black;
+  background-color: $vindro-black-overlay;
   color: white;
   width: 100%;
   height: 90px;
   position: fixed;
-  opacity: 0.9;
   top: 0px;
   padding: 0 30px;
   transition: 0.5s;
   z-index: 3;
-
-  &.top {
-    background-color: $vindro-gray;
-  }
 
   .vindro-logo {
     display: flex;
@@ -98,6 +93,184 @@ img {
       border-bottom: 3px solid $vindro-teal;
     }
   }
+}
+
+#navbar-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $vindro-black-overlay;
+  color: #fff;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  padding: 0;
+  transition: 0.5s;
+  z-index: 3;
+
+  .vindro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    font-weight: 400;
+
+    img {
+      width: 42px;
+      padding: 0;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        font-family: $vindro-Montserrat;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  #hamburger-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    #hamburger-toggler {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+    }
+
+    #hamburger-lines {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 28px;
+      height: 28px;
+      background-color: transparent;
+      z-index: 5;
+
+      & > div {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: white;
+      }
+
+      &-top {
+        top: 3px;
+        transition: 0.42s ease;
+      }
+
+      &-mid {
+        top: 13px;
+        opacity: 1;
+        transition: 0.84s ease;
+      }
+
+      &-bottom {
+        bottom: 3px;
+        transition: 0.42s ease;
+      }
+    }
+
+    &.open {
+      background-color: $vindro-teal;
+
+      #hamburger-lines {
+      
+        & > div {
+        background-color: $vindro-black;
+        }
+
+        &-top {
+          transform: rotate(405deg);
+          top: 13px;
+          transition: 0.42s ease;
+        }
+
+        &-mid {
+          opacity: 0;
+          transition: 0.1s ease;
+        }
+
+        &-bottom {
+          transform: rotate(-405deg);
+          bottom: 13px;
+          transition: 0.42s ease;
+        }
+      }
+    }
+
+    &.navbar-calculator {
+      
+      &.open {
+        background-color: lightgray;
+      }
+    }
+  }
+
+  nav#hamburger-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: $vindro-teal;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+    display: none;
+    z-index: 4;
+
+    ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 42px 60px 0 0;
+
+      li {
+        width: calc(100vw - 80px);
+        margin: 0 0 20px 20px;
+
+        a {
+          display: block;
+          padding: 7px 0 7px 42px;
+          width: 100%;
+          font-size: 2.1rem;
+          color: $vindro-black;
+          border-bottom: 3px solid transparent;
+          
+          &.current {
+            border-bottom: 3px solid $vindro-gray;
+          }
+        }
+      }
+    }
+
+    &.open {
+      height: calc(100vh - 60px);
+      transition: 0.5s ease
+    }
+
+    &.navbar-calculator {
+      background-color: $real-yellow;
+
+      ul li a {
+        color: $vindro-black;
+        border-bottom: 3px solid white;
+      }
+    }
+  }
+}
+
+#navbar.top, 
+#navbar-hamburger.top {
+  background-color: $vindro-gray;
 }
 
 .hero {
@@ -519,8 +692,11 @@ main#contact-page-content {
     justify-content: center;
     gap: 42px;
     background-color: $vindro-tan;
-    color: $vindro-black;
-    font-size: 1.4rem;
+
+    h3 {
+      color: $vindro-black;
+      font-size: 1.4rem;
+    }
   }
 
   #contact-right {

@@ -150,21 +150,11 @@
 
 @media(max-width: 678px) {
   #navbar {
-    height: 142px;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: none;
+  }
 
-    .vindro-logo {
-      margin: 10px;
-    }
-
-    a {
-      padding: 14px;
-    }
-
-    ul a {
-      padding: 14px 21px;
-    }
+  #navbar-hamburger {
+    display: flex;
   }
 
   .hero {
@@ -201,18 +191,8 @@
     }
   }
 
-  #cookie-consent-banner {
-    flex-direction: column;
-    gap: 21px;
-
-    .cookie-info {
-      width: 92%;
-      text-align: justify;
-    }
-
-    .cookie-buttons {
-      width: 92%;
-    }
+  .hero-none {
+    height: 60px;
   }
 
   main#home-page-content {
@@ -298,6 +278,14 @@
     }
   }
 
+  main#madrid-calculator {
+    flex-direction: column;
+
+    #madrid-right, #madrid-left {
+      width: 96%;
+    }
+  }
+
   main#contact-page-content {
     grid-template-columns: 1fr;
 
@@ -309,25 +297,24 @@
     }
   }
 
-  #navbar.navbar-calculator {
-    display: none;
-  }
-
-  #navbar-hamburger {
-    display: flex;
-  }
-
-  main#madrid-calculator {
-    flex-direction: column;
-
-    #madrid-right, #madrid-left {
-      width: 96%;
-    }
-  }
-
   main#privacy-page-content {
 
     section#privacy, section#cookies {
+      width: 92%;
+    }
+  }
+
+  #cookie-consent-banner {
+    top: 60px;
+    flex-direction: column;
+    gap: 21px;
+
+    .cookie-info {
+      width: 92%;
+      text-align: justify;
+    }
+
+    .cookie-buttons {
       width: 92%;
     }
   }
@@ -469,14 +456,43 @@
     }
   }
 
-  main#contact-page-content {
+  main#madrid-calculator {
+    flex-direction: column;
 
-    #contact-left {
-      height: 200px;
-      gap: 7px;
+    #madrid-right, #madrid-left {
+      width: 96%;
+    }
+
+    #madrid-left {
+
+      .calculator-container {
+
+        #result {
+          width: 100%;
+        }
+
+        .buttons {
+          width: 100%;
+        }
+      }
+    }
+
+    #madrid-right {
+      
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        width: 84%;
+        margin-bottom: 3px;
+
+        &:nth-child(3) {
+          margin-bottom: 3rem;
+        }
+      }
     }
   }
-
 
   main#under-construction {
 
@@ -511,74 +527,28 @@
     display: none;
   }
 
-  #navbar-hamburger {
-    display: flex;
+  main#contact-page-content {
+    grid-template-columns: 1fr;
 
-    #hamburger-container {
-      width: 32px;
-      height: 32px;
+    #contact-left, #contact-right {
+      padding: 2rem 0.7rem;
+    }
 
-      #hamburger-lines {
+    #contact-left {
 
-        & > div {
-          height: 2px;
-        }
-
-        &-top {
-          top: 6.5px;
-        }
-  
-        &-mid {
-          top: 15px;
-        }
-  
-        &-bottom {
-          bottom: 6.5px;
-        }
+      h3 {
+        font-size: 1.2rem;
       }
     }
 
-    nav#hamburger-menu {
-
-      ul {
-
-        a {
-          font-size: 1.4rem;
-        }
-      }
-    }
-  }
-
-  main#madrid-calculator {
-    flex-direction: column;
-
-    #madrid-right, #madrid-left {
-      width: 96%;
-    }
-
-    #madrid-left {
-
-      .calculator-container {
-
-        #result {
-          width: 100%;
-        }
-
-        .buttons {
-          width: 100%;
-        }
-      }
-    }
-
-    #madrid-right {
-      
-      h1 {
-        margin-bottom: 3px;
-      }
+    #contact-right {
 
       h2 {
-        width: 84%;
-        margin-bottom: 3px;
+        margin: 0 1rem;
+        font-size: 1.4rem;
+      }
+      form {
+        padding: 7px;
       }
     }
   }
