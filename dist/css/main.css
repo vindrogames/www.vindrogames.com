@@ -138,19 +138,15 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(11, 12, 16);
+  background-color: rgba(11, 12, 16, 0.9);
   color: white;
   width: 100%;
   height: 90px;
   position: fixed;
-  opacity: 0.9;
   top: 0px;
   padding: 0 30px;
   transition: 0.5s;
   z-index: 3;
-}
-#navbar.top {
-  background-color: rgb(31, 40, 51);
 }
 #navbar .vindro-logo {
   display: flex;
@@ -190,6 +186,153 @@ img {
   border-bottom: 3px solid rgb(102, 252, 241);
 }
 
+#navbar-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(11, 12, 16, 0.9);
+  color: #fff;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  padding: 0;
+  transition: 0.5s;
+  z-index: 3;
+}
+#navbar-hamburger .vindro-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
+  font-weight: 400;
+}
+#navbar-hamburger .vindro-logo img {
+  width: 42px;
+  padding: 0;
+}
+#navbar-hamburger .vindro-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#navbar-hamburger .vindro-logo-text h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+}
+#navbar-hamburger #hamburger-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+#navbar-hamburger #hamburger-container #hamburger-toggler {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  z-index: 5;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines > div {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-top {
+  top: 3px;
+  transition: 0.42s ease;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-mid {
+  top: 13px;
+  opacity: 1;
+  transition: 0.84s ease;
+}
+#navbar-hamburger #hamburger-container #hamburger-lines-bottom {
+  bottom: 3px;
+  transition: 0.42s ease;
+}
+#navbar-hamburger #hamburger-container.open {
+  background-color: rgb(102, 252, 241);
+}
+#navbar-hamburger #hamburger-container.open #hamburger-lines > div {
+  background-color: rgb(11, 12, 16);
+}
+#navbar-hamburger #hamburger-container.open #hamburger-lines-top {
+  transform: rotate(405deg);
+  top: 13px;
+  transition: 0.42s ease;
+}
+#navbar-hamburger #hamburger-container.open #hamburger-lines-mid {
+  opacity: 0;
+  transition: 0.1s ease;
+}
+#navbar-hamburger #hamburger-container.open #hamburger-lines-bottom {
+  transform: rotate(-405deg);
+  bottom: 13px;
+  transition: 0.42s ease;
+}
+#navbar-hamburger #hamburger-container.navbar-calculator.open {
+  background-color: lightgray;
+}
+#navbar-hamburger nav#hamburger-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: rgb(102, 252, 241);
+  width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+  display: none;
+  z-index: 4;
+}
+#navbar-hamburger nav#hamburger-menu ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 42px 60px 0 0;
+}
+#navbar-hamburger nav#hamburger-menu ul li {
+  width: calc(100vw - 80px);
+  margin: 0 0 20px 20px;
+}
+#navbar-hamburger nav#hamburger-menu ul li a {
+  display: block;
+  padding: 7px 0 7px 42px;
+  width: 100%;
+  font-size: 2.1rem;
+  color: rgb(11, 12, 16);
+  border-bottom: 3px solid transparent;
+}
+#navbar-hamburger nav#hamburger-menu ul li a.current {
+  border-bottom: 3px solid rgb(31, 40, 51);
+}
+#navbar-hamburger nav#hamburger-menu.open {
+  height: calc(100vh - 60px);
+  transition: 0.5s ease;
+}
+#navbar-hamburger nav#hamburger-menu.navbar-calculator {
+  background-color: rgb(252, 191, 0);
+}
+#navbar-hamburger nav#hamburger-menu.navbar-calculator ul li a {
+  color: rgb(11, 12, 16);
+  border-bottom: 3px solid white;
+}
+
+#navbar.top,
+#navbar-hamburger.top {
+  background-color: rgb(31, 40, 51);
+}
+
 .hero {
   background: rgb(11, 12, 16);
   height: 100vh;
@@ -227,7 +370,7 @@ img {
   position: relative;
   color: white;
 }
-.hero-half .hero-games-content, .hero-half .hero-contact-content, .hero-half .hero-escape-the-cloud, .hero-half .hero-blog, .hero-half .hero-stories-content, .hero-half .hero-privacy-content {
+.hero-half .hero-contact-content, .hero-half .hero-escape-the-cloud, .hero-half .hero-blog, .hero-half .hero-stories-content, .hero-half .hero-privacy-content {
   position: relative;
   height: 100%;
   display: flex;
@@ -236,11 +379,31 @@ img {
   justify-content: flex-end;
   padding-bottom: 63px;
 }
-.hero-half .hero-games-content h1, .hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1, .hero-half .hero-privacy-content h1 {
+.hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1, .hero-half .hero-privacy-content h1 {
   font-size: 4.2rem;
   margin-bottom: 14px;
 }
-.hero-half .hero-games-content h2, .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
+.hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
+  font-size: 2.1rem;
+}
+.hero-half .hero-games-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 63px;
+}
+.hero-half .hero-games-content-title {
+  display: flex;
+  flex-direction: row;
+}
+.hero-half .hero-games-content-title h2 {
+  font-size: 4.2rem;
+  margin-bottom: 14px;
+}
+.hero-half .hero-games-content h1 {
   font-size: 2.1rem;
 }
 
@@ -705,114 +868,17 @@ main.game-42.end-game-2 #display-42 .instructions-42 p a {
   color: white;
 }
 
-body {
-  overflow: none;
-}
-
 #navbar.navbar-calculator {
-  opacity: 1;
+  background-color: rgb(11, 12, 16);
 }
 #navbar.navbar-calculator ul a:hover {
   border-bottom: 3px solid rgb(252, 191, 0);
 }
 
-#navbar-hamburger {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0B0C10;
-  color: #fff;
-  width: 100%;
-  height: 90px;
-  position: fixed;
-  top: 0px;
-  padding: 0 14px;
-  z-index: 3;
-}
-#navbar-hamburger .vindro-logo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px;
-  font-weight: 400;
-}
-#navbar-hamburger .vindro-logo img {
-  width: 60px;
-  padding: 0;
-}
-#navbar-hamburger .vindro-logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#navbar-hamburger .vindro-logo-text h4 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2.1rem;
-}
-#navbar-hamburger #hamburger-container {
-  position: relative;
-  width: 42px;
-  height: 42px;
-}
-#navbar-hamburger #hamburger-container #hamburger-toggler {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 6;
-}
-#navbar-hamburger #hamburger-container #hamburger-lines {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  z-index: 5;
-}
-#navbar-hamburger #hamburger-container #hamburger-lines > div {
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  background-color: white;
-}
-#navbar-hamburger #hamburger-container #hamburger-lines-top {
-  top: 7.5px;
-}
-#navbar-hamburger #hamburger-container #hamburger-lines-mid {
-  top: 19px;
-}
-#navbar-hamburger #hamburger-container #hamburger-lines-bottom {
-  bottom: 7.5px;
-}
-#navbar-hamburger nav#hamburger-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgb(0, 73, 150);
-  width: 0;
-  display: none;
-  height: 90px;
-  z-index: 4;
-}
-#navbar-hamburger nav#hamburger-menu ul {
-  width: 84%;
-  height: 100%;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px;
-}
-#navbar-hamburger nav#hamburger-menu ul a {
-  font-size: 1.6rem;
-  color: white;
-}
-#navbar-hamburger nav#hamburger-menu ul a:hover, #navbar-hamburger nav#hamburger-menu ul a:current {
-  color: rgb(252, 191, 0);
-}
-
 main#madrid-calculator {
   position: relative;
   width: 100%;
-  height: calc(100vh - 90px);
+  min-height: calc(100vh - 60px);
   background-color: white;
   display: flex;
   align-items: center;
@@ -956,6 +1022,8 @@ main#contact-page-content #contact-left {
   justify-content: center;
   gap: 42px;
   background-color: rgb(197, 198, 199);
+}
+main#contact-page-content #contact-left h3 {
   color: rgb(11, 12, 16);
   font-size: 1.4rem;
 }
@@ -1183,7 +1251,7 @@ footer .social a:hover {
   #navbar {
     padding: 0;
   }
-  .hero-half .hero-games-content h1 {
+  .hero-half .hero-games-content-title h2 {
     font-size: 3.6rem;
     margin-top: 42px;
   }
@@ -1257,23 +1325,15 @@ footer .social a:hover {
 }
 @media (max-width: 678px) {
   #navbar {
-    height: 142px;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: none;
   }
-  #navbar .vindro-logo {
-    margin: 10px;
-  }
-  #navbar a {
-    padding: 14px;
-  }
-  #navbar ul a {
-    padding: 14px 21px;
+  #navbar-hamburger {
+    display: flex;
   }
   .hero-home-content h1 {
     font-size: 5.4rem;
   }
-  .hero-half .hero-games-content h1 {
+  .hero-half .hero-games-content-title h2 {
     font-size: 2.4rem;
     margin-top: 90px;
   }
@@ -1285,16 +1345,8 @@ footer .social a:hover {
     text-align: center;
     margin-top: 1.7rem;
   }
-  #cookie-consent-banner {
-    flex-direction: column;
-    gap: 21px;
-  }
-  #cookie-consent-banner .cookie-info {
-    width: 92%;
-    text-align: justify;
-  }
-  #cookie-consent-banner .cookie-buttons {
-    width: 92%;
+  .hero-none {
+    height: 60px;
   }
   main#home-page-content section#home-about .team-container .team-member img {
     width: 63%;
@@ -1344,6 +1396,12 @@ footer .social a:hover {
     width: 70%;
     text-align: center;
   }
+  main#madrid-calculator {
+    flex-direction: column;
+  }
+  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
+    width: 96%;
+  }
   main#contact-page-content {
     grid-template-columns: 1fr;
   }
@@ -1353,19 +1411,19 @@ footer .social a:hover {
   main#contact-page-content #contact-right {
     text-align: justify;
   }
-  #navbar.navbar-calculator {
-    display: none;
-  }
-  #navbar-hamburger {
-    display: flex;
-  }
-  main#madrid-calculator {
-    flex-direction: column;
-  }
-  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
-    width: 96%;
-  }
   main#privacy-page-content section#privacy, main#privacy-page-content section#cookies {
+    width: 92%;
+  }
+  #cookie-consent-banner {
+    top: 60px;
+    flex-direction: column;
+    gap: 21px;
+  }
+  #cookie-consent-banner .cookie-info {
+    width: 92%;
+    text-align: justify;
+  }
+  #cookie-consent-banner .cookie-buttons {
     width: 92%;
   }
 }
@@ -1386,8 +1444,13 @@ footer .social a:hover {
   .hero-home-content h2 {
     font-size: 2.1rem;
   }
-  .hero-half .hero-games-content h1 {
-    font-size: 2rem;
+  .hero-half .hero-games-content-title {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .hero-half .hero-games-content-title h2 {
+    font-size: 2.4rem;
+    margin: 0;
   }
   .hero-half .hero-escape-the-cloud h1 {
     font-size: 2.8rem;
@@ -1408,6 +1471,15 @@ footer .social a:hover {
   main#home-page-content section#home-about .team-container .team-member img {
     width: 63%;
   }
+  main#games-page-content {
+    padding: 7rem 1rem;
+  }
+  main#games-page-content section#games-page-intro h2, main#games-page-content section#games-page-intro p {
+    width: 92%;
+  }
+  main#games-page-content section#games-page-container {
+    gap: 2rem;
+  }
   main#escape-the-cloud-content {
     grid-template-columns: 1fr;
   }
@@ -1425,7 +1497,15 @@ footer .social a:hover {
     text-align: center;
   }
   main.game-42 {
-    min-height: calc(100vh - 142px);
+    min-height: calc(100vh - 60px);
+    padding: 0;
+  }
+  main.game-42 #game-42-buttons button.pos-42 {
+    padding: 3px;
+    margin: 0.21rem 0.42rem;
+  }
+  main.game-42 #display-42 {
+    padding: 7px;
   }
   main.game-42 #display-42 .instructions-42 h1 {
     font-size: 3rem;
@@ -1434,18 +1514,41 @@ footer .social a:hover {
     font-size: 1.8rem;
   }
   main.game-42 #display-42 .instructions-42 p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+  }
+  main.game-42 #display-42 .showcase-42 {
+    grid-template-columns: 1fr;
   }
   main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
+    width: 100%;
     padding: 7px;
     font-size: 1.8rem;
+    margin: 2rem 0;
   }
   main.game-42 #display-42 .showcase-42 .game-42-results h3 {
     font-size: 1.8rem;
   }
-  main#contact-page-content #contact-left {
-    height: 200px;
-    gap: 7px;
+  main#madrid-calculator {
+    flex-direction: column;
+  }
+  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
+    width: 96%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container #result {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-right h1 {
+    margin-bottom: 2rem;
+  }
+  main#madrid-calculator #madrid-right h2 {
+    width: 84%;
+    margin-bottom: 3px;
+  }
+  main#madrid-calculator #madrid-right h2:nth-child(3) {
+    margin-bottom: 3rem;
   }
   main#under-construction h1 {
     text-align: center;
@@ -1462,52 +1565,24 @@ footer .social a:hover {
   }
 }
 @media (max-width: 376px) {
-  .hero-half {
-    height: 63vh;
-  }
   #navbar.navbar-calculator {
     display: none;
   }
-  #navbar-hamburger {
-    display: flex;
+  main#contact-page-content {
+    grid-template-columns: 1fr;
   }
-  #navbar-hamburger #hamburger-container {
-    width: 32px;
-    height: 32px;
+  main#contact-page-content #contact-left, main#contact-page-content #contact-right {
+    padding: 2rem 0.7rem;
   }
-  #navbar-hamburger #hamburger-container #hamburger-lines > div {
-    height: 2px;
+  main#contact-page-content #contact-left h3 {
+    font-size: 1.2rem;
   }
-  #navbar-hamburger #hamburger-container #hamburger-lines-top {
-    top: 6.5px;
-  }
-  #navbar-hamburger #hamburger-container #hamburger-lines-mid {
-    top: 15px;
-  }
-  #navbar-hamburger #hamburger-container #hamburger-lines-bottom {
-    bottom: 6.5px;
-  }
-  #navbar-hamburger nav#hamburger-menu ul a {
+  main#contact-page-content #contact-right h2 {
+    margin: 0 1rem;
     font-size: 1.4rem;
   }
-  main#madrid-calculator {
-    flex-direction: column;
-  }
-  main#madrid-calculator #madrid-right, main#madrid-calculator #madrid-left {
-    width: 96%;
-  }
-  main#madrid-calculator #madrid-left .calculator-container #result {
-    width: 100%;
-  }
-  main#madrid-calculator #madrid-left .calculator-container .buttons {
-    width: 100%;
-  }
-  main#madrid-calculator #madrid-right h1 {
-    margin-bottom: 3px;
-  }
-  main#madrid-calculator #madrid-right h2 {
-    width: 84%;
-    margin-bottom: 3px;
+  main#contact-page-content #contact-right form {
+    padding: 7px;
   }
 }
 
