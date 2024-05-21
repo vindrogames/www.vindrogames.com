@@ -7,9 +7,12 @@
 
     .hero-games-content {
 
-      h1 {
-        font-size: 3.6rem;
-        margin-top: 42px;
+      &-title {
+
+        h2 {
+          font-size: 3.6rem;
+          margin-top: 42px;
+        }
       }
     }
 
@@ -171,9 +174,12 @@
 
     .hero-games-content {
 
-      h1 {
-        font-size: 2.4rem;
-        margin-top: 90px;
+      &-title {
+
+        h2 {
+          font-size: 2.4rem;
+          margin-top: 90px;
+        }
       }
     }
 
@@ -355,8 +361,14 @@
 
     .hero-games-content {
 
-      h1 {
-        font-size: 2rem;
+      &-title {
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        h2 {
+          font-size: 2.4rem;
+          margin: 0;
+        }
       }
     }
 
@@ -396,6 +408,20 @@
     }
   }
 
+  main#games-page-content {
+    padding: 7rem 1rem;
+
+    section#games-page-intro {
+  
+      h2, p {
+        width: 92%;
+      }
+    }
+    section#games-page-container {
+      gap: 2rem;
+    }
+  }
+
   main#escape-the-cloud-content {
     grid-template-columns: 1fr;
 
@@ -418,8 +444,19 @@
   }
 
   main.game-42 {
-    min-height: calc(100vh - 142px);
+    min-height: calc(100vh - 60px);
+    padding: 0;
+
+    #game-42-buttons {
+
+      button.pos-42 {
+        padding: 3px;
+        margin: 0.21rem 0.42rem;
+      }
+    }
+
     #display-42 {
+      padding: 7px;
 
       .instructions-42 {
 
@@ -432,17 +469,20 @@
         }
 
         p {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
         }
       }
 
       .showcase-42 {
+        grid-template-columns: 1fr;
 
         .game-42-play-container {
   
           button#game-42-play-button {
+            width: 100%;
             padding: 7px;
             font-size: 1.8rem;
+            margin: 2rem 0;
           }
         }
 
@@ -519,9 +559,6 @@
 }
 
 @media(max-width: 376px) {
-  .hero-half {
-    height: 63vh;
-  }
 
   #navbar.navbar-calculator {
     display: none;

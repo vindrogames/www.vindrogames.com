@@ -315,7 +315,7 @@ img {
   position: relative;
   color: white;
 
-  .hero-games-content, .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content, .hero-privacy-content {
+  .hero-contact-content, .hero-escape-the-cloud, .hero-blog, .hero-stories-content, .hero-privacy-content {
     position: relative;
     height: 100%;
     display: flex;
@@ -330,6 +330,29 @@ img {
     }
 
     h2 {
+      font-size: 2.1rem;
+    }
+  }
+
+  .hero-games-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 63px;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+
+      h2 {
+        font-size: 4.2rem;
+        margin-bottom: 14px;
+      }
+    }
+    h1 {
       font-size: 2.1rem;
     }
   }
