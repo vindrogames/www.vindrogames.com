@@ -91,7 +91,7 @@ main#madrid-calculator {
             }
 
             &#eight img {
-              height: 20px;
+              height: 24px;
               width: auto;
             }
           }
@@ -117,8 +117,10 @@ main#madrid-calculator {
             background-color: white;
             color: $vindro-black;
             border: 3px solid $vindro-black;
-            border-radius: 7px;
-            padding-bottom: 7px;
+            //border-radius: 7px;
+            padding-bottom: 3px;
+            font-size: 2.8rem;
+            font-weight: 400;
           }
 
           &-audio {
@@ -126,7 +128,7 @@ main#madrid-calculator {
             background-color: white;
             color: $vindro-black;
             border: 3px solid $vindro-black;
-            border-radius: 7px;
+            //border-radius: 7px;
           }
 
           &-barsa.on, &-audio.off {
