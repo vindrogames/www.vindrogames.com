@@ -951,7 +951,7 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num:hove
   background-color: #e7e7e7;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-num#eight img {
-  height: 20px;
+  height: 24px;
   width: auto;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-operator {
@@ -971,15 +971,15 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-barsa {
   background-color: white;
   color: rgb(11, 12, 16);
   border: 3px solid rgb(11, 12, 16);
-  border-radius: 7px;
-  padding-bottom: 7px;
+  padding-bottom: 3px;
+  font-size: 2.8rem;
+  font-weight: 400;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio {
   grid-column: 4;
   background-color: white;
   color: rgb(11, 12, 16);
   border: 3px solid rgb(11, 12, 16);
-  border-radius: 7px;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-barsa.on, main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio.off {
   background-color: rgb(11, 12, 16);

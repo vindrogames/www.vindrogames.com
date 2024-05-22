@@ -506,11 +506,11 @@ btns.on('click', (e) => {
     audioBtn.toggleClass('off');
     if (audioBtn.hasClass('off'))
     {
-      audioBtn.html('&#128263');
+      audioBtn.html('<i class="fa-solid fa-volume-xmark"></i>');
     }
     else
     {
-      audioBtn.html('&#128362');
+      audioBtn.html('<i class="fa-solid fa-volume-high"></i>');
     }
   }
   else if (e.target.id == 'barsa-button')
