@@ -11,6 +11,8 @@ const hamburgerLineBottom = $('#hamburger-lines-bottom');
 // Navbar animation on scroll
 let scrolled = false;
 
+const DEBUG = true;
+
 window.onscroll = function () {
   if (window.pageYOffset > 100) {
     navbar.removeClass('top');
@@ -255,6 +257,8 @@ btns.on('click', (e) => {
     // if there has been any operations clicked, then we are working with the secondOperand as frstOperand has been set to the result of previous operation
     else if (numOperations  > 0)
     {
+      // If there is no operation defined yet, do nothing
+      
       // Same logic as with firstOperand
       if (secondOperand === 0)
       {
@@ -286,7 +290,7 @@ btns.on('click', (e) => {
     if (operationData.length === 0)
     {
       // pushes whatever was in firstOperand to data Array, then pushes the calculation (as text)
-      operationData.push(parseInt(firstOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(firstOperand);
       operationData.push(e.target.id);
 
       // Concatenates the symbol for operation clicked to promptText for display
@@ -309,7 +313,7 @@ btns.on('click', (e) => {
     {
       
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with new calc symbol concatenated as promptText
@@ -348,11 +352,14 @@ btns.on('click', (e) => {
       // If audio is activated with 'play' class, then siuuAudio plays
       if (equalsBtn.hasClass('play'))
       {
-        siuAudio.play();
+        if (!DEBUG)
+        {
+          siuAudio.play();
+        }        
       }
 
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with NO operationn symbol concatenated
@@ -441,7 +448,7 @@ btns.on('click', (e) => {
     else
     {
       secondOperand = 15;
-      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
       firstOperand = result;
       promptText = result;
@@ -510,22 +517,22 @@ function resolveCalc([num1, calc, num2])
 {
   if (calc == 'add')
   {
-    result = num1 + num2;
+    result = parseFloat(num1) + parseFloat(num2);
     return num1 + ' \u002B ' + num2 + ' = ' + result;
   }
   else if (calc == 'subtract')
   {
-    result = num1 - num2;
+    result = parseFloat(num1) - parseFloat(num2);
     return num1 + ' \u2212 ' + num2 + ' = ' + result;
   }
   else if (calc == 'multiply')
   {
-    result = num1 * num2;
+    result = parseFloat(num1) * parseFloat(num2);
     return num1 + ' \u00D7 ' + num2 + ' = ' + result;
   }
   else if (calc == 'divide')
   {
-    result = num1 / num2;
+    result = parseFloat(num1) / parseFloat(num2);
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
 }
