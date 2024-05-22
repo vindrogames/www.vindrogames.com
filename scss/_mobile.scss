@@ -126,19 +126,28 @@
 
   main#madrid-calculator {
 
+    flex-direction: column;
+
     #madrid-left {
-      width: 60%;
+      width: 96%;
+      height: 50vh;
     }
 
     #madrid-right {
-      width: 35%;
+      width: 84%;
 
       h1 {
         font-size: 3.2rem;
+        margin-bottom: 2rem;
       }
 
       h2 {
         font-size: 1.8rem;
+        margin-bottom: 3px;
+
+        &:nth-child(3) {
+          margin-bottom: 3rem;
+        }
       }
     }
   }
@@ -281,14 +290,6 @@
           text-align: center;
         }
       }
-    }
-  }
-
-  main#madrid-calculator {
-    flex-direction: column;
-
-    #madrid-right, #madrid-left {
-      width: 96%;
     }
   }
 
@@ -513,22 +514,6 @@
 
         .buttons {
           width: 100%;
-        }
-      }
-    }
-
-    #madrid-right {
-      
-      h1 {
-        margin-bottom: 2rem;
-      }
-
-      h2 {
-        width: 84%;
-        margin-bottom: 3px;
-
-        &:nth-child(3) {
-          margin-bottom: 3rem;
         }
       }
     }

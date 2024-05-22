@@ -11,6 +11,8 @@ const hamburgerLineBottom = $('#hamburger-lines-bottom');
 // Navbar animation on scroll
 let scrolled = false;
 
+const DEBUG = false;
+
 window.onscroll = function () {
   if (window.pageYOffset > 100) {
     navbar.removeClass('top');
@@ -211,6 +213,10 @@ const championsBtn = $('#champions');
 const equalsBtn = $('#equals');
 const audioBtn = $('.btn-audio');
 
+// Buttons for Barça joke
+const barsaBtn = $('#barsa-button');
+const eightButton = $('#eight');
+
 // Variables for calculations and display
 let promptText = '';
 let firstOperand = 0;
@@ -251,8 +257,18 @@ btns.on('click', (e) => {
     // if there has been any operations clicked, then we are working with the secondOperand as frstOperand has been set to the result of previous operation
     else if (numOperations  > 0)
     {
+      // If there is no operation defined yet, do nothing
+      if (operationData.length == 1)
+      {
+        firstOperand = $(e.target).attr('value');
+        operationData.pop();
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        numOperations = 0;
+        return;
+      }
       // Same logic as with firstOperand
-      if (secondOperand === 0)
+      else if (operationData.length == 2 && secondOperand === 0)
       {
         if ($(e.target).attr('value') != 0)
         {
@@ -282,7 +298,7 @@ btns.on('click', (e) => {
     if (operationData.length === 0)
     {
       // pushes whatever was in firstOperand to data Array, then pushes the calculation (as text)
-      operationData.push(parseFloat(firstOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(firstOperand);
       operationData.push(e.target.id);
 
       // Concatenates the symbol for operation clicked to promptText for display
@@ -305,7 +321,7 @@ btns.on('click', (e) => {
     {
       
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with new calc symbol concatenated as promptText
@@ -344,11 +360,14 @@ btns.on('click', (e) => {
       // If audio is activated with 'play' class, then siuuAudio plays
       if (equalsBtn.hasClass('play'))
       {
-        siuAudio.play();
+        if (!DEBUG)
+        {
+          siuAudio.play();
+        }        
       }
 
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with NO operationn symbol concatenated
@@ -372,6 +391,16 @@ btns.on('click', (e) => {
         promptText = firstOperand;
         resultPrompt.html(promptText);
       }
+
+      else if (operationData.length === 1)
+      {
+        firstOperand = operationData[0] * -1;
+        operationData[0] = firstOperand;
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        return;
+      }
+
       else if (operationData.length === 2 && secondOperand != 0)
       {
         secondOperand *= -1;
@@ -390,54 +419,73 @@ btns.on('click', (e) => {
 
     // Percentage
     else if (e.target.id === 'percent')
+    {
+      console.log("percent button clicked");
+      if (operationData.length === 0 && firstOperand != 0)
       {
-        console.log("percent button clicked");
-        if (operationData.length === 0 && firstOperand != 0)
-        {
-          firstOperand *= 0.01;
-          promptText = firstOperand;
-          resultPrompt.html(promptText);
-        }
-        else if (operationData.length === 2 && secondOperand != 0)
-        {
-          secondOperand *= 0.01;
-          // if the second operand is a negative number, then we need to display the operation with parenthesis
-          if (secondOperand < 0)
-          {
-            promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
-          }
-          else 
-          {
-            promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
-          }
-          resultPrompt.html(promptText);
-        }
+        firstOperand *= 0.01;
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
       }
+      else if (operationData.length === 2 && secondOperand != 0)
+      {
+        secondOperand *= 0.01;
+        // if the second operand is a negative number, then we need to display the operation with parenthesis
+        if (secondOperand < 0)
+        {
+          promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
+        }
+        else 
+        {
+          promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
+        }
+        resultPrompt.html(promptText);
+      }
+    }
+
+    else if (e.target.id === 'comma')
+    {
+
+    }
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
   else if (e.target.id === "champions") 
   {
-    // If audio is activated with 'play' class, then championsAudio plays
-    if (championsBtn.hasClass('play'))
-    {
-      championsAudio.play();
-    }
-
     // Evaluates if any operations have been done. If not, then firstOperand becomes 15, is displayed in promptText and updated in operationData Array
-    if (numOperations === 0)
+    if (numOperations === 0 && firstOperand == 0)
     {
+      // If audio is activated with 'play' class, then championsAudio plays
+      if (championsBtn.hasClass('play'))
+        {
+          championsAudio.play();
+        }
       firstOperand = 15;
       operationData.push(firstOperand);
       promptText = firstOperand;
       resultPrompt.html(firstOperand);
     }
 
+    else if (operationData.length == 1)
+      {
+        firstOperand = $(e.target).attr('value');
+        operationData.pop();
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        numOperations = 0;
+        return;
+      }
+
     // Otherwise it acts as the equals button, with secondOperand becoming 15.
-    else
+    else if (numOperations > 0 && secondOperand == 0)
     {
+      // If audio is activated with 'play' class, then championsAudio plays
+      if (championsBtn.hasClass('play'))
+        {
+          championsAudio.play();
+        }
       secondOperand = 15;
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
       firstOperand = result;
       promptText = result;
@@ -463,6 +511,19 @@ btns.on('click', (e) => {
     else
     {
       audioBtn.html('&#128362');
+    }
+  }
+  else if (e.target.id == 'barsa-button')
+  {
+    eightButton.toggleClass('on');
+    barsaBtn.toggleClass('on');
+    if (eightButton.hasClass('on'))
+    {
+      eightButton.html('<img src="/madrid-calculator/barsa-8.png" alt="someimage" />')
+    }
+    else
+    {
+      eightButton.html('8');
     }
   }
 });
@@ -493,22 +554,46 @@ function resolveCalc([num1, calc, num2])
 {
   if (calc == 'add')
   {
-    result = num1 + num2;
+    result = (parseFloat(num1) + parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+    {
+      console.log("no decimal");
+      result = parseInt(result);
+    }
     return num1 + ' \u002B ' + num2 + ' = ' + result;
   }
   else if (calc == 'subtract')
   {
-    result = num1 - num2;
+    result = (parseFloat(num1) - parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u2212 ' + num2 + ' = ' + result;
   }
   else if (calc == 'multiply')
   {
-    result = num1 * num2;
+    result = (parseFloat(num1) * parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u00D7 ' + num2 + ' = ' + result;
   }
   else if (calc == 'divide')
   {
-    result = num1 / num2;
+    result = (parseFloat(num1) / parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
 }

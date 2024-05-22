@@ -19,11 +19,11 @@ main#madrid-calculator {
 
   #madrid-left, #madrid-right {
     width: 42%;
-    height: 63%;
     padding: 1rem;
   }
 
   #madrid-left {
+    height: 70vh;
 
     .calculator-container {
       width: 100%;
@@ -89,6 +89,11 @@ main#madrid-calculator {
             &:hover {
               background-color: #e7e7e7;
             }
+
+            &#eight img {
+              height: 20px;
+              width: auto;
+            }
           }
 
           &-operator {
@@ -107,12 +112,26 @@ main#madrid-calculator {
             }
           }
 
+          &-barsa {
+            grid-column: 3;
+            background-color: white;
+            color: $vindro-black;
+            border: 3px solid $vindro-black;
+            border-radius: 7px;
+            padding-bottom: 7px;
+          }
+
           &-audio {
             grid-column: 4;
             background-color: white;
             color: $vindro-black;
             border: 3px solid $vindro-black;
             border-radius: 7px;
+          }
+
+          &-barsa.on, &-audio.off {
+            background-color: $vindro-black;
+            color: white;
           }
         }
       }
