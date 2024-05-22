@@ -211,6 +211,10 @@ const championsBtn = $('#champions');
 const equalsBtn = $('#equals');
 const audioBtn = $('.btn-audio');
 
+// Buttons for Barça joke
+const barsaBtn = $('#barsa-button');
+const eightButton = $('#eight');
+
 // Variables for calculations and display
 let promptText = '';
 let firstOperand = 0;
@@ -222,7 +226,7 @@ let numOperations = 0;
 let prevClick = '';
 
 //
-const DECIMAL_NUMBERS = 3;
+const DECIMAL_NUMBERS = 0;
 
 btns.on('click', (e) => {
 
@@ -282,7 +286,7 @@ btns.on('click', (e) => {
     if (operationData.length === 0)
     {
       // pushes whatever was in firstOperand to data Array, then pushes the calculation (as text)
-      operationData.push(parseFloat(firstOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(parseInt(firstOperand).toFixed(DECIMAL_NUMBERS));
       operationData.push(e.target.id);
 
       // Concatenates the symbol for operation clicked to promptText for display
@@ -305,7 +309,7 @@ btns.on('click', (e) => {
     {
       
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with new calc symbol concatenated as promptText
@@ -348,7 +352,7 @@ btns.on('click', (e) => {
       }
 
       // pushes the secondOperand then resolves calculation, returning result and setting the entire calculation as display text as prevResultPrompt
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
 
       // set firstOperand to the result of calculation and display new firstOperand with NO operationn symbol concatenated
@@ -437,7 +441,7 @@ btns.on('click', (e) => {
     else
     {
       secondOperand = 15;
-      operationData.push(parseFloat(secondOperand).toFixed(DECIMAL_NUMBERS));
+      operationData.push(parseInt(secondOperand).toFixed(DECIMAL_NUMBERS));
       prevResultPrompt.html(resolveCalc(operationData));
       firstOperand = result;
       promptText = result;
@@ -463,6 +467,19 @@ btns.on('click', (e) => {
     else
     {
       audioBtn.html('&#128362');
+    }
+  }
+  else if (e.target.id == 'barsa-button')
+  {
+    eightButton.toggleClass('on');
+    barsaBtn.toggleClass('on');
+    if (eightButton.hasClass('on'))
+    {
+      eightButton.html('<img src="/madrid-calculator/barsa-8.png" alt="someimage" />')
+    }
+    else
+    {
+      eightButton.html('8');
     }
   }
 });
