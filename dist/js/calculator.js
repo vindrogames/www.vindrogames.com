@@ -11,7 +11,7 @@ const hamburgerLineBottom = $('#hamburger-lines-bottom');
 // Navbar animation on scroll
 let scrolled = false;
 
-const DEBUG = true;
+const DEBUG = false;
 
 window.onscroll = function () {
   if (window.pageYOffset > 100) {
@@ -228,7 +228,7 @@ let numOperations = 0;
 let prevClick = '';
 
 //
-const DECIMAL_NUMBERS = 0;
+const DECIMAL_NUMBERS = 3;
 
 btns.on('click', (e) => {
 
@@ -258,9 +258,17 @@ btns.on('click', (e) => {
     else if (numOperations  > 0)
     {
       // If there is no operation defined yet, do nothing
-      
+      if (operationData.length == 1)
+      {
+        firstOperand = $(e.target).attr('value');
+        operationData.pop();
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        numOperations = 0;
+        return;
+      }
       // Same logic as with firstOperand
-      if (secondOperand === 0)
+      else if (operationData.length == 2 && secondOperand === 0)
       {
         if ($(e.target).attr('value') != 0)
         {
@@ -383,6 +391,16 @@ btns.on('click', (e) => {
         promptText = firstOperand;
         resultPrompt.html(promptText);
       }
+
+      else if (operationData.length === 1)
+      {
+        firstOperand = operationData[0] * -1;
+        operationData[0] = firstOperand;
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        return;
+      }
+
       else if (operationData.length === 2 && secondOperand != 0)
       {
         secondOperand *= -1;
@@ -401,52 +419,71 @@ btns.on('click', (e) => {
 
     // Percentage
     else if (e.target.id === 'percent')
+    {
+      console.log("percent button clicked");
+      if (operationData.length === 0 && firstOperand != 0)
       {
-        console.log("percent button clicked");
-        if (operationData.length === 0 && firstOperand != 0)
-        {
-          firstOperand *= 0.01;
-          promptText = firstOperand;
-          resultPrompt.html(promptText);
-        }
-        else if (operationData.length === 2 && secondOperand != 0)
-        {
-          secondOperand *= 0.01;
-          // if the second operand is a negative number, then we need to display the operation with parenthesis
-          if (secondOperand < 0)
-          {
-            promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
-          }
-          else 
-          {
-            promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
-          }
-          resultPrompt.html(promptText);
-        }
+        firstOperand *= 0.01;
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
       }
+      else if (operationData.length === 2 && secondOperand != 0)
+      {
+        secondOperand *= 0.01;
+        // if the second operand is a negative number, then we need to display the operation with parenthesis
+        if (secondOperand < 0)
+        {
+          promptText = firstOperand + getOperationSymbol(operationData[1]) + '(' + secondOperand + ')';
+        }
+        else 
+        {
+          promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
+        }
+        resultPrompt.html(promptText);
+      }
+    }
+
+    else if (e.target.id === 'comma')
+    {
+
+    }
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
   else if (e.target.id === "champions") 
   {
-    // If audio is activated with 'play' class, then championsAudio plays
-    if (championsBtn.hasClass('play'))
-    {
-      championsAudio.play();
-    }
-
     // Evaluates if any operations have been done. If not, then firstOperand becomes 15, is displayed in promptText and updated in operationData Array
-    if (numOperations === 0)
+    if (numOperations === 0 && firstOperand == 0)
     {
+      // If audio is activated with 'play' class, then championsAudio plays
+      if (championsBtn.hasClass('play'))
+        {
+          championsAudio.play();
+        }
       firstOperand = 15;
       operationData.push(firstOperand);
       promptText = firstOperand;
       resultPrompt.html(firstOperand);
     }
 
+    else if (operationData.length == 1)
+      {
+        firstOperand = $(e.target).attr('value');
+        operationData.pop();
+        promptText = firstOperand;
+        resultPrompt.html(promptText);
+        numOperations = 0;
+        return;
+      }
+
     // Otherwise it acts as the equals button, with secondOperand becoming 15.
-    else
+    else if (numOperations > 0 && secondOperand == 0)
     {
+      // If audio is activated with 'play' class, then championsAudio plays
+      if (championsBtn.hasClass('play'))
+        {
+          championsAudio.play();
+        }
       secondOperand = 15;
       operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
@@ -517,22 +554,46 @@ function resolveCalc([num1, calc, num2])
 {
   if (calc == 'add')
   {
-    result = parseFloat(num1) + parseFloat(num2);
+    result = (parseFloat(num1) + parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+    {
+      console.log("no decimal");
+      result = parseInt(result);
+    }
     return num1 + ' \u002B ' + num2 + ' = ' + result;
   }
   else if (calc == 'subtract')
   {
-    result = parseFloat(num1) - parseFloat(num2);
+    result = (parseFloat(num1) - parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u2212 ' + num2 + ' = ' + result;
   }
   else if (calc == 'multiply')
   {
-    result = parseFloat(num1) * parseFloat(num2);
+    result = (parseFloat(num1) * parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u00D7 ' + num2 + ' = ' + result;
   }
   else if (calc == 'divide')
   {
-    result = parseFloat(num1) / parseFloat(num2);
+    result = (parseFloat(num1) / parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
+
+    if (result % 1 == 0)
+      {
+        console.log("no decimal");
+        result = parseInt(result);
+      }
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
 }
