@@ -130,17 +130,29 @@
 
     #madrid-left {
       width: 96%;
-      height: 50vh;
-    }
+      height: 63vh;
 
-    .calculator-container .buttons .btn-champions {
+      .calculator-container {
+
+        #result {
+          width: 100%;
+        }
+
+        .buttons {
+          width: 100%;
+
+          .btn-champions {
+        
+            i {
+              font-size: 2.4rem !important;
+            }
       
-      i {
-        font-size: 2.4rem !important;
-      }
-
-      p {
-        top: 21% !important;
+            p {
+              top: 24% !important;
+              left: 47%;
+            }
+          }
+        }
       }
     }
 
