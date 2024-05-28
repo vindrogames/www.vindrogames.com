@@ -113,7 +113,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 20px;
+    margin: 0 21px;
     font-weight: 400;
 
     img {
@@ -180,7 +180,7 @@ img {
     }
 
     &.open {
-      background-color: $vindro-teal;
+      background-color: $vindro-tan;
 
       #hamburger-lines {
       
@@ -219,7 +219,7 @@ img {
     position: fixed;
     top: 60px;
     left: 0;
-    background-color: $vindro-teal;
+    background-color: $vindro-tan;
     width: 100%;
     height: 0;
     transition: 0.5s ease;
@@ -246,7 +246,7 @@ img {
           border-bottom: 3px solid transparent;
           
           &.current {
-            border-bottom: 3px solid $vindro-gray;
+            box-shadow: 0 3px 3px -3px $vindro-gray;
           }
         }
       }
@@ -258,11 +258,11 @@ img {
     }
 
     &.navbar-calculator {
-      background-color: $real-yellow;
+      background-color: lightgray;
 
       ul li a {
         color: $vindro-black;
-        border-bottom: 3px solid white;
+        z-index: 4;
       }
     }
   }
@@ -321,8 +321,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 63px;
+    justify-content: center;
 
     h1 {
       font-size: 4.2rem;
@@ -340,8 +339,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 63px;
+    justify-content: center;
 
     &-title {
       display: flex;
@@ -860,6 +858,7 @@ main#privacy-page-content {
 }
 
 .cookie-consent-background {
+  display: none;
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -877,7 +876,7 @@ main#privacy-page-content {
   z-index: 5;
   padding: 14px;
   text-align: center;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 42px;
@@ -919,6 +918,7 @@ main#privacy-page-content {
       align-self: flex-end;
       color: white;
       border: 2px solid transparent;
+      z-index: 5;
 
       &:hover {
         background-color: white;

@@ -1,3 +1,31 @@
+
+// Score fields in DOM for prev and best scores
+const prevPoints = $('.prev-game-42-points');
+const bestPoints = $('.best-game-42-points');
+gameRoundScores = [];
+// Prevent Consent Banner from flickering if consent has already been given
+// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
+$(document).ready(() => {
+  
+  if(!localStorage.getItem('consentModeGa')) {
+
+  document.querySelector('#cookie-consent-banner').style.display = 'flex';
+  document.querySelector('.cookie-consent-background').style.display = 'block';
+  }
+  
+  if(localStorage.getItem('consentGameScores')) {
+
+    //console.log("looking for high score");
+    //console.log(localStorage.getItem('consentGameScores'));
+    //console.log(JSON.parse(localStorage.getItem('consentGameScores'))['prev42']);
+
+    bestPoints.html(JSON.parse(localStorage.getItem('consentGameScores'))['best42']);
+    prevPoints.html(JSON.parse(localStorage.getItem('consentGameScores'))['prev42']);
+    gameRoundScores.push(JSON.parse(localStorage.getItem('consentGameScores'))['best42']);
+
+  }
+});
+
 const navbar = $('#navbar');
 const navbarHam = $('#navbar-hamburger');
 const hamburgerToggle = $('#hamburger-toggler');
@@ -83,6 +111,7 @@ hamburgerToggle.on('click', (e) => {
   }
 })
 
+// Cookie Consent Scripts
 // Checkboxes and submit button in banner
 const googleAnalyticsBtn = $('#google-analytics-check');
 const gameScoresBtn = $('#game-scores-check');
@@ -91,6 +120,7 @@ const cookiesDone = $('#submit-cookies');
 // link to bring cookies banners back to change preferences
 const changeCookiesPref = $('#change-cookies-pref')
 
+
 // Evaluates GA checkbox
 function checkGoogleAnalytics(googleAnalytics) {
 
@@ -98,34 +128,35 @@ function checkGoogleAnalytics(googleAnalytics) {
   if (googleAnalytics.is(':checked')) {
 
     // Defines consent Mode value pairs to be sent to GA as well as saved on local storage of user
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'granted',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent settings to Google. Only GA is updated AS WE DON'T DO ADS
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaTrue";
+
   } else if (!googleAnalytics.is(':checked')) {
 
     // If GA is NOT checked then deny GA storage
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent to GA
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaFalse";
   }
 
@@ -138,6 +169,19 @@ function checkGameScores(gameScores) {
   if(gameScores.is(':checked')) {
 
     //Allow Game Scores
+    consentGameScores = {
+      'gameScores' : 'granted',
+      'best42' : 0,
+      'prev42' : 0,
+      'SET' : 0,
+    }
+
+    localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+    return 'gamesTrue';
+
+  } else if (!gameScores.is(':checked')) {
+
+    return 'gamesFalse';
   }
 }
 
@@ -155,21 +199,6 @@ function consentUpdate() {
   return [gaConsent, gameConsent];
 }
 
-// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
-if(localStorage.getItem('consentMode')) {
-
-  document.querySelector('#cookie-consent-banner').style.display = 'none';
-  document.querySelector('.cookie-consent-background').style.display = 'none';
-} else {
-
-  cookiesDone.on('click', consentUpdate);
-}
-
-function showCookiesBanner() {
-  $('#cookie-consent-banner').show();
-}
-
-
 function eliminateAnalyticsCookies() {
 
   const cookies = document.cookie.split(';');
@@ -183,13 +212,31 @@ function eliminateAnalyticsCookies() {
 }
 
 changeCookiesPref.on('click', () => {
-  showCookiesBanner();
+  $('#cookie-consent-banner').css({'display' : 'flex'});
 
-  cookiesDone.on('click', () => {
-    if (consentUpdate()[0] === "gaFalse") {
-      eliminateAnalyticsCookies()
-    };
-  });
+  
+  if (JSON.parse(localStorage.getItem('consentModeGa'))['analytics_storage'] === 'denied'){
+    googleAnalyticsBtn.checked = false;
+  }
+  
+  if (!localStorage.getItem('consenModeGa')) {
+    gameScoresBtn.checked = false;
+  }
+});
+
+cookiesDone.on('click', () => {
+
+  let consentArray = consentUpdate();
+  console.log(consentArray);
+
+  if (consentArray[0] === 'gaFalse') {
+    eliminateAnalyticsCookies();
+    console.log("cookies eliminated");
+  }
+
+  if (consentArray[1] === 'gamesFalse' && localStorage.getItem('consentGameScores')) {
+    localStorage.removeItem('consentGameScores');
+  }
 });
 
 // 42 Game Code
@@ -197,8 +244,6 @@ const gamePositions = $('.pos-42');
 const playBtn = $('#game-42-play-button');
 const currentPointsHeader = $('.current-game-42-header');
 const currentPoints = $('.current-game-42-points');
-const prevPoints = $('.prev-game-42-points');
-const bestPoints = $('.best-game-42-points');
 const main42 = $('main.game-42');
 const endGameScreen = $('#end-game-42');
 const endGamePlayAgain = $('#end-game-42-play-again');
@@ -213,7 +258,8 @@ let numsDescen = true;
 let tempNum;
 let clickEnabled = false;
 let gameRoundPoints = 0;
-let gameRoundScores = [];
+let bestScore = 0;
+let prevScore = 0;
 
 function generateGameNum(numsRound) {
 
@@ -285,10 +331,23 @@ function game42Over(gameRoundScores, gameRoundPoints) {
   currentPointsHeader.html('Game ');
   currentPoints.html('Over');
 
-  prevPoints.html(gameRoundPoints);
   gameRoundScores.push(gameRoundPoints);
 
-  bestPoints.html(Math.max(...gameRoundScores));
+  prevScore = gameRoundPoints;
+  bestScore = Math.max(...gameRoundScores);
+
+  prevPoints.html(prevScore);
+  bestPoints.html(bestScore);
+
+  if (localStorage.getItem('consentGameScores')) {
+    consentGameScores = JSON.parse(localStorage.getItem('consentGameScores'));
+
+    consentGameScores['prev42'] = prevScore;
+    consentGameScores['best42'] = bestScore;
+    console.log(consentGameScores['game42']);
+    localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+  }
+
   return gameOver = true;
 }
 
