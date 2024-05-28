@@ -858,6 +858,7 @@ main#privacy-page-content {
 }
 
 .cookie-consent-background {
+  display: none;
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -875,7 +876,7 @@ main#privacy-page-content {
   z-index: 5;
   padding: 14px;
   text-align: center;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 42px;
