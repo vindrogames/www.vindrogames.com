@@ -1,3 +1,14 @@
+// Prevent Consent Banner from flickering if consent has already been given
+// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
+$(document).ready(() => {
+  
+  if(!localStorage.getItem('consentModeGa')) {
+
+  document.querySelector('#cookie-consent-banner').style.display = 'flex';
+  document.querySelector('.cookie-consent-background').style.display = 'block';
+  }
+});
+
 const navbar = $('#navbar');
 const navbarHam = $('#navbar-hamburger');
 const hamburgerToggle = $('#hamburger-toggler');
@@ -92,6 +103,7 @@ const cookiesDone = $('#submit-cookies');
 // link to bring cookies banners back to change preferences
 const changeCookiesPref = $('#change-cookies-pref')
 
+
 // Evaluates GA checkbox
 function checkGoogleAnalytics(googleAnalytics) {
 
@@ -99,34 +111,35 @@ function checkGoogleAnalytics(googleAnalytics) {
   if (googleAnalytics.is(':checked')) {
 
     // Defines consent Mode value pairs to be sent to GA as well as saved on local storage of user
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'granted',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent settings to Google. Only GA is updated AS WE DON'T DO ADS
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaTrue";
+
   } else if (!googleAnalytics.is(':checked')) {
 
     // If GA is NOT checked then deny GA storage
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent to GA
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaFalse";
   }
 
@@ -139,6 +152,19 @@ function checkGameScores(gameScores) {
   if(gameScores.is(':checked')) {
 
     //Allow Game Scores
+    consentGameScores = {
+      'gameScores' : 'granted',
+      'best42' : 0,
+      'prev42' : 0,
+      'SET' : 0,
+    }
+
+    localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+    return 'gamesTrue';
+
+  } else if (!gameScores.is(':checked')) {
+
+    return 'gamesFalse';
   }
 }
 
@@ -156,21 +182,6 @@ function consentUpdate() {
   return [gaConsent, gameConsent];
 }
 
-// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
-if(localStorage.getItem('consentMode')) {
-
-  document.querySelector('#cookie-consent-banner').style.display = 'none';
-  document.querySelector('.cookie-consent-background').style.display = 'none';
-} else {
-
-  cookiesDone.on('click', consentUpdate);
-}
-
-function showCookiesBanner() {
-  $('#cookie-consent-banner').show();
-}
-
-
 function eliminateAnalyticsCookies() {
 
   const cookies = document.cookie.split(';');
@@ -184,15 +195,32 @@ function eliminateAnalyticsCookies() {
 }
 
 changeCookiesPref.on('click', () => {
-  showCookiesBanner();
+  $('#cookie-consent-banner').css({'display' : 'flex'});
 
-  cookiesDone.on('click', () => {
-    if (consentUpdate()[0] === "gaFalse") {
-      eliminateAnalyticsCookies()
-    };
-  });
+  
+  if (JSON.parse(localStorage.getItem('consentModeGa'))['analytics_storage'] === 'denied'){
+    googleAnalyticsBtn.checked = false;
+  }
+  
+  if (!localStorage.getItem('consenModeGa')) {
+    gameScoresBtn.checked = false;
+  }
 });
 
+cookiesDone.on('click', () => {
+
+  let consentArray = consentUpdate();
+  console.log(consentArray);
+
+  if (consentArray[0] === 'gaFalse') {
+    eliminateAnalyticsCookies();
+    console.log("cookies eliminated");
+  }
+
+  if (consentArray[1] === 'gamesFalse' && localStorage.getItem('consentGameScores')) {
+    localStorage.removeItem('consentGameScores');
+  }
+});
 
 // Smooth Scroll
 $('#home-smooth-scroll').on('click', function (e) {
