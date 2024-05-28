@@ -258,11 +258,11 @@ img {
     }
 
     &.navbar-calculator {
-      background-color: $real-yellow;
+      background-color: lightgray;
 
       ul li a {
         color: $vindro-black;
-        border-bottom: 3px solid white;
+        z-index: 4;
       }
     }
   }
@@ -917,6 +917,7 @@ main#privacy-page-content {
       align-self: flex-end;
       color: white;
       border: 2px solid transparent;
+      z-index: 5;
 
       &:hover {
         background-color: white;
