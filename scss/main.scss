@@ -113,7 +113,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 20px;
+    margin: 0 21px;
     font-weight: 400;
 
     img {
@@ -180,7 +180,7 @@ img {
     }
 
     &.open {
-      background-color: $vindro-teal;
+      background-color: $vindro-tan;
 
       #hamburger-lines {
       
@@ -219,7 +219,7 @@ img {
     position: fixed;
     top: 60px;
     left: 0;
-    background-color: $vindro-teal;
+    background-color: $vindro-tan;
     width: 100%;
     height: 0;
     transition: 0.5s ease;
@@ -246,7 +246,7 @@ img {
           border-bottom: 3px solid transparent;
           
           &.current {
-            border-bottom: 3px solid $vindro-gray;
+            box-shadow: 0 3px 3px -3px $vindro-gray;
           }
         }
       }
@@ -321,8 +321,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 63px;
+    justify-content: center;
 
     h1 {
       font-size: 4.2rem;
@@ -340,8 +339,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 63px;
+    justify-content: center;
 
     &-title {
       display: flex;

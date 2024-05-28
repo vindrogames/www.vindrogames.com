@@ -133,6 +133,17 @@
       height: 50vh;
     }
 
+    .calculator-container .buttons .btn-champions {
+      
+      i {
+        font-size: 2.4rem !important;
+      }
+
+      p {
+        top: 21% !important;
+      }
+    }
+
     #madrid-right {
       width: 84%;
 
@@ -297,7 +308,7 @@
     grid-template-columns: 1fr;
 
     #contact-left {
-      padding: 3rem;
+      padding: 4.2rem 3rem;
     }
     #contact-right {
       text-align: justify;
