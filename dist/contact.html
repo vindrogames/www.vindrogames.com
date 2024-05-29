@@ -9,7 +9,7 @@
     function gtag(){dataLayer.push(arguments);}
 
     // Set default consent to 'denied' as a placeholder if first time visitor
-    if (localStorage.getItem('consentMode') === null) {
+    if (localStorage.getItem('consentModeGa') === null) {
       gtag('consent', 'default', {
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
@@ -19,7 +19,7 @@
     } else {
 
       // Set consent to previous config from user's local storage
-      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentModeGa')));
     }
 
     gtag('js', new Date());

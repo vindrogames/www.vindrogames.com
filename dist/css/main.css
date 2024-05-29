@@ -325,6 +325,7 @@ img {
 }
 #navbar-hamburger nav#hamburger-menu.navbar-calculator ul li a {
   color: rgb(11, 12, 16);
+  box-shadow: 0 3px 3px -3px rgb(31, 40, 51);
   z-index: 4;
 }
 
@@ -963,12 +964,14 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champion
   background-color: rgb(252, 191, 0);
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions i {
+  position: relative;
   font-size: 3rem;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions p {
   position: absolute;
-  top: 32%;
-  z-index: 2;
+  top: 28%;
+  left: 45%;
+  z-index: 42;
   color: rgb(11, 12, 16);
   font-size: 0.75rem;
 }
@@ -1341,13 +1344,20 @@ footer .social a:hover {
   }
   main#madrid-calculator #madrid-left {
     width: 96%;
-    height: 50vh;
+    height: 63vh;
   }
-  main#madrid-calculator .calculator-container .buttons .btn-champions i {
+  main#madrid-calculator #madrid-left .calculator-container #result {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions i {
     font-size: 2.4rem !important;
   }
-  main#madrid-calculator .calculator-container .buttons .btn-champions p {
-    top: 21% !important;
+  main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions p {
+    top: 24% !important;
+    left: 47%;
   }
   main#madrid-calculator #madrid-right {
     width: 84%;

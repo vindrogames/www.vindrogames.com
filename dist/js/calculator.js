@@ -1,36 +1,53 @@
+// Prevent Consent Banner from flickering if consent has already been given
+// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
+$(document).ready(() => {
+  
+  if(!localStorage.getItem('consentModeGa')) {
+
+  document.querySelector('#cookie-consent-banner').style.display = 'flex';
+  document.querySelector('.cookie-consent-background').style.display = 'block';
+  }
+});
+
 const navbar = $('#navbar');
 const navbarHam = $('#navbar-hamburger');
 const hamburgerToggle = $('#hamburger-toggler');
 const hamToggleContainer = $('#hamburger-container');
 const hamburgerMenu = $('nav#hamburger-menu');
 const hamburgerNav = $('nav#hamburger-menu ul');
-const hamburgerLineTop = $('#hamburger-lines-top');
-const hamburgerLineMid = $('#hamburger-lines-mid');
-const hamburgerLineBottom = $('#hamburger-lines-bottom');
 
 // Navbar animation on scroll
 let scrolled = false;
 
 const DEBUG = false;
 
-window.onscroll = function () {
-  if (window.pageYOffset > 100) {
+window.onscroll = function ()
+{
+  if (window.pageYOffset > 100)
+  {
     navbar.removeClass('top');
     navbarHam.removeClass('top');
-    if (!scrolled) {
+
+    if (!scrolled)
+    {
       navbar.css({'transform' : 'translateY(-70px)'});
       navbarHam.css({'transform' : 'translateY(-70px)'});
     }
-    setTimeout(function () {
+
+    setTimeout(function ()
+    {
       navbar.css({'transform' : 'translateY(0)'});
       navbarHam.css({'transform' : 'translateY(0)'});
       scrolled = true;
     }, 200);
-    } else {
-      navbar.addClass('top');
-      navbarHam.addClass('top');
-      scrolled = false;
-    }
+  }
+
+  else 
+  {
+    navbar.addClass('top');
+    navbarHam.addClass('top');
+    scrolled = false;
+  }
 };
 
 // Hamburger-menu
@@ -46,7 +63,8 @@ function showHamburgerNav()
   });
 }
 
-async function showHamburgerMenu() {
+async function showHamburgerMenu()
+{
 
   hamburgerMenu.css('display', 'block');
   hamburgerMenu.addClass('open');
@@ -54,15 +72,15 @@ async function showHamburgerMenu() {
 }
 
 // First Display none Nav ul then menu slides out
-function hideHamburgerMenu() {
-
+function hideHamburgerMenu()
+{
   return new Promise((resolve) => 
+  {
+    setTimeout(() =>
     {
-      setTimeout(() =>
-      {
-        resolve(hamburgerMenu.removeClass('open'));
-      }, 200);
-    });
+      resolve(hamburgerMenu.removeClass('open'));
+    }, 200);
+  });
 }
 
 async function hideHamburgerNav()
@@ -71,23 +89,26 @@ async function hideHamburgerNav()
   await hideHamburgerMenu();
 }
 
-hamburgerToggle.on('click', (e) => {
-
+hamburgerToggle.on('click', (e) =>
+{
   console.log("Toggle Clicked");
   
   hamburgerToggle.toggleClass('open');
   hamToggleContainer.toggleClass('open');
+
   if ($(e.target).hasClass('open'))
   {
     console.log("Has Hamburger Class");
     showHamburgerMenu()
   }
+
   else
   {
     hideHamburgerNav();
   }
-})
+});
 
+// Cookie Consent Scripts
 // Checkboxes and submit button in banner
 const googleAnalyticsBtn = $('#google-analytics-check');
 const gameScoresBtn = $('#game-scores-check');
@@ -96,6 +117,7 @@ const cookiesDone = $('#submit-cookies');
 // link to bring cookies banners back to change preferences
 const changeCookiesPref = $('#change-cookies-pref')
 
+
 // Evaluates GA checkbox
 function checkGoogleAnalytics(googleAnalytics) {
 
@@ -103,36 +125,38 @@ function checkGoogleAnalytics(googleAnalytics) {
   if (googleAnalytics.is(':checked')) {
 
     // Defines consent Mode value pairs to be sent to GA as well as saved on local storage of user
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'granted',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent settings to Google. Only GA is updated AS WE DON'T DO ADS
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaTrue";
+
   } else if (!googleAnalytics.is(':checked')) {
 
     // If GA is NOT checked then deny GA storage
-    const consentMode = {
+    let consentModeGa = {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
     };
 
-    // sets consentMode on local storage, which will be evaluated when visiting site
-    localStorage.setItem('consentMode', JSON.stringify(consentMode));
+    // sets consentModeGa on local storage, which will be evaluated when visiting site
+    localStorage.setItem('consentModeGa', JSON.stringify(consentModeGa));
 
     // Sends consent to GA
-    gtag('consent', 'update', consentMode);
+    gtag('consent', 'update', consentModeGa);
     return "gaFalse";
   }
+
   return ;
 }
 
@@ -142,6 +166,19 @@ function checkGameScores(gameScores) {
   if(gameScores.is(':checked')) {
 
     //Allow Game Scores
+    consentGameScores = {
+      'gameScores' : 'granted',
+      'best42' : 0,
+      'prev42' : 0,
+      'SET' : 0,
+    }
+
+    localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+    return 'gamesTrue';
+
+  } else if (!gameScores.is(':checked')) {
+
+    return 'gamesFalse';
   }
 }
 
@@ -159,21 +196,6 @@ function consentUpdate() {
   return [gaConsent, gameConsent];
 }
 
-// Evaluates if user already has consent Mode saved on their local storage and therefore consent sent to GA
-if(localStorage.getItem('consentMode')) {
-
-  document.querySelector('#cookie-consent-banner').style.display = 'none';
-  document.querySelector('.cookie-consent-background').style.display = 'none';
-} else {
-
-  cookiesDone.on('click', consentUpdate);
-}
-
-function showCookiesBanner() {
-  $('#cookie-consent-banner').show();
-}
-
-
 function eliminateAnalyticsCookies() {
 
   const cookies = document.cookie.split(';');
@@ -187,13 +209,31 @@ function eliminateAnalyticsCookies() {
 }
 
 changeCookiesPref.on('click', () => {
-  showCookiesBanner();
+  $('#cookie-consent-banner').css({'display' : 'flex'});
 
-  cookiesDone.on('click', () => {
-    if (consentUpdate()[0] === "gaFalse") {
-      eliminateAnalyticsCookies()
-    };
-  });
+  
+  if (JSON.parse(localStorage.getItem('consentModeGa'))['analytics_storage'] === 'denied'){
+    googleAnalyticsBtn.checked = false;
+  }
+  
+  if (!localStorage.getItem('consenModeGa')) {
+    gameScoresBtn.checked = false;
+  }
+});
+
+cookiesDone.on('click', () => {
+
+  let consentArray = consentUpdate();
+  console.log(consentArray);
+
+  if (consentArray[0] === 'gaFalse') {
+    eliminateAnalyticsCookies();
+    console.log("cookies eliminated");
+  }
+
+  if (consentArray[1] === 'gamesFalse' && localStorage.getItem('consentGameScores')) {
+    localStorage.removeItem('consentGameScores');
+  }
 });
 
 // Calculator Scripts

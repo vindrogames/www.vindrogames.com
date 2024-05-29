@@ -19,25 +19,31 @@ const hamburgerNav = $('nav#hamburger-menu ul');
 // Navbar animation on scroll
 let scrolled = false;
 
-window.onscroll = function () {
-  if (window.pageYOffset > 100) {
-    navbar.removeClass('top');
-    navbarHam.removeClass('top');
-    if (!scrolled) {
-      navbar.css({'transform' : 'translateY(-70px)'});
-      navbarHam.css({'transform' : 'translateY(-70px)'});
-    }
-    setTimeout(function () {
-      navbar.css({'transform' : 'translateY(0)'});
-      navbarHam.css({'transform' : 'translateY(0)'});
-      scrolled = true;
-    }, 200);
-    } else {
-      navbar.addClass('top');
-      navbarHam.addClass('top');
-      scrolled = false;
-    }
-};
+window.onscroll = function () 
+  {
+    if (window.pageYOffset > 100) 
+      {
+        navbar.removeClass('top');
+        navbarHam.removeClass('top');
+
+        if (!scrolled) 
+          {
+          navbar.css({'transform' : 'translateY(-70px)'});
+          navbarHam.css({'transform' : 'translateY(-70px)'});
+        }
+
+        setTimeout(function () {
+          navbar.css({'transform' : 'translateY(0)'});
+          navbarHam.css({ 'transform' : 'translateY(0)'});
+          scrolled = true;
+        }, 200);
+
+        } else {
+          navbar.addClass('top');
+          navbarHam.addClass('top');
+          scrolled = false;
+        }
+  };
 
 // Hamburger-menu
 // First menu slides in then display Nav ul

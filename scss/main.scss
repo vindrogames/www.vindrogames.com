@@ -262,7 +262,9 @@ img {
 
       ul li a {
         color: $vindro-black;
+        box-shadow: 0 3px 3px -3px $vindro-gray;
         z-index: 4;
+
       }
     }
   }
