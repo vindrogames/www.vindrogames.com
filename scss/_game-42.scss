@@ -1,7 +1,7 @@
 main.game-42  {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 90px);
+  height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +142,6 @@ main.game-42  {
       grid-template-columns: 2fr 1fr;
 
       .game-42-play-container {
-        //padding-top: 42px;
         align-self: center;
 
         button#game-42-play-button {

@@ -262,7 +262,7 @@ const currentPoints = $('.current-game-42-points');
 const main42 = $('main.game-42');
 const endGameScreen = $('#end-game-42');
 const endGamePlayAgain = $('#end-game-42-play-again');
-const endGameAudio = new Audio("/42-the-game/42-end-game-sound.mp3");
+const endGameAudio = new Audio("/games/42-the-game/42-end-game-sound.mp3");
 
 let numsRound = [];
 let numsToCheck = [];
@@ -364,6 +364,9 @@ function game42Over(gameRoundScores, gameRoundPoints) {
     localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
   }
 
+  gamePositions.prop('disabled', true);
+  playBtn.prop('disabled', false);
+
   return gameOver = true;
 }
 
@@ -384,7 +387,7 @@ function sleep(ms) {
   return new Promise ((resolve) => setTimeout(resolve, ms));
 };
 
-async function animateGamePosition() {
+async function endGameAnimation() {
 
   endGameAudio.play();
   main42.addClass('end-game-1');
@@ -417,9 +420,23 @@ function checkEndGame() {
 
     console.log("entering end game if");
     playBtn.html('42: You Win');
-    animateGamePosition();
-    prevPoints.html(gameRoundPoints);
-    bestPoints.html(gameRoundPoints);
+    endGameAnimation();
+    
+    gameRoundScores.push(gameRoundPoints);
+
+    prevScore = gameRoundPoints;
+    bestScore = Math.max(...gameRoundScores);
+
+    prevPoints.html(prevScore);
+    bestPoints.html(bestScore);
+
+    if (localStorage.getItem('consentGameScores')) {
+      consentGameScores = JSON.parse(localStorage.getItem('consentGameScores'));
+
+      consentGameScores['prev42'] = prevScore;
+      consentGameScores['best42'] = bestScore;
+      localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+    }
   }
 }
 
@@ -440,39 +457,24 @@ playBtn.on('click', () => {
       gamePositions.addClass('open');
 
       let j = 1;
-      $.each(gamePositions, function(i){
 
-        console.log($(this).html());
+      $.each(gamePositions, function(i) {
+
         $(this).html(j + '.');
-        console.log($(this).html());
         j++;
       });
-      /*
-      let i = 1;
-      positions42All.forEach(position => {
-
-        if (position.classList.contains('game-over')) {
-
-          position.classList.remove('game-over');
-        }
-        position.innerText = i + "."
-        position.classList.remove('filled');
-        position.classList.add('open');
-
-        i++;
-      });*/
 
       numsToCheck.length = 0;
-
       gameOver = false;
     }
-    console.log("game starting now");
+
     numsRound = ['', '' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,''];
     gameStart = true;
   }
 
   tempNum = generateGameNum(numsRound);
   playBtn.html(tempNum);
+
   //await setGameNumber(tempNum, numsRound);
   playBtn.prop('disabled', true);
   gamePositions.prop('disabled', false);
@@ -482,15 +484,12 @@ gamePositions.on('click', (e) => {
 
   if ($(e.target).hasClass('open')) 
   {
-    console.log("game pos clicked");
-    console.log("btn open");
     $(e.target).removeClass('open');
     $(e.target).addClass('filled');
     $(e.target).html(tempNum);
     numsRound[e.target.id - 1] = tempNum;
-    gamePositions.prop('disabled', true);
-    playBtn.prop('disabled', false);
-    playBtn.html('Next Number');
+
+
     numsToCheck = numsRound.filter(numCheck => numCheck !== '');
 
     if (numsToCheck.length > 1)
@@ -502,11 +501,12 @@ gamePositions.on('click', (e) => {
 
         $(e.target).addClass('game-over');
         $(e.target).html('game over');
-        playBtn.html('Start New Game');
+        playBtn.html('New Game');
         playBtn.addClass('game-over');
         gameStart = false;
         game42Over(gameRoundScores, gameRoundPoints);
         numsToCheck.length = 0;
+        return;
       } 
       else 
       {
@@ -520,5 +520,8 @@ gamePositions.on('click', (e) => {
       gameRoundPoints += 3;
       currentPoints.html(gameRoundPoints);
     }
+
+    tempNum = generateGameNum(numsRound);
+    playBtn.html(tempNum);
   }
 });
