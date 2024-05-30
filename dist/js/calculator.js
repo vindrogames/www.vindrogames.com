@@ -19,7 +19,7 @@ const hamburgerNav = $('nav#hamburger-menu ul');
 // Navbar animation on scroll
 let scrolled = false;
 
-const DEBUG = false;
+const DEBUG = true;
 
 window.onscroll = function ()
 {
@@ -481,12 +481,7 @@ btns.on('click', (e) => {
         }
         resultPrompt.html(promptText);
       }
-    }
-
-    else if (e.target.id === 'comma')
-    {
-
-    }
+    }    
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
@@ -588,6 +583,30 @@ function getOperationSymbol(opp)
     return '\u00F7';
   }
 }
+
+$('.btn-comma').on('click', (e) => {
+  // Determine the current operand
+  let currentOperand = numOperations === 0 ? firstOperand : secondOperand;
+
+  // Check if the current operand already contains a comma
+  if (!currentOperand.includes('.')) {
+    // Append a comma to the current operand
+    currentOperand += '.';
+
+    // Update the corresponding operand
+    if (numOperations === 0) {
+      firstOperand = currentOperand;
+      // Update the display
+      promptText = currentOperand;
+    } else {
+      secondOperand = currentOperand;
+      // Update the display with the whole operation
+      promptText = firstOperand + getOperationSymbol(operationData[1]) + secondOperand;
+    }
+
+    resultPrompt.html(promptText);
+  }
+});
 
 // Resolves calculation, saving result in global result variable accessed in other parts of file. Returns string representing entire operation to be display in the top part of resulDiv
 function resolveCalc([num1, calc, num2])
