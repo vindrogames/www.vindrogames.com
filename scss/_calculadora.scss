@@ -70,8 +70,7 @@ main#madrid-calculator {
           justify-content: center;
           padding: 0;
           border-radius: 3px;
-          background-color: lightgray;
-          font-size: 2rem;
+          font-size: 4.2em;
 
           &-no-num {
             background-color: $vindro-black;
@@ -82,7 +81,7 @@ main#madrid-calculator {
             }
           }
 
-          &-num {
+          &-num, &-comma {
             background-color: lightgray;
             color: $vindro-black;
 
@@ -110,16 +109,17 @@ main#madrid-calculator {
 
             i {
               position: relative;
-              font-size: 3rem;
+              font-size: 1.2em;
             }
 
             p {
               position: absolute;
-              top: 28%;
-              left: 45%;
+              width: 100%;
+              margin-bottom: 2vh;
+              text-align: center;
               z-index: 42;
               color: $vindro-black;
-              font-size: 0.75rem;
+              font-size: 0.5em;
             }
 
             &:hover {
