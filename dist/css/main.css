@@ -382,6 +382,7 @@ img {
 .hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1, .hero-half .hero-privacy-content h1 {
   font-size: 4.2rem;
   margin-bottom: 14px;
+  margin-top: 42px;
 }
 .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
   font-size: 2.1rem;
@@ -397,6 +398,7 @@ img {
 .hero-half .hero-games-content-title {
   display: flex;
   flex-direction: row;
+  margin-top: 42px;
 }
 .hero-half .hero-games-content-title h2 {
   font-size: 4.2rem;
@@ -624,6 +626,10 @@ main#games-page-content section#games-page-container .game a {
 main#games-page-content section#games-page-container .game a img {
   width: 100%;
   height: auto;
+}
+main#games-page-content section#games-page-container .game a img:nth-child(1) {
+  width: 84%;
+  border-radius: 7px;
 }
 main#games-page-content section#games-page-container .game a img:hover {
   opacity: 0.84;
