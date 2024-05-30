@@ -19,7 +19,7 @@ const hamburgerNav = $('nav#hamburger-menu ul');
 // Navbar animation on scroll
 let scrolled = false;
 
-const DEBUG = true;
+const DEBUG = false;
 
 window.onscroll = function ()
 {
