@@ -262,7 +262,9 @@ img {
 
       ul li a {
         color: $vindro-black;
+        box-shadow: 0 3px 3px -3px $vindro-gray;
         z-index: 4;
+
       }
     }
   }
@@ -326,6 +328,7 @@ img {
     h1 {
       font-size: 4.2rem;
       margin-bottom: 14px;
+      margin-top: 42px;
     }
 
     h2 {
@@ -344,6 +347,7 @@ img {
     &-title {
       display: flex;
       flex-direction: row;
+      margin-top: 42px;
 
       h2 {
         font-size: 4.2rem;
@@ -608,6 +612,11 @@ main#games-page-content {
         img {
           width: 100%;
           height: auto;
+
+          &:nth-child(1) {
+            width: 84%;
+            border-radius: 7px;
+          }
   
           &:hover {
             opacity: 0.84;

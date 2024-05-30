@@ -109,15 +109,19 @@ main#madrid-calculator {
             background-color: $real-yellow;
 
             i {
+              position: relative;
               font-size: 3rem;
             }
+
             p {
               position: absolute;
-              top: 32%;
-              z-index: 2;
+              top: 28%;
+              left: 45%;
+              z-index: 42;
               color: $vindro-black;
               font-size: 0.75rem;
             }
+
             &:hover {
               background-color: $real-yellow-transparent;
             }

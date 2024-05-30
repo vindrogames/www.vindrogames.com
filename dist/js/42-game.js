@@ -168,7 +168,7 @@ function checkGameScores(gameScores) {
   
   if(gameScores.is(':checked')) {
 
-    //Allow Game Scores
+    // Allow Game Scores defines an object to save in LOCAL STORAGE, no date yet.
     consentGameScores = {
       'gameScores' : 'granted',
       'best42' : 0,
@@ -177,6 +177,8 @@ function checkGameScores(gameScores) {
     }
 
     localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+
+    // Returns gamesTrue or gamesFalse for update function to display checkbox ticked or not as well as to identify if we need to eliminate cookies and/or games local storage
     return 'gamesTrue';
 
   } else if (!gameScores.is(':checked')) {
@@ -185,12 +187,13 @@ function checkGameScores(gameScores) {
   }
 }
 
+// Simply hides cookie banner, final function call when cookiesDone button is clicked
 function hideCookiesBanner() {
   $('.cookie-consent-background').hide();
   $('#cookie-consent-banner').hide();
 }
 
-
+// Main function calls GA function, Games function, hides banner and returns status for gaConsent and gamesConsent
 function consentUpdate() {
   let gaConsent = checkGoogleAnalytics(googleAnalyticsBtn);
   let gameConsent = checkGameScores(gameScoresBtn);
@@ -199,10 +202,13 @@ function consentUpdate() {
   return [gaConsent, gameConsent];
 }
 
+// Function to eliminate GA cookies, mainly for if a user updates their preferences AFTER an inicial consentMode
 function eliminateAnalyticsCookies() {
 
+  // gets cookies and splits each cookie into array
   const cookies = document.cookie.split(';');
 
+  // Loops through each cookie looking for '_ga' and if found, sets expiry date so as to eliminate it
   cookies.forEach(cook => {
 
     if (cook.match('_ga')) {
@@ -211,19 +217,27 @@ function eliminateAnalyticsCookies() {
   });
 }
 
+// Function for change preferences from privacy-cookie page
 changeCookiesPref.on('click', () => {
-  $('#cookie-consent-banner').css({'display' : 'flex'});
 
+  // displays banner with flex
+  $('#cookie-consent-banner').css({'display' : 'flex'});
   
-  if (JSON.parse(localStorage.getItem('consentModeGa'))['analytics_storage'] === 'denied'){
+  // Checks if GA consent mode is saved on local storage
+  if (JSON.parse(localStorage.getItem('consentModeGa'))
+
+    // If so, checks to see if analytics storgae is denied and if so the checkbox is displayed with NO CHECK
+    ['analytics_storage'] === 'denied'){
     googleAnalyticsBtn.checked = false;
   }
   
+  // Same for games consent
   if (!localStorage.getItem('consenModeGa')) {
     gameScoresBtn.checked = false;
   }
 });
 
+// Done button in cookies banner calls it ALL
 cookiesDone.on('click', () => {
 
   let consentArray = consentUpdate();
@@ -240,6 +254,7 @@ cookiesDone.on('click', () => {
 });
 
 // 42 Game Code
+// Declare DOM elements as constants
 const gamePositions = $('.pos-42');
 const playBtn = $('#game-42-play-button');
 const currentPointsHeader = $('.current-game-42-header');
@@ -247,7 +262,7 @@ const currentPoints = $('.current-game-42-points');
 const main42 = $('main.game-42');
 const endGameScreen = $('#end-game-42');
 const endGamePlayAgain = $('#end-game-42-play-again');
-const endGameAudio = new Audio("/42-the-game/42-end-game-sound.mp3");
+const endGameAudio = new Audio("/games/42-the-game/42-end-game-sound.mp3");
 
 let numsRound = [];
 let numsToCheck = [];
@@ -261,9 +276,10 @@ let gameRoundPoints = 0;
 let bestScore = 0;
 let prevScore = 0;
 
+
 function generateGameNum(numsRound) {
 
-  let numGenerated = Math.floor((Math.random() * 14) + 1);
+  let numGenerated = Math.floor((Math.random() * 42) + 1);
 
   if (numsRound.includes(numGenerated)) {
 
@@ -348,6 +364,9 @@ function game42Over(gameRoundScores, gameRoundPoints) {
     localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
   }
 
+  gamePositions.prop('disabled', true);
+  playBtn.prop('disabled', false);
+
   return gameOver = true;
 }
 
@@ -368,7 +387,7 @@ function sleep(ms) {
   return new Promise ((resolve) => setTimeout(resolve, ms));
 };
 
-async function animateGamePosition() {
+async function endGameAnimation() {
 
   endGameAudio.play();
   main42.addClass('end-game-1');
@@ -401,9 +420,23 @@ function checkEndGame() {
 
     console.log("entering end game if");
     playBtn.html('42: You Win');
-    animateGamePosition();
-    prevPoints.html(gameRoundPoints);
-    bestPoints.html(gameRoundPoints);
+    endGameAnimation();
+    
+    gameRoundScores.push(gameRoundPoints);
+
+    prevScore = gameRoundPoints;
+    bestScore = Math.max(...gameRoundScores);
+
+    prevPoints.html(prevScore);
+    bestPoints.html(bestScore);
+
+    if (localStorage.getItem('consentGameScores')) {
+      consentGameScores = JSON.parse(localStorage.getItem('consentGameScores'));
+
+      consentGameScores['prev42'] = prevScore;
+      consentGameScores['best42'] = bestScore;
+      localStorage.setItem('consentGameScores', JSON.stringify(consentGameScores));
+    }
   }
 }
 
@@ -424,39 +457,24 @@ playBtn.on('click', () => {
       gamePositions.addClass('open');
 
       let j = 1;
-      $.each(gamePositions, function(i){
 
-        console.log($(this).html());
+      $.each(gamePositions, function(i) {
+
         $(this).html(j + '.');
-        console.log($(this).html());
         j++;
       });
-      /*
-      let i = 1;
-      positions42All.forEach(position => {
-
-        if (position.classList.contains('game-over')) {
-
-          position.classList.remove('game-over');
-        }
-        position.innerText = i + "."
-        position.classList.remove('filled');
-        position.classList.add('open');
-
-        i++;
-      });*/
 
       numsToCheck.length = 0;
-
       gameOver = false;
     }
-    console.log("game starting now");
+
     numsRound = ['', '' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,'' ,''];
     gameStart = true;
   }
 
   tempNum = generateGameNum(numsRound);
   playBtn.html(tempNum);
+
   //await setGameNumber(tempNum, numsRound);
   playBtn.prop('disabled', true);
   gamePositions.prop('disabled', false);
@@ -466,15 +484,12 @@ gamePositions.on('click', (e) => {
 
   if ($(e.target).hasClass('open')) 
   {
-    console.log("game pos clicked");
-    console.log("btn open");
     $(e.target).removeClass('open');
     $(e.target).addClass('filled');
     $(e.target).html(tempNum);
     numsRound[e.target.id - 1] = tempNum;
-    gamePositions.prop('disabled', true);
-    playBtn.prop('disabled', false);
-    playBtn.html('Next Number');
+
+
     numsToCheck = numsRound.filter(numCheck => numCheck !== '');
 
     if (numsToCheck.length > 1)
@@ -486,11 +501,12 @@ gamePositions.on('click', (e) => {
 
         $(e.target).addClass('game-over');
         $(e.target).html('game over');
-        playBtn.html('Start New Game');
+        playBtn.html('New Game');
         playBtn.addClass('game-over');
         gameStart = false;
         game42Over(gameRoundScores, gameRoundPoints);
         numsToCheck.length = 0;
+        return;
       } 
       else 
       {
@@ -504,5 +520,8 @@ gamePositions.on('click', (e) => {
       gameRoundPoints += 3;
       currentPoints.html(gameRoundPoints);
     }
+
+    tempNum = generateGameNum(numsRound);
+    playBtn.html(tempNum);
   }
 });

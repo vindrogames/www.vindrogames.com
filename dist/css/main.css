@@ -325,6 +325,7 @@ img {
 }
 #navbar-hamburger nav#hamburger-menu.navbar-calculator ul li a {
   color: rgb(11, 12, 16);
+  box-shadow: 0 3px 3px -3px rgb(31, 40, 51);
   z-index: 4;
 }
 
@@ -381,6 +382,7 @@ img {
 .hero-half .hero-contact-content h1, .hero-half .hero-escape-the-cloud h1, .hero-half .hero-blog h1, .hero-half .hero-stories-content h1, .hero-half .hero-privacy-content h1 {
   font-size: 4.2rem;
   margin-bottom: 14px;
+  margin-top: 42px;
 }
 .hero-half .hero-contact-content h2, .hero-half .hero-escape-the-cloud h2, .hero-half .hero-blog h2, .hero-half .hero-stories-content h2, .hero-half .hero-privacy-content h2 {
   font-size: 2.1rem;
@@ -396,6 +398,7 @@ img {
 .hero-half .hero-games-content-title {
   display: flex;
   flex-direction: row;
+  margin-top: 42px;
 }
 .hero-half .hero-games-content-title h2 {
   font-size: 4.2rem;
@@ -624,6 +627,10 @@ main#games-page-content section#games-page-container .game a img {
   width: 100%;
   height: auto;
 }
+main#games-page-content section#games-page-container .game a img:nth-child(1) {
+  width: 84%;
+  border-radius: 7px;
+}
 main#games-page-content section#games-page-container .game a img:hover {
   opacity: 0.84;
 }
@@ -698,7 +705,7 @@ main#escape-the-cloud-content #escape-the-cloud-info .buttons a:hover {
 main.game-42 {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 90px);
+  height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -963,12 +970,14 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champion
   background-color: rgb(252, 191, 0);
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions i {
+  position: relative;
   font-size: 3rem;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions p {
   position: absolute;
-  top: 32%;
-  z-index: 2;
+  top: 28%;
+  left: 45%;
+  z-index: 42;
   color: rgb(11, 12, 16);
   font-size: 0.75rem;
 }
@@ -1320,6 +1329,21 @@ footer .social a:hover {
   main#games-page-content section#games-page-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  main.game-42 {
+    padding: 0;
+  }
+  main.game-42 #game-42-buttons button.pos-42 {
+    font-size: 1.8rem;
+  }
+  main.game-42 #display-42 {
+    padding: 0 2rem;
+  }
+  main.game-42 #display-42 .instructions-42 h1 {
+    font-size: 4.8rem;
+  }
+  main.game-42 #display-42 .instructions-42 h2 {
+    font-size: 2.4rem;
+  }
   main#escape-the-cloud-content {
     grid-template-columns: 3fr 2fr;
   }
@@ -1341,13 +1365,20 @@ footer .social a:hover {
   }
   main#madrid-calculator #madrid-left {
     width: 96%;
-    height: 50vh;
+    height: 63vh;
   }
-  main#madrid-calculator .calculator-container .buttons .btn-champions i {
+  main#madrid-calculator #madrid-left .calculator-container #result {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons {
+    width: 100%;
+  }
+  main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions i {
     font-size: 2.4rem !important;
   }
-  main#madrid-calculator .calculator-container .buttons .btn-champions p {
-    top: 21% !important;
+  main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champions p {
+    top: 24% !important;
+    left: 47%;
   }
   main#madrid-calculator #madrid-right {
     width: 84%;
@@ -1423,6 +1454,29 @@ footer .social a:hover {
   }
   main#games-page-content section#games-page-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  main.game-42 {
+    height: calc(100vh - 60px);
+    padding: 0;
+  }
+  main.game-42 #game-42-buttons button.pos-42 {
+    font-size: 1.8rem;
+  }
+  main.game-42 #display-42 {
+    padding: 0 1rem;
+  }
+  main.game-42 #display-42 .instructions-42 h1 {
+    font-size: 3.4rem;
+  }
+  main.game-42 #display-42 .instructions-42 h2 {
+    font-size: 2.1rem;
+  }
+  main.game-42 #display-42 .instructions-42 p {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+  main.game-42 #display-42 .showcase-42 .game-42-results-container h3 {
+    font-size: 1.8rem;
   }
   main#escape-the-cloud-content {
     grid-template-columns: 1fr;
@@ -1555,7 +1609,12 @@ footer .social a:hover {
     font-size: 1.4rem;
   }
   main.game-42 #display-42 .showcase-42 {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  main.game-42 #display-42 .showcase-42 .game-42-play-container {
+    width: 100%;
   }
   main.game-42 #display-42 .showcase-42 .game-42-play-container button#game-42-play-button {
     width: 100%;
