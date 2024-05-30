@@ -620,6 +620,8 @@ function resolveCalc([num1, calc, num2])
       console.log("no decimal");
       result = parseInt(result);
     }
+
+    result *= 1;
     return num1 + ' \u002B ' + num2 + ' = ' + result;
   }
   else if (calc == 'subtract')
@@ -627,10 +629,12 @@ function resolveCalc([num1, calc, num2])
     result = (parseFloat(num1) - parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
 
     if (result % 1 == 0)
-      {
-        console.log("no decimal");
-        result = parseInt(result);
-      }
+    {
+      console.log("no decimal");
+      result = parseInt(result);
+    }
+
+    result *= 1;
     return num1 + ' \u2212 ' + num2 + ' = ' + result;
   }
   else if (calc == 'multiply')
@@ -638,10 +642,12 @@ function resolveCalc([num1, calc, num2])
     result = (parseFloat(num1) * parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
 
     if (result % 1 == 0)
-      {
-        console.log("no decimal");
-        result = parseInt(result);
-      }
+    {
+      console.log("no decimal");
+      result = parseInt(result);
+    }
+    
+    result *= 1;
     return num1 + ' \u00D7 ' + num2 + ' = ' + result;
   }
   else if (calc == 'divide')
@@ -649,10 +655,12 @@ function resolveCalc([num1, calc, num2])
     result = (parseFloat(num1) / parseFloat(num2)).toFixed(DECIMAL_NUMBERS);
 
     if (result % 1 == 0)
-      {
-        console.log("no decimal");
-        result = parseInt(result);
-      }
+    {
+      console.log("no decimal");
+      result = parseInt(result);
+    }
+    
+    result *= 1;
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
 }
