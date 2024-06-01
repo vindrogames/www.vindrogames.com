@@ -977,7 +977,7 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-champion
   width: 100%;
   margin-bottom: 2vh;
   text-align: center;
-  z-index: 42;
+  z-index: 2;
   color: rgb(11, 12, 16);
   font-size: 0.5em;
 }
