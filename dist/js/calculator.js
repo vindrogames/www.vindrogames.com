@@ -551,7 +551,9 @@ btns.on('click', (e) => {
       audioBtn.html('<i class="fa-solid fa-volume-high"></i>');
     }
   }
-  else if (e.target.id == 'barsa-button')
+
+
+  /* else if (e.target.id == 'barsa-button')
   {
     eightButton.toggleClass('on');
     barsaBtn.toggleClass('on');
@@ -563,7 +565,8 @@ btns.on('click', (e) => {
     {
       eightButton.html('8');
     }
-  }
+  }*/
+  
 });
 
 // Returns symbol for display in rexultDivs depending on which operation was clicked
