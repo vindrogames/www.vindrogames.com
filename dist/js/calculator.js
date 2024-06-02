@@ -488,7 +488,7 @@ btns.on('click', (e) => {
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
-  else if (e.target.id === "champions") 
+  else if ($(e.target).attr('value') === "15") 
   {
     // Evaluates if any operations have been done. If not, then firstOperand becomes 15, is displayed in promptText and updated in operationData Array
     if (numOperations === 0 && firstOperand == 0)
@@ -669,4 +669,7 @@ function resolveCalc([num1, calc, num2])
     result *= 1;
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
-}
+};
+
+
+
