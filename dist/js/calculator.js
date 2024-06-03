@@ -488,8 +488,10 @@ btns.on('click', (e) => {
   }
 
   // Very similar to equalsBtn and a second operation with added implications if it is first button pressed.
-  else if ($(e.target).attr('value') === "15") 
+  else if (e.target.id === 'champions') 
   {
+
+    console.log(e.target);
     // Evaluates if any operations have been done. If not, then firstOperand becomes 15, is displayed in promptText and updated in operationData Array
     if (numOperations === 0 && firstOperand == 0)
     {
@@ -506,7 +508,7 @@ btns.on('click', (e) => {
 
     else if (operationData.length == 1)
       {
-        firstOperand = $(e.target).attr('value');
+        firstOperand = 15;
         operationData.pop();
         promptText = firstOperand;
         resultPrompt.html(promptText);
@@ -519,13 +521,19 @@ btns.on('click', (e) => {
     {
       // If audio is activated with 'play' class, then championsAudio plays
       if (championsBtn.hasClass('play'))
-        {
-          championsAudio.play();
-        }
+      {
+        championsAudio.play();
+      }
+
+      console.log("resolving calc with champions");
       secondOperand = 15;
       operationData.push(secondOperand);
       prevResultPrompt.html(resolveCalc(operationData));
+      console.log(result + " from championsBtn function");
+
+      // something goes wrong here
       firstOperand = result;
+
       promptText = result;
       resultPrompt.html(result);
 
@@ -536,7 +544,7 @@ btns.on('click', (e) => {
   }
 
   // Evaluates if audio button is clicked and activates/deactivates play feature by toggling 'play' class on equals and chamions button
-  else if (e.target.id === 'audio-button')
+  else if ($(e.target).hasClass('btn-audio'))
   {
     console.log("this is audio Button");
     championsBtn.toggleClass('play');
@@ -544,11 +552,11 @@ btns.on('click', (e) => {
     audioBtn.toggleClass('off');
     if (audioBtn.hasClass('off'))
     {
-      audioBtn.html('<i class="fa-solid fa-volume-xmark"></i>');
+      audioBtn.html('<i class="btn-audio fa-solid fa-volume-xmark"></i>');
     }
     else
     {
-      audioBtn.html('<i class="fa-solid fa-volume-high"></i>');
+      audioBtn.html('<i class="btn-audio fa-solid fa-volume-high"></i>');
     }
   }
 
@@ -628,6 +636,7 @@ function resolveCalc([num1, calc, num2])
     }
 
     result *= 1;
+    console.log(result);
     return num1 + ' \u002B ' + num2 + ' = ' + result;
   }
   else if (calc == 'subtract')
@@ -641,6 +650,7 @@ function resolveCalc([num1, calc, num2])
     }
 
     result *= 1;
+    console.log(result);
     return num1 + ' \u2212 ' + num2 + ' = ' + result;
   }
   else if (calc == 'multiply')
@@ -654,6 +664,7 @@ function resolveCalc([num1, calc, num2])
     }
     
     result *= 1;
+    console.log(result);
     return num1 + ' \u00D7 ' + num2 + ' = ' + result;
   }
   else if (calc == 'divide')
@@ -667,6 +678,7 @@ function resolveCalc([num1, calc, num2])
     }
     
     result *= 1;
+    console.log(result);
     return num1 + ' \u00F7 ' + num2 + ' = ' + result;
   }
 };
