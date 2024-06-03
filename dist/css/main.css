@@ -985,6 +985,7 @@ main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio {
   background-color: white;
   color: rgb(11, 12, 16);
   border: 3px solid rgb(11, 12, 16);
+  padding: 0.3rem;
 }
 main#madrid-calculator #madrid-left .calculator-container .buttons .btn-audio i {
   border: none;
