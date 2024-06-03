@@ -104,27 +104,11 @@ main#madrid-calculator {
           }
 
           &-champions {
-            position: relative;
-            background-color: $real-yellow;
-
-            i {
-              position: relative;
-              font-size: 1.2em;
-            }
-
-            p {
-              position: absolute;
-              width: 100%;
-              margin-bottom: 2vh;
-              text-align: center;
-              z-index: 2;
-              color: $vindro-black;
-              font-size: 0.5em;
-            }
-
-            &:hover {
-              background-color: $real-yellow-transparent;
-            }
+            position: absolute;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
           }
 
           &-barsa {
@@ -144,11 +128,50 @@ main#madrid-calculator {
             color: $vindro-black;
             border: 3px solid $vindro-black;
             //border-radius: 7px;
+
+            i {
+              border:none;
+            }
           }
 
           &-barsa.on, &-audio.off {
             background-color: $vindro-black;
             color: white;
+
+            i {
+              background-color: $vindro-black;
+              color: white;
+            }
+          }
+        }
+
+        .btn-champions-back {
+          position: relative;
+          background-color: $real-yellow;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          border-radius: 3px;
+          font-size: 4.2em;
+
+          i {
+            position: relative;
+            font-size: 1.2em;
+          }
+
+          p {
+            position: absolute;
+            width: 100%;
+            margin-bottom: 2vh;
+            text-align: center;
+            z-index: 2;
+            color: $vindro-black;
+            font-size: 0.5em;
+          }
+
+          &:hover {
+            background-color: $real-yellow-transparent;
           }
         }
       }
