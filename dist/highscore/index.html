@@ -30,14 +30,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="an independant gaming project based in Madrid">
   <meta name="keywords" content="learning, programming, game development, education innovation">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <script src="https://kit.fontawesome.com/43e3be112e.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.9"></script>
   <link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico">
   <title>Vindrogames | Learning and Programming</title>
 </head>
 <body>
   
-  <header class="hero hero-home">
+  <header class="">
     <!--Background 100vw, 100vh fixed with transparent background so no interaction until cookies have been established-->
     <div class="cookie-consent-background"></div>
     <!--Cookie Banner which only shows for new users or expired GA cookies-->
@@ -58,7 +60,7 @@
     <!--Navbar 90px height and 100% width fixed-->
     <div id="navbar" class="top">
       <div class="vindro-logo">
-        <a href="index.html" style="border: none;"><img src="img/vindro_logo_1.png" alt="vindrogames independant gaming studio in Madrid"></img></a>
+        <a href="index.html" style="border: none;"><img src="/img/vindro_logo_1.png" alt="vindrogames independant gaming studio in Madrid"></img></a>
         <div class="vindro-logo-text">
           <h4>vindro</h4>
           <h4 class="inline-light inline-teal">games</h4>
@@ -66,12 +68,12 @@
       </div>
       <nav>
         <ul>
-          <li><a class="current" href="index.html">home</a></li>
-          <li><a href="story.html">story</a></li>
-          <li><a href="blog.html">blog</a></li>
-          <li><a href="games.html">games</a></li>
-          <li><a href="highscore/index.html">highscore</a></li>
-          <li><a href="contact.html">contact</a></li>
+          <li><a class="current" href="/">home</a></li>
+          <li><a href="/story.html">story</a></li>
+          <li><a href="/blog.html">blog</a></li>
+          <li><a href="/games.html">games</a></li>
+          <li><a href="/highscore/">highscore</a></li>
+          <li><a href="/contact.html">contact</a></li>
         </ul>
       </nav>
     </div>
@@ -95,52 +97,25 @@
       <nav id="hamburger-menu">
         <ul>
           <li><a class="current" href="/">home</a></li>
-          <li><a href="story.html">story</a></li>
-          <li><a href="blog.html">blog</a></li>
-          <li><a href="games.html">games</a></li>
-          <li><a href="highscore/index.html">highscore</a></li>
-          <li><a href="contact.html">contact</a></li>
+          <li><a href="/story.html">story</a></li>
+          <li><a href="/blog.html">blog</a></li>
+          <li><a href="/games.html">games</a></li>
+          <li><a href="/highscore.html">highscore</a></li>
+          <li><a href="/contact.html">contact</a></li>
         </ul>
       </nav>
-    </div>
-
-    <!--Hero Home 100vh and Smooth scroll jquery-->
-    <div class="hero-home-content">
-      <h1 translate="no"><span class="inline-bold inline-teal">Vindro</span>Games</h1>
-      <h2>An independant gaming project based in Madrid</h2>
-      <a id="home-smooth-scroll" href="#what-we-do" class="btn btn-tan">Let's Play</a>
-    </div>
+    </div>    
   </header>
 
   <main id="home-page-content">
 
-    <!-- What we Do -->
-    <section id="what-we-do" class="bg-gray">
-      <h3>This is what we do</h3>
-      <h4 class="inline-bold inline-green">Games</h4>
-      <p>We learn to programm creating <span class="inline-bold inline-green">(and recreating)</span> games. Many of our games are focused on learning.</p> 
-      <a href="games.html" class="btn btn-black">start</a>
-    </section>
-
-    <!-- About: Team -->
-    <section id="home-about" class="bg-tan">
-      <div class="team-container">
-        <div class="team-member">
-          <img src="img/fer_vindro_good.png" alt="Fernando Giménez Cacho is a Software engineer specialized in cloud security"></img>
-          <div>
-            <h3 class="inline-bold inline-green" translate="no">Zeneke</h3>
-            <p><span translate="no">Fernando Giménez</span> is a Computer Engineer working primarily in cloud services and security.</p>
-            </div>
-          </div>
-        <div class="team-member">
-          <img src="img/mike_vindro_good.png" alt="Michael Thomas Bennett is a creative teacher gone programmer"></img>
-          <div>
-            <h3 class="inline-bold inline-green" translate="no">Mikelele</h3>
-            <p><span translate="no">Michael Bennett</span> works in education as a University teacher, Teacher trainer and Education Innovation consultant.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div hx-get="/news" hx-trigger="every 2s">
+      
+    </div>
+    
+  </table>  
+             
+      
   </main>
 
   <footer>
