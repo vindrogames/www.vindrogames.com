@@ -80,7 +80,7 @@
 
     <div id="navbar-hamburger" class="top">
       <div class="vindro-logo">
-        <a href="/" style="border: none;"><img src="img/vindro_logo_1.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
+        <a href="/" style="border: none;"><img src="/img/vindro_logo_1.png" alt="vindrogames Independant Gaming Studio in Madrid"></img></a>
         <div class="vindro-logo-text" translate="no">
           <h4>vindro</h4>
           <h4 class="inline-light inline-teal">games</h4>
@@ -109,11 +109,43 @@
 
   <main id="home-page-content">
 
-    <div hx-get="/news" hx-trigger="every 2s">
+    <div hx-get="http://localhost:8000/highscore/return_all_json" hx-trigger="load" hx-request='{"noHeaders": true}'>
       
-    </div>
+    </div>    
+
+    <table class="table is-striped is-fullwidth">
+      <thead>
+          <tr>
+              <th>Nickname 
+                  <input class="form-control" type="search" 
+                  name="search" placeholder="Search Users..." 
+                  hx-post="http://localhost:8000/highscore/search_user/" 
+                  hx-trigger="input changed delay:500ms, search" 
+                  hx-target="#highscoreinner"
+                  hx-swap="outerHTML"
+                  hx-request='{"noHeaders": true}'>                  
+              </th>
+              <th hx-get="http://localhost:8000/highscore/order_points_data" hx-target="#highscoreinner" hx-swap="innerHTML" hx-request='{"noHeaders": true}'>
+                  <a href="#">
+                  <span class="icon-text">
+                      <span class="icon">
+                        <i class="fas fa-arrow-up"></i>
+                      </span>
+                      <span>Points</span>
+                  </span>
+                  </a>
+              </th>                
+              <th>Date</th>
+          </tr>
+      </thead>        
+      <tbody id="highscoreinner"
+        hx-get="http://localhost:8000/highscore/order_points_data" hx-trigger="load" hx-on="htmx:configRequest: event.detail.headers=''; event.detail.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'" hx-swap="innerHTML">
+      
+    </tbody>
     
   </table>  
+
+  <div id="fer"></div>
              
       
   </main>
@@ -134,7 +166,7 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-  <script src="js/index.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="/js/index.js" type="text/javascript" charset="UTF-8"></script>
 
 </body>
 </html>
