@@ -109,7 +109,7 @@
 
   <main id="home-page-content">
 
-    <div hx-get="http://localhost:8000/highscore/return_all_json" hx-trigger="load" hx-request='{"noHeaders": true}'>
+    <div hx-get="https://highscoredev.fly.dev/highscore/return_all_json" hx-trigger="load" hx-request='{"noHeaders": true}'>
       
     </div>    
 
@@ -119,13 +119,14 @@
               <th>Nickname 
                   <input class="form-control" type="search" 
                   name="search" placeholder="Search Users..." 
-                  hx-post="http://localhost:8000/highscore/search_user/" 
+                  hx-get="https://highscoredev.fly.dev/highscore/search_user/" 
                   hx-trigger="input changed delay:500ms, search" 
+                  hx-on="htmx:configRequest: event.detail.headers=''; event.detail.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'"
                   hx-target="#highscoreinner"
-                  hx-swap="outerHTML"
-                  hx-request='{"noHeaders": true}'>                  
+                  hx-swap="outerHTML">                  
               </th>
-              <th hx-get="http://localhost:8000/highscore/order_points_data" hx-target="#highscoreinner" hx-swap="innerHTML" hx-request='{"noHeaders": true}'>
+              <th hx-get="https://highscoredev.fly.dev/highscore/order_points_data" hx-target="#highscoreinner" hx-swap="innerHTML" 
+              hx-on="htmx:configRequest: event.detail.headers=''; event.detail.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'">
                   <a href="#">
                   <span class="icon-text">
                       <span class="icon">
@@ -139,7 +140,7 @@
           </tr>
       </thead>        
       <tbody id="highscoreinner"
-        hx-get="http://localhost:8000/highscore/order_points_data" hx-trigger="load" hx-on="htmx:configRequest: event.detail.headers=''; event.detail.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'" hx-swap="innerHTML">
+        hx-get="https://highscoredev.fly.dev/highscore/order_points_data" hx-trigger="load" hx-on="htmx:configRequest: event.detail.headers=''; event.detail.headers['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'" hx-swap="innerHTML">
       
     </tbody>
     
